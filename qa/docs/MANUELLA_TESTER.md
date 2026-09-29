@@ -35,11 +35,14 @@ Resultat 2026-09-28: 8 Pass, 0 Fail, 0 Blocked. Kontrollerna ovan är begränsad
 | CNT-02A | Klicka `Submit` på [kontaktsidan](https://www.qlerify.com/contact) med tomma fält. | Obligatorisk e-post stoppas. | `Please complete this required field` visades vid e-post; formuläret förblev öppet. | Pass |
 | CNT-02B | Skriv `inte-en-adress` som e-post och klicka `Submit`. | Ogiltig e-post stoppas. | `Email must be formatted correctly` visades; formuläret förblev öppet. | Pass |
 | PUB-01 | Öppna det [publika Cart-arbetsflödet](https://app.qlerify.com/workflow/0cbc80c0-a79b-4920-90db-c6e7d9077e04/75d19947-1b0a-4e4b-a8dd-570862681788) utan inloggning. | Arbetsflödet kan läsas och läsläge framgår. | Flödet laddades med `View only mode` och `Log in to clone this workflow`. Skrivskyddet prövades inte med en ändring. | Pass |
+| HELP-01A | Välj `Step by step guide` på [hjälpsidan](https://www.qlerify.com/resources). | Guiden för projektstart visas. | `Create Project` och fyra steg för ett nytt projekt visades. | Pass |
+| HELP-01B | Välj `Export` på hjälpsidan. | Exportguiden visas. | Steg för CSV, JSON och PDF samt länkar för Jira och Azure DevOps visades. | Pass |
+| PRI-02 | Växla mellan `Monthly` och `Yearly` på [prissidan](https://www.qlerify.com/pricing) och kontrollera Basic, Pro och länkar. | Rätt pris, period och registreringsadress visas. | Basic: 25 USD/månad och 250 USD/år. Pro: 40 USD/månad och 400 USD/år. Båda årslänkarnas mål var registreringen. | Pass |
 | WEB-01 | Rulla längst ner på [bloggsidan](https://www.qlerify.com/blog). | Sidan slutar efter ordinarie sidfot. | En generisk sektion med `Grow your business` och `Start Now` visas efter sidfoten. [BUG-001](../bugs/BUG-001.md). | Fail |
 | WEB-02 | Rulla längst ner på [artikeln om legacy modernization](https://www.qlerify.com/post/ai-legacy-modernization-reverse-engineer-ecommerce-cart). | Ingen intern markör visas efter sidfoten. | `///SOCIAL SHARE` visas som sidtext. Samma text finns även på [artikeln om MCP](https://www.qlerify.com/post/how-to-use-mcp-with-qlerify-plugins). [BUG-002](../bugs/BUG-002.md). | Fail |
 | CNT-03 | Klicka telefonnumret under `Contact information` på [kontaktsidan](https://www.qlerify.com/contact). | En telefonåtgärd öppnas. | Länken pekar på `#`; sidan stannar på samma adress och ingen telefonåtgärd startar. [BUG-003](../bugs/BUG-003.md). | Fail |
 
-Resultat 2026-09-29: 8 Pass, 3 Fail, 0 Blocked. Totalt dokumenterat: 16 Pass, 3 Fail, 0 Blocked.
+Resultat 2026-09-29: 11 Pass, 3 Fail, 0 Blocked. Totalt dokumenterat: 19 Pass, 3 Fail, 0 Blocked.
 
 ## Nästa testfall
 
@@ -53,9 +56,9 @@ Resultat 2026-09-29: 8 Pass, 3 Fail, 0 Blocked. Totalt dokumenterat: 16 Pass, 3 
 | AUTH-06C | Hög | Kontrollera felaktig och utgången registreringskod för ett godkänt testkonto. | Fel visas utan att konto bekräftas. | Kräver testkonto |
 | AUTH-07 | Medel | Begär en ny registreringskod för ett godkänt testkonto. | Ny kod skickas enligt förväntat flöde; upprepade begäranden begränsas. | Kräver testkonto |
 | CNT-02C | Medel | Kontrollera ärendetext och valfri kommunikationsruta på kontaktsidan. | Obligatoriska fält markeras korrekt och samtycket ändras inte automatiskt. | Ej körd |
-| PRI-02 | Hög | Växla prisperiod och kontrollera Basic/Pro samt länkarna i båda lägena. | Rätt pris, period och registreringsadress visas. | Delvis körd |
 | PRI-03 | Medel | Jämför pris, rabatt och provperiod mot FAQ på [prissidan](https://www.qlerify.com/pricing). | Uppgifterna är konsekventa. | Ej körd |
-| HELP-01 | Medel | Öppna varje flik i [hjälpen](https://www.qlerify.com/resources), bland annat Export och User Story Mapping. | Rätt avsnitt visas och kan nås med tangentbord. | Ej körd |
+| HELP-01C | Medel | Öppna hjälpens övriga flikar, bland annat FAQ och User Story Mapping. | Rätt avsnitt visas och kan nås med tangentbord. | Ej körd |
+| HELP-02 | Medel | Undersök konsolfelet på hjälpsidan i Chrome och Edge och kontrollera berörda funktioner. | Inga JavaScript-fel och inga trasiga kontroller. | Ej körd |
 | BLOG-03 | Medel | Öppna en artikel och använd innehållslänkar samt `Copy link to clipboard`. | Rätt avsnitt nås och kopierad länk pekar på artikeln. | Ej körd |
 | PUB-02 | Hög | Kontrollera läsläge i ett eget delat testflöde. | Gäst kan läsa men inte ändra flöde, modell eller historik. | Kräver eget testflöde |
 | PUB-03 | Medel | Öppna entiteter, backlog och User Story Map i ett publikt testflöde. | Varje vy visar rätt data utan att läsläget försvinner. | Kräver eget testflöde |
@@ -74,3 +77,5 @@ Källa för flödena efter inloggning: [Qlerifys hjälp och steg-för-steg-guide
 ## Observation att följa upp
 
 På registreringssidan står `At most 40 characters` vid förnamn. Vid en kontroll gick det att skriva 41 tecken och lämna fältet utan synligt fel. Det är ännu inte kontrollerat om formuläret stoppar registreringen senare. Därför är detta inte markerat som en bekräftad bugg.
+
+Vid laddning av hjälpsidan i Chromium noterades `TypeError: Cannot read properties of null (reading 'addEventListener')` på `resources:243:41`. Flikarna `Step by step guide` och `Export` fungerade i samma körning. Påverkan på andra funktioner är inte fastställd, så detta är ännu inte en bekräftad bugg.
