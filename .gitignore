@@ -6,3 +6,8 @@ qa/evidence/*.webm
 qa/evidence/*.zip
 .env
 .env.*
+
+# Lokala filer som inte ska pushas
+Qlerify Introduktion.zip
+Qlerify/
+TIllfällig/
