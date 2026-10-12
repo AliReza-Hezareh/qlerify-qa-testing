@@ -1,0 +1,8 @@
+node_modules/
+playwright-report/
+test-results/
+qa/evidence/*.png
+qa/evidence/*.webm
+qa/evidence/*.zip
+.env
+.env.*

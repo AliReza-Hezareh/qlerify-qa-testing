@@ -1,0 +1,14 @@
+{
+  "name": "qlerify-qa-blackbox-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Black-box QA tester för Qlerify publika webbsidor.",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test tests/public-smoke.spec.js",
+    "report": "node qa/tools/update-report.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest"
+  }
+}

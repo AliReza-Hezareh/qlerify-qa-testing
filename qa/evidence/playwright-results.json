@@ -1,0 +1,2107 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\LIA 2\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/public-smoke.spec.js"
+    ],
+    "configFile": "D:\\LIA 2\\playwright.config.js",
+    "rootDir": "D:/LIA 2/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/LIA 2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium-desktop",
+        "name": "chromium-desktop",
+        "testDir": "D:/LIA 2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/LIA 2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-chrome",
+        "name": "mobile-chrome",
+        "testDir": "D:/LIA 2/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\LIA 2\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "chromium-desktop",
+        "testDir": "D:\\LIA 2\\tests",
+        "snapshotDir": "D:\\LIA 2\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://www.qlerify.com",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "navigationTimeout": 30000,
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium-desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\LIA 2\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "mobile-chrome",
+        "testDir": "D:\\LIA 2\\tests",
+        "snapshotDir": "D:\\LIA 2\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://www.qlerify.com",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "navigationTimeout": 30000,
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 393,
+            "height": 727
+          },
+          "screen": {
+            "width": 393,
+            "height": 851
+          },
+          "deviceScaleFactor": 2.75,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile-chrome"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "qa/evidence/playwright-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "qa/evidence/playwright-report",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "public-smoke.spec.js",
+      "file": "public-smoke.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Publika smoke tests",
+          "file": "public-smoke.spec.js",
+          "line": 29,
+          "column": 6,
+          "specs": [
+            {
+              "title": "WEB-001 Startsida laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:39:49.960Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-d55731f485b0d192e6d9",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-002 Pricing laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:39:57.327Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-3549c4b02a6eb4971804",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-003 Contact laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:01.034Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-2c9f67493cb0f4441c04",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-004 Blog laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3810,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:09.678Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-2309612d30aeb928b3c4",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "AUTH-LOGIN Login laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3930,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:13.518Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-ddfafcfa3def9d177a94",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "AUTH-SIGNUP Signup laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6513,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:17.476Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-7b32119a10228ecb2b40",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "AUTH-RESET Reset password laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12048,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:24.023Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-2365557c187a36eb2ef3",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-002 Pricing monthly/yearly toggle ändrar eller visar prisläge",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5856,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:36.123Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-3f362ab8ab1809bd3773",
+              "file": "public-smoke.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "WEB-004 Blog har tydlig footer/landmark utan trasig bottenyta",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14596,
+                      "error": {
+                        "message": "Error: Bloggen ska ha footer eller contentinfo-landmark\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('footer, [role=\"contentinfo\"]').last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Bloggen ska ha footer eller contentinfo-landmark locator('footer, [role=\"contentinfo\"]').last() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('footer, [role=\"contentinfo\"]').last()\u001b[22m\n",
+                        "stack": "Error: Bloggen ska ha footer eller contentinfo-landmark\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('footer, [role=\"contentinfo\"]').last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Bloggen ska ha footer eller contentinfo-landmark locator('footer, [role=\"contentinfo\"]').last() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('footer, [role=\"contentinfo\"]').last()\u001b[22m\n\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:64:78",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 78,
+                          "line": 64
+                        },
+                        "snippet": "  62 |     await page.waitForLoadState('networkidle').catch(() => {});\n  63 |     const footer = page.locator('footer, [role=\"contentinfo\"]').last();\n> 64 |     await expect(footer, 'Bloggen ska ha footer eller contentinfo-landmark').toBeVisible();\n     |                                                                              ^\n  65 |     const bodyBox = await page.locator('body').boundingBox();\n  66 |     const footerBox = await footer.boundingBox();\n  67 |     expect(bodyBox.height - (footerBox.y + footerBox.height), 'Efter footer ska det inte finnas stor tom yta').toBeLessThan(900);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 78,
+                            "line": 64
+                          },
+                          "message": "Error: Bloggen ska ha footer eller contentinfo-landmark\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('footer, [role=\"contentinfo\"]').last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Bloggen ska ha footer eller contentinfo-landmark locator('footer, [role=\"contentinfo\"]').last() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('footer, [role=\"contentinfo\"]').last()\u001b[22m\n\n\n  62 |     await page.waitForLoadState('networkidle').catch(() => {});\n  63 |     const footer = page.locator('footer, [role=\"contentinfo\"]').last();\n> 64 |     await expect(footer, 'Bloggen ska ha footer eller contentinfo-landmark').toBeVisible();\n     |                                                                              ^\n  65 |     const bodyBox = await page.locator('body').boundingBox();\n  66 |     const footerBox = await footer.boundingBox();\n  67 |     expect(bodyBox.height - (footerBox.y + footerBox.height), 'Efter footer ska det inte finnas stor tom yta').toBeLessThan(900);\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:64:78"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:42.028Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 78,
+                        "line": 64
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-f3e6b0282e7cedb26f77",
+              "file": "public-smoke.spec.js",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "WEB-001 Startsida laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6148,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:39:50.011Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-8b59d3d17ffd11bb2a8f",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-002 Pricing laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4046,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:39:57.047Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-5fa76c072baad7675c59",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-003 Contact laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8311,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:01.154Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-6982ea4750ee184804ec",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-004 Blog laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:09.503Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-85c8031649bd79624f4a",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "AUTH-LOGIN Login laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4075,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:12.820Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-f0832eab927d79193005",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "AUTH-SIGNUP Signup laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6805,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:16.930Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-b8c375b47f385f7197d2",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "AUTH-RESET Reset password laddar utan krasch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 11998,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:23.780Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-7c9535fb9f7bee8d450d",
+              "file": "public-smoke.spec.js",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "WEB-002 Pricing monthly/yearly toggle ändrar eller visar prisläge",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5714,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:35.817Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-8a5a96d4b7daed9e9f82",
+              "file": "public-smoke.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "WEB-004 Blog har tydlig footer/landmark utan trasig bottenyta",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 12276,
+                      "error": {
+                        "message": "Error: Bloggen ska ha footer eller contentinfo-landmark\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('footer, [role=\"contentinfo\"]').last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Bloggen ska ha footer eller contentinfo-landmark locator('footer, [role=\"contentinfo\"]').last() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('footer, [role=\"contentinfo\"]').last()\u001b[22m\n",
+                        "stack": "Error: Bloggen ska ha footer eller contentinfo-landmark\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('footer, [role=\"contentinfo\"]').last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Bloggen ska ha footer eller contentinfo-landmark locator('footer, [role=\"contentinfo\"]').last() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('footer, [role=\"contentinfo\"]').last()\u001b[22m\n\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:64:78",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 78,
+                          "line": 64
+                        },
+                        "snippet": "  62 |     await page.waitForLoadState('networkidle').catch(() => {});\n  63 |     const footer = page.locator('footer, [role=\"contentinfo\"]').last();\n> 64 |     await expect(footer, 'Bloggen ska ha footer eller contentinfo-landmark').toBeVisible();\n     |                                                                              ^\n  65 |     const bodyBox = await page.locator('body').boundingBox();\n  66 |     const footerBox = await footer.boundingBox();\n  67 |     expect(bodyBox.height - (footerBox.y + footerBox.height), 'Efter footer ska det inte finnas stor tom yta').toBeLessThan(900);"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 78,
+                            "line": 64
+                          },
+                          "message": "Error: Bloggen ska ha footer eller contentinfo-landmark\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('footer, [role=\"contentinfo\"]').last()\nExpected: visible\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Bloggen ska ha footer eller contentinfo-landmark locator('footer, [role=\"contentinfo\"]').last() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('footer, [role=\"contentinfo\"]').last()\u001b[22m\n\n\n  62 |     await page.waitForLoadState('networkidle').catch(() => {});\n  63 |     const footer = page.locator('footer, [role=\"contentinfo\"]').last();\n> 64 |     await expect(footer, 'Bloggen ska ha footer eller contentinfo-landmark').toBeVisible();\n     |                                                                              ^\n  65 |     const bodyBox = await page.locator('body').boundingBox();\n  66 |     const footerBox = await footer.boundingBox();\n  67 |     expect(bodyBox.height - (footerBox.y + footerBox.height), 'Efter footer ska det inte finnas stor tom yta').toBeLessThan(900);\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:64:78"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:41.579Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Publika-smoke-6b76a-dmark-utan-trasig-bottenyta-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 78,
+                        "line": 64
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-019516dae35a9733a2fc",
+              "file": "public-smoke.spec.js",
+              "line": 60,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Kontaktformulär black-box",
+          "file": "public-smoke.spec.js",
+          "line": 71,
+          "column": 6,
+          "specs": [
+            {
+              "title": "WEB-003 formulärfält och submit finns och är interaktiva",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30696,
+                      "error": {
+                        "message": "Error: Namnfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Namnfält ska vara synligt locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"name\" name=\"name\" type=\"text\" maxlength=\"256\" data-name=\"Name\" placeholder=\"Eric Ericsson\" class=\"text-field-2 w-input\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Namnfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Namnfält ska vara synligt locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"name\" name=\"name\" type=\"text\" maxlength=\"256\" data-name=\"Name\" placeholder=\"Eric Ericsson\" class=\"text-field-2 w-input\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:80:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Namnfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Namnfält ska vara synligt locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"name\" name=\"name\" type=\"text\" maxlength=\"256\" data-name=\"Name\" placeholder=\"Eric Ericsson\" class=\"text-field-2 w-input\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:80:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:41:01.326Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-ad36bb20c7f107a2a1ba",
+              "file": "public-smoke.spec.js",
+              "line": 77,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-001 tomma fält stoppas",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 26856,
+                      "error": {
+                        "message": "Error: Submit-knapp ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Submit-knapp ska vara synligt locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input disabled type=\"submit\" value=\"Submit\" data-wait=\"Please wait...\" data-wf-ao-click-engagement-tracking=\"true\" class=\"primary-button w-button w-form-loading\" data-wf-element-id=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\" data-wf-native-id-path=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Submit-knapp ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Submit-knapp ska vara synligt locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input disabled type=\"submit\" value=\"Submit\" data-wait=\"Please wait...\" data-wf-ao-click-engagement-tracking=\"true\" class=\"primary-button w-button w-form-loading\" data-wf-element-id=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\" data-wf-native-id-path=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:88:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Submit-knapp ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Submit-knapp ska vara synligt locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input disabled type=\"submit\" value=\"Submit\" data-wait=\"Please wait...\" data-wf-ao-click-engagement-tracking=\"true\" class=\"primary-button w-button w-form-loading\" data-wf-element-id=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\" data-wf-native-id-path=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:88:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:41:34.618Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-8ea7db512ad88ce5fc25",
+              "file": "public-smoke.spec.js",
+              "line": 86,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-002 ogiltig e-post stoppas",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 26022,
+                      "error": {
+                        "message": "Error: E-postfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - E-postfält ska vara synligt locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"email\" required=\"\" name=\"email\" type=\"email\" maxlength=\"256\" data-name=\"Email\" class=\"text-field-2 w-input\" placeholder=\"eric@email.com\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: E-postfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - E-postfält ska vara synligt locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"email\" required=\"\" name=\"email\" type=\"email\" maxlength=\"256\" data-name=\"Email\" class=\"text-field-2 w-input\" placeholder=\"eric@email.com\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:97:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: E-postfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - E-postfält ska vara synligt locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"email\" required=\"\" name=\"email\" type=\"email\" maxlength=\"256\" data-name=\"Email\" class=\"text-field-2 w-input\" placeholder=\"eric@email.com\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:97:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:42:03.490Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-2babb9d31c48b0becbde",
+              "file": "public-smoke.spec.js",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-003 väldigt lång text kraschar inte formuläret",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 24935,
+                      "error": {
+                        "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:107:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:107:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:42:31.668Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-873b478911bb91088431",
+              "file": "public-smoke.spec.js",
+              "line": 105,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-004 specialtecken behandlas som text",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 25347,
+                      "error": {
+                        "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:121:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:121:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:42:58.597Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-1cbf350b18e135e6564f",
+              "file": "public-smoke.spec.js",
+              "line": 114,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-005 telefonlänk använder tel-format om telefon visas",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8221,
+                      "error": {
+                        "message": "Error: Telefonnummer ska vara klickbart med tel:-länk om det visas\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: Telefonnummer ska vara klickbart med tel:-länk om det visas\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:133:110",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 110,
+                          "line": 133
+                        },
+                        "snippet": "  131 |     const hasPhoneLikeText = /\\+\\d|\\b\\d{2,4}[\\s-]?\\d{2,4}[\\s-]?\\d{2,4}\\b/.test(bodyText);\n  132 |     const telLinks = await page.locator('a[href^=\"tel:\"]').count();\n> 133 |     expect(!hasPhoneLikeText || telLinks > 0, 'Telefonnummer ska vara klickbart med tel:-länk om det visas').toBeTruthy();\n      |                                                                                                              ^\n  134 |   });\n  135 | });\n  136 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 110,
+                            "line": 133
+                          },
+                          "message": "Error: Telefonnummer ska vara klickbart med tel:-länk om det visas\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n  131 |     const hasPhoneLikeText = /\\+\\d|\\b\\d{2,4}[\\s-]?\\d{2,4}[\\s-]?\\d{2,4}\\b/.test(bodyText);\n  132 |     const telLinks = await page.locator('a[href^=\"tel:\"]').count();\n> 133 |     expect(!hasPhoneLikeText || telLinks > 0, 'Telefonnummer ska vara klickbart med tel:-länk om det visas').toBeTruthy();\n      |                                                                                                              ^\n  134 |   });\n  135 | });\n  136 |\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:133:110"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:27.168Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-chromium-desktop\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-chromium-desktop\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-chromium-desktop\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-chromium-desktop\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 110,
+                        "line": 133
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-1ed4ed61cc205617f9a6",
+              "file": "public-smoke.spec.js",
+              "line": 129,
+              "column": 3
+            },
+            {
+              "title": "WEB-003 formulärfält och submit finns och är interaktiva",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 25581,
+                      "error": {
+                        "message": "Error: Namnfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Namnfält ska vara synligt locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"name\" name=\"name\" type=\"text\" maxlength=\"256\" data-name=\"Name\" placeholder=\"Eric Ericsson\" class=\"text-field-2 w-input\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Namnfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Namnfält ska vara synligt locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"name\" name=\"name\" type=\"text\" maxlength=\"256\" data-name=\"Name\" placeholder=\"Eric Ericsson\" class=\"text-field-2 w-input\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:80:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Namnfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Namnfält ska vara synligt locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#name, input[name=\"name\"], input[placeholder*=\"Eric\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"name\" name=\"name\" type=\"text\" maxlength=\"256\" data-name=\"Name\" placeholder=\"Eric Ericsson\" class=\"text-field-2 w-input\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:80:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:40:58.383Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e559c-it-finns-och-är-interaktiva-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-889796d6f7e0987297f1",
+              "file": "public-smoke.spec.js",
+              "line": 77,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-001 tomma fält stoppas",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 26580,
+                      "error": {
+                        "message": "Error: Submit-knapp ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Submit-knapp ska vara synligt locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input disabled type=\"submit\" value=\"Submit\" data-wait=\"Please wait...\" data-wf-ao-click-engagement-tracking=\"true\" class=\"primary-button w-button w-form-loading\" data-wf-element-id=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\" data-wf-native-id-path=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Submit-knapp ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Submit-knapp ska vara synligt locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input disabled type=\"submit\" value=\"Submit\" data-wait=\"Please wait...\" data-wf-ao-click-engagement-tracking=\"true\" class=\"primary-button w-button w-form-loading\" data-wf-element-id=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\" data-wf-native-id-path=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:88:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Submit-knapp ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Submit-knapp ska vara synligt locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[type=\"submit\"], button[type=\"submit\"], button:has-text(\"Submit\")').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input disabled type=\"submit\" value=\"Submit\" data-wait=\"Please wait...\" data-wf-ao-click-engagement-tracking=\"true\" class=\"primary-button w-button w-form-loading\" data-wf-element-id=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\" data-wf-native-id-path=\"f3b1fa78-7479-822e-ca37-ec87712e4a14\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:88:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:41:26.662Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-52fca-TACT-001-tomma-fält-stoppas-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-d1cf19d0e6ac38757ad0",
+              "file": "public-smoke.spec.js",
+              "line": 86,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-002 ogiltig e-post stoppas",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 24525,
+                      "error": {
+                        "message": "Error: E-postfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - E-postfält ska vara synligt locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"email\" required=\"\" name=\"email\" type=\"email\" maxlength=\"256\" data-name=\"Email\" class=\"text-field-2 w-input\" placeholder=\"eric@email.com\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: E-postfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - E-postfält ska vara synligt locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"email\" required=\"\" name=\"email\" type=\"email\" maxlength=\"256\" data-name=\"Email\" class=\"text-field-2 w-input\" placeholder=\"eric@email.com\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:97:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: E-postfält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - E-postfält ska vara synligt locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#email, input[type=\"email\"], input[name*=\"email\" i], input[placeholder*=\"email\" i]').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <input id=\"email\" required=\"\" name=\"email\" type=\"email\" maxlength=\"256\" data-name=\"Email\" class=\"text-field-2 w-input\" placeholder=\"eric@email.com\"/>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:97:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:41:55.843Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-e61c7--002-ogiltig-e-post-stoppas-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-11190281c11b5976df33",
+              "file": "public-smoke.spec.js",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-003 väldigt lång text kraschar inte formuläret",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 24612,
+                      "error": {
+                        "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:107:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:107:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:42:22.944Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-cc3f7-xt-kraschar-inte-formuläret-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-5f2994c02238f296d91b",
+              "file": "public-smoke.spec.js",
+              "line": 105,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-004 specialtecken behandlas som text",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 24401,
+                      "error": {
+                        "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:121:5",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 54,
+                          "line": 25
+                        },
+                        "snippet": "  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 54,
+                            "line": 25
+                          },
+                          "message": "Error: Message-fält ska vara synligt\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\nExpected: visible\nReceived: hidden\nTimeout:  8000ms\n\nCall log:\n\u001b[2m  - Message-fält ska vara synligt locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first() with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for locator('#Plain-text, textarea[name=\"Plain-text\"], textarea[placeholder*=\"demo\" i], textarea').first()\u001b[22m\n\u001b[2m    19 × locator resolved to <textarea required=\"\" id=\"Plain-text\" maxlength=\"5000\" name=\"Plain-text\" data-name=\"Plain text\" class=\"text-field-2-copy w-input\" placeholder=\"I'd like a demo of Qlerify!\"></textarea>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  23 |   await expect(locator, `${label} ska finnas i DOM`).toHaveCount(1);\n  24 |   await locator.scrollIntoViewIfNeeded().catch(() => {});\n> 25 |   await expect(locator, `${label} ska vara synligt`).toBeVisible();\n     |                                                      ^\n  26 |   await expect(locator, `${label} ska vara enabled`).toBeEnabled();\n  27 | }\n  28 |\n    at expectInteractable (D:\\LIA 2\\tests\\public-smoke.spec.js:25:54)\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:121:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:42:49.802Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-6c7ab-altecken-behandlas-som-text-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 54,
+                        "line": 25
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-6207237cd28c06c893e3",
+              "file": "public-smoke.spec.js",
+              "line": 114,
+              "column": 3
+            },
+            {
+              "title": "CONTACT-005 telefonlänk använder tel-format om telefon visas",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5592,
+                      "error": {
+                        "message": "Error: Telefonnummer ska vara klickbart med tel:-länk om det visas\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: Telefonnummer ska vara klickbart med tel:-länk om det visas\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:133:110",
+                        "location": {
+                          "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                          "column": 110,
+                          "line": 133
+                        },
+                        "snippet": "  131 |     const hasPhoneLikeText = /\\+\\d|\\b\\d{2,4}[\\s-]?\\d{2,4}[\\s-]?\\d{2,4}\\b/.test(bodyText);\n  132 |     const telLinks = await page.locator('a[href^=\"tel:\"]').count();\n> 133 |     expect(!hasPhoneLikeText || telLinks > 0, 'Telefonnummer ska vara klickbart med tel:-länk om det visas').toBeTruthy();\n      |                                                                                                              ^\n  134 |   });\n  135 | });\n  136 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 110,
+                            "line": 133
+                          },
+                          "message": "Error: Telefonnummer ska vara klickbart med tel:-länk om det visas\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n  131 |     const hasPhoneLikeText = /\\+\\d|\\b\\d{2,4}[\\s-]?\\d{2,4}[\\s-]?\\d{2,4}\\b/.test(bodyText);\n  132 |     const telLinks = await page.locator('a[href^=\"tel:\"]').count();\n> 133 |     expect(!hasPhoneLikeText || telLinks > 0, 'Telefonnummer ska vara klickbart med tel:-länk om det visas').toBeTruthy();\n      |                                                                                                              ^\n  134 |   });\n  135 | });\n  136 |\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:133:110"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:16.355Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Kontaktformul-02059-tel-format-om-telefon-visas-mobile-chrome\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                        "column": 110,
+                        "line": 133
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-7e3daf3d8d869ff268fd",
+              "file": "public-smoke.spec.js",
+              "line": 129,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Auth negativa smoke tests",
+          "file": "public-smoke.spec.js",
+          "line": 137,
+          "column": 6,
+          "specs": [
+            {
+              "title": "AUTH-001 login med tomma fält visar validering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4815,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:38.870Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-3eadec081da8609cf73c",
+              "file": "public-smoke.spec.js",
+              "line": 138,
+              "column": 3
+            },
+            {
+              "title": "AUTH-002 signup med ogiltig e-post visar validering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14227,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:44.276Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-e6927f808de37798d917",
+              "file": "public-smoke.spec.js",
+              "line": 147,
+              "column": 3
+            },
+            {
+              "title": "AUTH-003 reset password med tom e-post visar validering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-desktop",
+                  "projectName": "chromium-desktop",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3206,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:58.541Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-4131fd13a1b5fc1dd21d",
+              "file": "public-smoke.spec.js",
+              "line": 157,
+              "column": 3
+            },
+            {
+              "title": "AUTH-001 login med tomma fält visar validering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 14525,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:24.069Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-633999054b2b4b1606cb",
+              "file": "public-smoke.spec.js",
+              "line": 138,
+              "column": 3
+            },
+            {
+              "title": "AUTH-002 signup med ogiltig e-post visar validering",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 31171,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "D:\\LIA 2\\tests\\public-smoke.spec.js",
+                            "column": 57,
+                            "line": 154
+                          },
+                          "message": "Error: Signup ska stoppa ogiltig e-post\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n  152 |     await page.locator('button, input[type=\"submit\"]').first().click().catch(() => {});\n  153 |     const invalid = await email.evaluate((el) => !el.checkValidity()).catch(() => false);\n> 154 |     expect(invalid, 'Signup ska stoppa ogiltig e-post').toBeTruthy();\n      |                                                         ^\n  155 |   });\n  156 |\n  157 |   test('AUTH-003 reset password med tom e-post visar validering', async ({ page }) => {\n    at D:\\LIA 2\\tests\\public-smoke.spec.js:154:57"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:43:39.213Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Auth-negativa-2fd44-tig-e-post-visar-validering-mobile-chrome\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Auth-negativa-2fd44-tig-e-post-visar-validering-mobile-chrome\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Auth-negativa-2fd44-tig-e-post-visar-validering-mobile-chrome\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "D:\\LIA 2\\test-results\\public-smoke-Auth-negativa-2fd44-tig-e-post-visar-validering-mobile-chrome\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-537018d534e9cb05d5a3",
+              "file": "public-smoke.spec.js",
+              "line": 147,
+              "column": 3
+            },
+            {
+              "title": "AUTH-003 reset password med tom e-post visar validering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile-chrome",
+                  "projectName": "mobile-chrome",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3954,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T14:44:12.106Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e016bb68ac8a5ab52714-ffc22750c007d95e6f6d",
+              "file": "public-smoke.spec.js",
+              "line": 157,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-12T14:39:48.681Z",
+    "duration": 267947.657,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 15,
+    "flaky": 0
+  }
+}
