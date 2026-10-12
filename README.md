@@ -1,8 +1,15 @@
 # Qlerify QA Testrepo
 
-Det här repot innehåller black-box tester och QA-dokumentation för Qlerify.
+Det här repot innehåller black-box tester, manuella tester, testresultat och buggrapporter för Qlerify.
 
 ## Viktiga kommandon
+
+Öppna repot i VS Code:
+
+```powershell
+cd "D:\LIA 2"
+code .
+```
 
 Kör alla smoke tests och öppna rapporten automatiskt:
 
@@ -37,7 +44,7 @@ Start-Process "D:\LIA 2\qa\index.html"
 Start-Process "https://app.qlerify.com/login"
 ```
 
-## Var finns rapporterna?
+## Dokumentation
 
 - Visuell rapport: `qa/index.html`
 - Testresultat: `qa/testresultat.md`
@@ -46,11 +53,13 @@ Start-Process "https://app.qlerify.com/login"
 - Testspecifikation: `qa/testspecifikation.md`
 - Buggrapporter: `qa/buggrapporter.md`
 - Manuell organisationstestning: `qa/manual-exploratory-organisation.md`
+- Manuella tester från tidigare repo: `qa/docs/MANUELLA_TESTER.md`
+- Buggrapporter och skärmbilder från tidigare repo: `qa/bugs/BUG-001.md`, `qa/bugs/BUG-002.md`, `qa/bugs/BUG-003.md`
 - Screenshots och Playwright-data: `test-results/` och `qa/evidence/`
 
 ## Nuvarande status
 
-Senaste körning:
+Senaste automatiska körning:
 
 - 36 tester körda
 - 21 Pass
@@ -82,29 +91,40 @@ Nästa manuella test:
 - dokumentera var flödet är otydligt
 - dokumentera var användaren fastnar
 
-## Git-flöde
+## Viktig regel för testdata
 
-Kontrollera status:
+Skriv endast testdata i formulären. Använd inte riktiga lösenord eller personuppgifter i testfallen.
+
+## Uppdatera repot
+
+Hämta senaste ändringar innan du börjar:
 
 ```powershell
-git status
+cd "D:\LIA 2"
+git pull --ff-only origin main
 ```
 
-Ta bara med QA/test-filer:
+Kontrollera ändringar:
 
 ```powershell
-git add .gitignore README.md package.json package-lock.json playwright.config.js tests qa Qlerify-Testagent-Plan.md
-git commit -m "Lägg till black-box QA testrepo för Qlerify"
+git status --short
 ```
 
-Hämta senaste kod innan ny ändring när remote finns:
+Lägg bara till QA/test-filer:
 
 ```powershell
-git pull --rebase origin master
+git add -- README.md qa tests package.json package-lock.json playwright.config.js .gitignore Qlerify-Testagent-Plan.md
 ```
 
-Pusha när remote finns:
+Kontrollera vad som ska committas:
 
 ```powershell
-git push origin master
+git diff --cached --name-only
+```
+
+Commit och push:
+
+```powershell
+git commit -m "Uppdatera Qlerify QA-tester och rapporter"
+git push origin main
 ```
