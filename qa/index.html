@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QA kunskapsbibliotek</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f4;
+      --text: #1f2933;
+      --muted: #5d6673;
+      --line: #d9ddd6;
+      --panel: #ffffff;
+      --accent: #006d77;
+      --warn: #9a3412;
+      --bad: #991b1b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      padding: 28px 32px 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1, h2 { margin: 0 0 12px; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 20px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .metric {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    code, pre {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 14px;
+    }
+    pre {
+      overflow-x: auto;
+      background: #111827;
+      color: #f9fafb;
+      padding: 14px;
+      border-radius: 8px;
+    }
+    a { color: var(--accent); font-weight: 600; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+    }
+    th { background: #eef3f1; }
+    .status-bad { color: var(--bad); font-weight: 700; }
+    .status-warn { color: var(--warn); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QA kunskapsbibliotek</h1>
+    <p>Lokalt QA-bibliotek för filinventering, källanalys, testscenarier och spårbarhet.</p>
+  </header>
+  <main>
+    <section>
+      <h2>Kommandon</h2>
+      <pre>.\qa\run-library-check.ps1
+.\qa\run-tests.ps1
+Start-Process .\qa\index.html
+Get-Content .\qa\STATUS.md
+Get-Content .\qa\BLOCKERS.md
+Import-Csv .\qa\file-register.csv | Format-Table</pre>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Inventerade filer</h2>
+        <div class="metric" id="files-total">0</div>
+        <p>Räknas från `qa/file-register.csv`.</p>
+      </div>
+      <div class="card">
+        <h2>Kopierade filer</h2>
+        <div class="metric" id="files-copied">0</div>
+        <p>Filer med status `copied`.</p>
+      </div>
+      <div class="card">
+        <h2>Analyserade filer</h2>
+        <div class="metric" id="files-read">0</div>
+        <p>Filer med lässtatus `analyzed`.</p>
+      </div>
+      <div class="card">
+        <h2>Blockerade filer</h2>
+        <div class="metric" id="files-blocked">0</div>
+        <p>Filer med blockerad kopiering eller läsning.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Länkar</h2>
+      <p><a href="README.md">README.md</a></p>
+      <p><a href="PLAN.md">PLAN.md</a></p>
+      <p><a href="STATUS.md">STATUS.md</a></p>
+      <p><a href="BLOCKERS.md">BLOCKERS.md</a></p>
+      <p><a href="file-register.csv">file-register.csv</a></p>
+      <p><a href="test-scenarios.md">test-scenarios.md</a></p>
+      <p><a href="traceability-matrix.md">traceability-matrix.md</a></p>
+      <p><a href="reports/exploratory-qlerify-2026-10-19.md">Senaste manuell testrapport</a></p>
+      <p><a href="playwright-report/index.html">Senaste automatiska testrapport</a></p>
+    </section>
+
+    <section>
+      <h2>Nuvarande läge</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Område</th>
+            <th>Status</th>
+            <th>Kommentar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Teams-omfattning</td>
+            <td class="status-bad">Blockerad</td>
+            <td>Team, kanaler och konto saknas.</td>
+          </tr>
+          <tr>
+            <td>Lokal kopia</td>
+            <td class="status-warn">Inte startad</td>
+            <td>Målmapp saknas.</td>
+          </tr>
+          <tr>
+            <td>Testscenarier</td>
+            <td class="status-warn">Inte startad</td>
+            <td>Källmaterial saknas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="data/status.js"></script>
+  <script>
+    async function loadStatus() {
+      if (window.QA_STATUS) {
+        const data = window.QA_STATUS;
+        document.getElementById("files-total").textContent = data.totalFiles ?? 0;
+        document.getElementById("files-copied").textContent = data.copiedFiles ?? 0;
+        document.getElementById("files-read").textContent = data.analyzedFiles ?? 0;
+        document.getElementById("files-blocked").textContent = data.blockedFiles ?? 0;
+        return;
+      }
+      try {
+        const response = await fetch("data/status.json", { cache: "no-store" });
+        if (!response.ok) return;
+        const data = await response.json();
+        document.getElementById("files-total").textContent = data.totalFiles ?? 0;
+        document.getElementById("files-copied").textContent = data.copiedFiles ?? 0;
+        document.getElementById("files-read").textContent = data.analyzedFiles ?? 0;
+        document.getElementById("files-blocked").textContent = data.blockedFiles ?? 0;
+      } catch {
+      }
+    }
+    loadStatus();
+  </script>
+</body>
+</html>
