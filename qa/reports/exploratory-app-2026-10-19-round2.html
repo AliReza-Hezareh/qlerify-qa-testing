@@ -94,7 +94,7 @@ node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-1
 <tr><td>R2-038</td><td>Ändringshistorik</td><td>Pass</td><td>Historiken visade skapande, namnändringar, Done/Reopen, fält och senaste releaseändring i följd.</td><td>Historikbevis</td></tr>
 <tr><td>R2-039</td><td>Domänhändelsens schema och länk</td><td>Pass</td><td>QA OrderBetalad skapades, kopplades till QA Order 2 och valdes på Domain Event-kortet.</td><td>Slutbild</td></tr>
 <tr><td>R2-040</td><td>Ångra/Gör om för namnändring</td><td>Pass</td><td>Ångra tog bort tillägget ÅÄÖ från schemats namn. Gör om återställde det. Detaljpanelen stängdes först så att knapparna var fria.</td><td>Ångra/Gör om-bevis</td></tr>
-<tr><td>R2-041</td><td>Normal och tom filuppladdning</td><td>Blocked</td><td>Uppladdning av två syntetiska filer inväntar särskilt godkännande. Inga filer skickades.</td><td>Avgränsning</td></tr>
+<tr><td>R2-041</td><td>Normal och tom filuppladdning</td><td>Blocked</td><td>Båda filerna godkändes för uppladdning den 2026-10-19. Första försöket med qa-åäö.txt stoppades av webbläsarverktygets säkerhetskontroll före uppladdning. qa-empty.txt skickades inte. Ingen slutsats om appens filhantering kan dras.</td><td>Bilageunderlag</td></tr>
 <tr><td>R2-042</td><td>Rollstyrning och åtkomst mellan konton</td><td>Blocked</td><td>Ett andra konto med annan roll saknades. Ingen serverbehörighet kan godkännas från denna körning.</td><td>Avgränsning</td></tr>
 <tr><td>R2-043</td><td>Negativa API-payloads och rate limiting</td><td>Blocked</td><td>API-kontrakt och avgränsad testmiljö för manipulerade anrop saknades.</td><td>Avgränsning</td></tr>
 <tr><td>R2-044</td><td>Last, samtidighet och databasbegränsningar</td><td>Blocked</td><td>Ingen avgränsad lastmiljö, mätgräns eller direkt databasåtkomst fanns. Snabb UI-redigering är inte ett lasttest.</td><td>Avgränsning</td></tr>
@@ -156,7 +156,7 @@ Samma feltyp: GraphQL error / The conditional request failed / DynamoDb 400.</co
 <p>Flera grundflöden fungerade: skapande, vanliga sparade ändringar, releaser, filter, duplicering, Done/Reopen, sökning, modeller och historik. Resultatet gäller de angivna testdata och stegen.</p>
 <h2>6. Avvikelser och begränsningar</h2>
 <ul><li>CSV-nedladdningen kunde inte fångas. Verktygets timeout registreras som Blocked, inte som en bekräftad produktbugg eller ett prestandamått.</li>
-<li>Filuppladdning väntar på särskilt godkännande. En syntetisk bilagelänk skapades, men dess mål besöktes inte.</li>
+<li>Filuppladdning godkändes senare under samma datum. Båda testfilerna skapades lokalt. Webbläsarverktygets säkerhetskontroll nekade uppladdningsbehörighet vid det första filvalet. Inga filer laddades upp. Ingen alternativ uppladdningsväg användes. Detta är en verktygsblockering och räknas inte som en produktbugg. Den tidigare syntetiska bilagelänken finns kvar, men dess mål besöktes inte.</li>
 <li>Direkt efter omladdning saknades viss metadata tillfälligt i avläsningen. När sidan hade laddat färdigt fanns metadata kvar. Detta räknas inte som dataförlust.</li>
 <li>Ångra/Gör om kontrollerades med detaljpanelen stängd. Klick mot en täckt knapp används inte som bevis för ett funktionsfel.</li>
 <li>Ett fel från HelpHero med texten Inactive app förekom i konsolen. Ingen funktionell påverkan bevisades och det räknas inte som en ny produktbugg.</li>
@@ -172,6 +172,7 @@ Samma feltyp: GraphQL error / The conditional request failed / DynamoDb 400.</co
 <tr><td>Command och exempeldata</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-command-preview.jpg">Skärmbild</a></td></tr>
 <tr><td>Läsmodell efter omladdning</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-read-model-persisted.jpg">Skärmbild</a> och <a href="../evidence/exploratory-2026-10-19-round2/TC-read-model-persisted.txt">textbevis</a></td></tr>
 <tr><td>Bilagelänk</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-attachment-link.txt">Textbevis</a></td></tr>
+<tr><td>Godkända testfiler och stoppad uppladdning</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-upload-blocked.md">Bilageunderlag</a> och <a href="../evidence/exploratory-2026-10-19-round2/TC-upload-blocked.jpg">bilagevyn</a></td></tr>
 <tr><td>Historik före de sista schemaändringarna</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-history.txt">Textbevis</a></td></tr>
 <tr><td>Ångra/Gör om</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-undo-redo.txt">Textbevis</a></td></tr>
 <tr><td>Arbetsflödet vid avslut</td><td><a href="../evidence/exploratory-2026-10-19-round2/workflow-final.jpg">Slutbild</a> och <a href="../evidence/exploratory-2026-10-19-round2/workflow-final.txt">slutligt textbevis</a></td></tr></tbody></table></div>

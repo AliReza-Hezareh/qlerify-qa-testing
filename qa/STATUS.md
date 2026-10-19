@@ -12,6 +12,7 @@ QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
 - APP-006, Low: CSV-förhandsvisningen slår ihop två textrader utan mellanrum. Den nedladdade filen kunde inte verifieras.
 - Releaser, filter, duplicering, Done/Reopen, sökning, fältmetadata, relationer, läsmodell, domänhändelse och Ångra/Gör om kontrollerades.
 - Filuppladdning, rollbehörigheter, negativa API-anrop och last har inget godkänt resultat.
+- Bilagetestet godkändes den 2026-10-19, men webbläsarverktygets säkerhetskontroll stoppade filåtkomsten. Testfilerna finns i `qa/fixtures/attachments/`. Ingen fil laddades upp och R2-041 är fortfarande Blocked.
 - [Andra omgångens rapport och detaljerade resultat](reports/exploratory-app-2026-10-19-round2.md).
 - [Andra omgångens visuella rapport](reports/exploratory-app-2026-10-19-round2.html).
 

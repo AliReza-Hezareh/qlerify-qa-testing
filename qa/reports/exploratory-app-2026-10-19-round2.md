@@ -80,7 +80,7 @@ Jag ändrade bara syntetiska data i det nya QA-arbetsflödet. Jag loggade inte i
 | R2-038 | Ändringshistorik | Pass | Historiken visade skapande, namnändringar, Done/Reopen, fält och senaste releaseändring i följd. | Historikbevis |
 | R2-039 | Domänhändelsens schema och länk | Pass | QA OrderBetalad skapades, kopplades till QA Order 2 och valdes på Domain Event-kortet. | Slutbild |
 | R2-040 | Ångra/Gör om för namnändring | Pass | Ångra tog bort tillägget ÅÄÖ från schemats namn. Gör om återställde det. Detaljpanelen stängdes först så att knapparna var fria. | Ångra/Gör om-bevis |
-| R2-041 | Normal och tom filuppladdning | Blocked | Uppladdning av två syntetiska filer inväntar särskilt godkännande. Inga filer skickades. | Avgränsning |
+| R2-041 | Normal och tom filuppladdning | Blocked | Båda filerna godkändes för uppladdning den 2026-10-19. Första försöket med qa-åäö.txt stoppades av webbläsarverktygets säkerhetskontroll före uppladdning. qa-empty.txt skickades inte. Ingen slutsats om appens filhantering kan dras. | Bilageunderlag |
 | R2-042 | Rollstyrning och åtkomst mellan konton | Blocked | Ett andra konto med annan roll saknades. Ingen serverbehörighet kan godkännas från denna körning. | Avgränsning |
 | R2-043 | Negativa API-payloads och rate limiting | Blocked | API-kontrakt och avgränsad testmiljö för manipulerade anrop saknades. | Avgränsning |
 | R2-044 | Last, samtidighet och databasbegränsningar | Blocked | Ingen avgränsad lastmiljö, mätgräns eller direkt databasåtkomst fanns. Snabb UI-redigering är inte ett lasttest. | Avgränsning |
@@ -175,7 +175,7 @@ Flera grundflöden fungerade: skapande, vanliga sparade ändringar, releaser, fi
 ## 6. Avvikelser och begränsningar
 
 - CSV-nedladdningen kunde inte fångas. Verktygets timeout registreras som Blocked, inte som en bekräftad produktbugg eller ett prestandamått.
-- Filuppladdning väntar på särskilt godkännande. En syntetisk bilagelänk skapades, men dess mål besöktes inte.
+- Filuppladdning godkändes senare under samma datum. Båda testfilerna skapades lokalt. Webbläsarverktygets säkerhetskontroll nekade uppladdningsbehörighet vid det första filvalet. Inga filer laddades upp. Ingen alternativ uppladdningsväg användes. Detta är en verktygsblockering och räknas inte som en produktbugg. Den tidigare syntetiska bilagelänken finns kvar, men dess mål besöktes inte.
 - Direkt efter omladdning saknades viss metadata tillfälligt i avläsningen. När sidan hade laddat färdigt fanns metadata kvar. Detta räknas inte som dataförlust.
 - Ångra/Gör om kontrollerades med detaljpanelen stängd. Klick mot en täckt knapp används inte som bevis för ett funktionsfel.
 - Ett fel från HelpHero med texten Inactive app förekom i konsolen. Ingen funktionell påverkan bevisades och det räknas inte som en ny produktbugg.
@@ -196,6 +196,7 @@ Flera grundflöden fungerade: skapande, vanliga sparade ändringar, releaser, fi
 | Command och exempeldata | [Skärmbild](../evidence/exploratory-2026-10-19-round2/TC-command-preview.jpg) |
 | Läsmodell efter omladdning | [Skärmbild](../evidence/exploratory-2026-10-19-round2/TC-read-model-persisted.jpg) och [textbevis](../evidence/exploratory-2026-10-19-round2/TC-read-model-persisted.txt) |
 | Bilagelänk | [Textbevis](../evidence/exploratory-2026-10-19-round2/TC-attachment-link.txt) |
+| Godkända testfiler och stoppad uppladdning | [Bilageunderlag](../evidence/exploratory-2026-10-19-round2/TC-upload-blocked.md) och [bilagevyn](../evidence/exploratory-2026-10-19-round2/TC-upload-blocked.jpg) |
 | Historik före de sista schemaändringarna | [Textbevis](../evidence/exploratory-2026-10-19-round2/TC-history.txt) |
 | Ångra/Gör om | [Textbevis](../evidence/exploratory-2026-10-19-round2/TC-undo-redo.txt) |
 | Arbetsflödet vid avslut | [Slutbild](../evidence/exploratory-2026-10-19-round2/workflow-final.jpg) och [slutligt textbevis](../evidence/exploratory-2026-10-19-round2/workflow-final.txt) |
