@@ -57,3 +57,12 @@ Feltexten observerades direkt på `qlerify.com/login`. Ingen skärmbild eller n�
 - Testade inte lösenordsinloggning, CRUD, kloning, API, behörighetsbypass eller flera användare.
 - Arbetsflödet var skrivskyddat. Inga data ändrades.
 - Rotorsak är inte analyserad eftersom testet gjordes utan åtkomst till applikationskod.
+
+## Automatisk kontroll 2026-10-19
+
+- **Kommando:** `npm run test:public` från `qa/`.
+- **Omfattning:** Endast publik adress `https://qlerify.com/login`. Ingen inloggad session användes.
+- **Resultat:** QW-001 reproducerades. Playwright hittade texten `Page Not Found`; förväntad inloggningsrubrik saknades.
+- **Testramverkets status:** 1 test rapporteras som `passed` eftersom QW-001 är markerat som ett känt, förväntat fel (`test.fail`). Det betyder att felet återkom som väntat, inte att inloggningssidan fungerade.
+- **Bevis:** `qa/test-results/qlerify-public-QW-001-qler-42cc5-gin-visar-appens-inloggning-chromium-public/error-context.md` och `qa/playwright-report/index.html`.
+- **Övrigt:** Ingen skärmbild eller nätverkslogg sparades. Inga produktdata ändrades.

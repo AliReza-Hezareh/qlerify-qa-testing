@@ -1,0 +1,74 @@
+[
+  {
+    "level": "error",
+    "message": "%c[HelpHero] color: #2196F3 Error: Inactive app\n    at pl (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:98930)\n    at https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:100676\n    at r.onload (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:99882)",
+    "timestamp": "2026-10-19T13:22:33.430Z",
+    "url": "https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js"
+  },
+  {
+    "level": "error",
+    "message": "%c[HelpHero] color: #2196F3 Error: Inactive app\n    at pl (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:98930)\n    at https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:100676\n    at r.onload (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:99882)",
+    "timestamp": "2026-10-19T13:23:37.692Z",
+    "url": "https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js"
+  },
+  {
+    "level": "error",
+    "message": "Subscription error: Object",
+    "timestamp": "2026-10-19T13:33:57.418Z",
+    "url": "https://app.qlerify.com/js/app.9855aa4c.js"
+  },
+  {
+    "level": "error",
+    "message": "Subscription error: Object",
+    "timestamp": "2026-10-19T13:33:57.425Z",
+    "url": "https://app.qlerify.com/js/app.9855aa4c.js"
+  },
+  {
+    "level": "error",
+    "message": "Subscription error: Object",
+    "timestamp": "2026-10-19T13:33:57.452Z",
+    "url": "https://app.qlerify.com/js/app.9855aa4c.js"
+  },
+  {
+    "level": "error",
+    "message": "Subscription error: Object",
+    "timestamp": "2026-10-19T13:34:28.266Z",
+    "url": "https://app.qlerify.com/js/app.9855aa4c.js"
+  },
+  {
+    "level": "error",
+    "message": "Subscription error: Object",
+    "timestamp": "2026-10-19T13:34:28.272Z",
+    "url": "https://app.qlerify.com/js/app.9855aa4c.js"
+  },
+  {
+    "level": "error",
+    "message": "Subscription error: Object",
+    "timestamp": "2026-10-19T13:34:28.272Z",
+    "url": "https://app.qlerify.com/js/app.9855aa4c.js"
+  },
+  {
+    "level": "error",
+    "message": "%c[HelpHero] color: #2196F3 Error: Inactive app\n    at pl (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:98930)\n    at https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:100676\n    at r.onload (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:99882)",
+    "timestamp": "2026-10-19T13:34:29.223Z",
+    "url": "https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js"
+  },
+  {
+    "level": "error",
+    "message": "%c[HelpHero] color: #2196F3 Error: Inactive app\n    at pl (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:98930)\n    at https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:100676\n    at r.onload (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:99882)",
+    "timestamp": "2026-10-19T13:36:09.008Z",
+    "url": "https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js"
+  },
+  {
+    "level": "error",
+    "message": "%c[HelpHero] color: #2196F3 Error: Inactive app\n    at pl (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:98930)\n    at https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:100676\n    at r.onload (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:99882)",
+    "timestamp": "2026-10-19T13:37:26.099Z",
+    "url": "https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js"
+  },
+  {
+    "level": "error",
+    "message": "%c[HelpHero] color: #2196F3 Error: Inactive app\n    at pl (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:98930)\n    at https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:100676\n    at r.onload (https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js:1:99882)",
+    "timestamp": "2026-10-19T13:37:52.111Z",
+    "url": "https://helphero.co/assets/player_frame_6fc8485eaf1aec47ef4a9c4c824935eb.js"
+  }
+]

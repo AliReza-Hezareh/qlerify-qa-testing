@@ -1,0 +1,48 @@
+{
+  "controls": [
+    {
+      "label": "input-v-183-label",
+      "rect": {
+        "height": 21,
+        "width": 22,
+        "x": 138.328125,
+        "y": 429.5
+      }
+    },
+    {
+      "label": "Show read models",
+      "rect": {
+        "height": 40,
+        "width": 40,
+        "x": 194.25,
+        "y": 420
+      }
+    },
+    {
+      "label": "Show data fields",
+      "rect": {
+        "height": 40,
+        "width": 40,
+        "x": 252.21875,
+        "y": 420
+      }
+    },
+    {
+      "label": "Show domain event details",
+      "rect": {
+        "height": 40,
+        "width": 40,
+        "x": 284.21875,
+        "y": 420
+      }
+    }
+  ],
+  "page": {
+    "height": 1199,
+    "width": 1604
+  },
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}

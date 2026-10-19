@@ -1,0 +1,11 @@
+{
+  "fileName": "qa-2026-10-19-–-åäö-edge-cases.qlerify",
+  "bytes": 8265,
+  "sha256": "e769cb1bf2587d4540fd60adde5cb9e433d447c896e67813b5aa1900cd798a2c",
+  "jsonKeys": [
+    "iv",
+    "ciphertext"
+  ],
+  "plainTextContentVerified": false,
+  "roundTripImportPerformed": false
+}

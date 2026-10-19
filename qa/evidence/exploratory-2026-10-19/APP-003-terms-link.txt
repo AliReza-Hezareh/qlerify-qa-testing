@@ -1,0 +1,18 @@
+Källa: https://app.qlerify.com/workflow/8cc598e8-dd91-497c-aaa1-5e62ac66a36f/e5cb10a6-f061-4c66-a30e-630c6e7b9af3/f544920d-8871-4041-9db4-59579ac7d731
+Länk: https://app.qlerify.com/workflow/Qlerify_terms_of_service_and_privacy_policy.pdf
+Utfall: https://app.qlerify.com/404
+- main:
+  - heading "Not found." [level=3]
+  - text: "The page may not exist or you may not have access with the current logged in user:"
+  - strong: hezareh01@gmail.com
+  - link "Go to dashboard":
+    - /url: /dashboard
+  - text: or
+  - generic: Logout
+  - text: to change user
+- contentinfo:
+  - generic: © 2026 Qlerify
+  - link "Terms of Service & Privacy Policy":
+    - /url: ../../Qlerify_terms_of_service_and_privacy_policy.pdf
+  - link "Cookie Policy":
+    - /url: https://www.qlerify.com/cookie-policy

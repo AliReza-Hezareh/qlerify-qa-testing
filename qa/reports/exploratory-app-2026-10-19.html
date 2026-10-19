@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
+  <title>Qlerify – utforskande appgranskning 2026-10-19</title>
+  <style>
+    :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
+    header { background:#101828; color:#fff; padding:28px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { font-size:1.7rem; margin:0 0 8px; } header p { margin:0; color:#eaecf0; }
+    main { max-width:1228px; padding:24px; margin:auto; } section,article { background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px; margin-bottom:20px; }
+    h1,h2,h3,h4 { line-height:1.3; } article h1 { font-size:1.9rem; margin-top:0; } h2 { margin-top:32px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+    section h2 { margin-top:0; } p,li { overflow-wrap:anywhere; } a { color:var(--blue); text-underline-offset:3px; } a:focus-visible,[tabindex]:focus-visible { outline:3px solid #1570ef; outline-offset:3px; }
+    pre { background:#101828; color:#f9fafb; padding:16px; border-radius:6px; overflow:auto; font-size:.9rem; } code { font-family:Consolas,monospace; } :not(pre)>code { background:#eef2f6; padding:2px 5px; border-radius:4px; white-space:break-spaces; }
+    .table-scroll { overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:6px; } table { border-collapse:collapse; width:100%; font-size:.94rem; min-width:580px; } th,td { padding:12px; border-bottom:1px solid #eaecf0; text-align:left; vertical-align:top; } th { background:#eef2f6; } tbody tr:nth-child(even) { background:#f9fafb; } tr:last-child td { border-bottom:0; }
+    img { display:block; max-width:100%; height:auto; border:1px solid var(--line); margin:16px 0; } .links { display:flex; gap:20px; flex-wrap:wrap; } footer { color:var(--muted); font-size:.9rem; padding:0 0 24px; } hr { border:0; border-top:1px solid var(--line); margin:28px 0; }
+    @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
+    @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
+  </style>
+</head>
+<body>
+  <header><h1>Qlerify – utforskande appgranskning</h1><p>2026-10-19 · Testresultat, bekräftade fel och avgränsningar</p></header>
+  <main>
+    <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs
+Start-Process .\qa\reports\exploratory-app-2026-10-19.html
+
+# Löpande uppdatering efter ändringar i Markdown-rapporten:
+node .\qa\tools\render-exploratory-report.mjs --watch</code></pre><div class="links"><a href="exploratory-app-2026-10-19.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+    <article><h1>Testrapport – utforskande granskning av Qlerify-appen</h1>
+<ul><li>Rapport-ID: QLERIFY-EXP-2026-10-19-APP</li>
+<li>Datum: 2026-10-19</li>
+<li>Testare och QA-ansvarig: Ali Reza Hezareh</li>
+<li>QA-status: Testerna är inte godkända. Fem avvikelser är öppna.</li>
+<li>Miljö: Qlerifys driftsatta webbapp, Windows och den inbyggda Chromiumbaserade webbläsaren.</li>
+<li>Version: Byggnummer saknades i gränssnittet. Den observerade skriptresursen var <code>js/app.b135f38b.js</code>.</li>
+<li>Bildbevis: JPG-filer och DOM-utdrag i <code>qa/evidence/exploratory-2026-10-19/</code>.</li>
+<li>Videoinspelning: Ingen video spelades in.</li></ul>
+<h2>1. Sammanfattning</h2>
+<p>Jag testade appen från en redan inloggad session. Jag skapade ett separat QA-arbetsflöde och provade validering, sparning, ändringshistorik, flikar, sökning, export, skrivskydd och layout.</p>
+<p>Fyra nya avvikelser dokumenterades. Det tidigare kända felet på <code>qlerify.com/login</code> återkom. Inga Critical- eller High-fel bekräftades i den testade omfattningen. Det innebär inte att sådana fel saknas.</p>
+<p>Av 42 körda kontrollpunkter fick 37 Pass och 5 Fail. Ytterligare 3 var Blocked och 4 kördes inte. Kontrollpunkterna dokumenterades under utforskningen; de utgör inte en fullständig regressionssvit eller ett mått på hela produktens täckning.</p>
+<h2>2. Omfattning och testdata</h2>
+<ul><li>Dashboard och ett eget QA-arbetsflöde i <code>My first project</code>.</li>
+<li>Skapa arbetsflöde, namnvalidering, startpunkt, händelsetext, Ångra och Gör om.</li>
+<li>Manuell entitet, fältnamn, datatyp och beskrivning.</li>
+<li>User Story-kort, Backlog, sökning, User Story Map och History.</li>
+<li>De sju huvudflikarna, omladdning, bakåt och framåt.</li>
+<li>Export Workflow, synliga skrivskyddskontroller och tillstånden Completed/In Progress.</li>
+<li>Layout vid 1440 × 900, 390 × 844 och den ursprungliga panelens 552 × 790 pixlar.</li>
+<li>Tillgängliga namn i DOM och tillgänglighetsträdet. Ingen fullständig granskning med skärmläsare eller kontrastmätning gjordes.</li></ul>
+<p>QA-arbetsflödet finns kvar med namnet <strong>QA 2026-10-19 – ÅÄÖ edge cases</strong> och status <strong>In Progress</strong>. Det innehåller en händelse, en entitet och ett User Story-kort. Arbetsflödet som skapades med blanksteg döptes om till detta namn.</p>
+<p><a href="https://app.qlerify.com/workflow/8cc598e8-dd91-497c-aaa1-5e62ac66a36f/e5cb10a6-f061-4c66-a30e-630c6e7b9af3">Öppna QA-arbetsflödet</a>. Det publika Cart-exemplet granskades för synliga skrivskyddskontroller.</p>
+<h2>3. Resultatöversikt</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Mått</th><th scope="col">Antal</th></tr></thead><tbody><tr><td>Dokumenterade kontrollpunkter</td><td>49</td></tr>
+<tr><td>Körda, Pass + Fail</td><td>42</td></tr>
+<tr><td>Pass</td><td>37</td></tr>
+<tr><td>Fail</td><td>5</td></tr>
+<tr><td>Blocked</td><td>3</td></tr>
+<tr><td>Ej körda</td><td>4</td></tr>
+<tr><td>Pass rate, 37/42 × 100</td><td>88,1 %</td></tr>
+<tr><td>Fail rate, 5/42 × 100</td><td>11,9 %</td></tr></tbody></table></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Severity</th><th scope="col">Öppna avvikelser</th></tr></thead><tbody><tr><td>Critical</td><td>0</td></tr>
+<tr><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>2</td></tr>
+<tr><td>Low</td><td>3</td></tr></tbody></table></div>
+<h2>4. Detaljerade testresultat</h2>
+<p>Pass gäller endast det förväntade resultat som står på samma rad. Blocked och Ej körd ingår inte i pass- eller fail-procenten.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">ID</th><th scope="col">Kontroll</th><th scope="col">Status</th><th scope="col">Förväntat</th><th scope="col">Faktiskt resultat / kommentar</th><th scope="col">Bug-ID</th></tr></thead><tbody><tr><td>EXP-001</td><td>Starta dashboard</td><td>Pass</td><td>Dashboard visar befintliga arbetsflöden.</td><td>Dashboard laddade och visade eget flöde och Cart-exemplet.</td><td>–</td></tr>
+<tr><td>EXP-002</td><td>Tomt arbetsflödesnamn</td><td>Pass</td><td>Tomt namn stoppas.</td><td>Required. visades. Inget arbetsflöde skapades.</td><td>–</td></tr>
+<tr><td>EXP-003</td><td>Namn med tre blanksteg</td><td>Fail</td><td>Namn utan synliga tecken stoppas.</td><td>Ett arbetsflöde med tom synlig rubrik skapades.</td><td>APP-001</td></tr>
+<tr><td>EXP-004</td><td>Byt arbetsflödesnamn och ladda om</td><td>Pass</td><td>ÅÄÖ och namn finns kvar.</td><td>QA 2026-10-19 – ÅÄÖ edge cases sparades.</td><td>–</td></tr>
+<tr><td>EXP-005</td><td>Skapa startpunkt</td><td>Pass</td><td>En händelse skapas i testflödet.</td><td>New event skapades i Lane 1.</td><td>–</td></tr>
+<tr><td>EXP-006</td><td>Händelsenamn med ÅÄÖ och emoji</td><td>Pass</td><td>Text sparas efter omladdning.</td><td>QA ÅÄÖ <code>&lt;b&gt;test&lt;/b&gt;</code> 🧪 fanns kvar.</td><td>–</td></tr>
+<tr><td>EXP-007</td><td>HTML-liknande händelsetext</td><td>Pass</td><td>Texten behandlas som text på ritytan.</td><td><code>&lt;b&gt;test&lt;/b&gt;</code> visades bokstavligt på ritytan. Aktivt script testades inte.</td><td>–</td></tr>
+<tr><td>EXP-008</td><td>Ångra namnändring</td><td>Pass</td><td>Tidigare händelsenamn återkommer.</td><td>New event återkom.</td><td>–</td></tr>
+<tr><td>EXP-009</td><td>Gör om namnändring</td><td>Pass</td><td>Det nya händelsenamnet återkommer.</td><td>QA-texten återkom efter uppdateringen.</td><td>–</td></tr>
+<tr><td>EXP-010</td><td>Entities utan entiteter</td><td>Pass</td><td>Ett begripligt tomläge visas.</td><td>No Entities created yet och skapainstruktion visades.</td><td>–</td></tr>
+<tr><td>EXP-011</td><td>Skapa entitet manuellt</td><td>Pass</td><td>En manuell entitet skapas.</td><td>New Entity 1 och ett standardfält skapades.</td><td>–</td></tr>
+<tr><td>EXP-012</td><td>Byt entitetsnamn</td><td>Pass</td><td>Namn med ÅÄÖ och emoji sparas.</td><td>QA Kund ÅÄÖ 🧪 fanns kvar efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-013</td><td>Byt entitetsfältets namn</td><td>Pass</td><td>Nytt fältnamn sparas.</td><td>QA antal fanns kvar efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-014</td><td>Byt datatyp till Number</td><td>Pass</td><td>Vald typ sparas.</td><td>Number visades efter omladdning. Värdevalidering testades inte.</td><td>–</td></tr>
+<tr><td>EXP-015</td><td>Spara entitetsbeskrivning med Enter</td><td>Pass</td><td>Beskrivningen sparas med ÅÄÖ och specialtecken.</td><td>Beskrivningen fanns kvar efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-016</td><td>Skapa och redigera User Story-kort</td><td>Pass</td><td>Kortets nya text sparas.</td><td>QA-text med ÅÄÖ och emoji sparades och återkom efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-017</td><td>Kortets koppling till Backlog</td><td>Pass</td><td>Samma kort och rätt händelse visas.</td><td>Kortet visades med Lane 1 och rätt händelsenamn.</td><td>–</td></tr>
+<tr><td>EXP-018</td><td>Backlog-sökning utan träff</td><td>Pass</td><td>Kort som inte matchar döljs.</td><td>Sökningen NO-MATCH-QA-2026 gav inga kortrader.</td><td>–</td></tr>
+<tr><td>EXP-019</td><td>Backlog-sökning med ÅÄÖ</td><td>Pass</td><td>Matchande kort hittas.</td><td>En matchande kortrad visades.</td><td>–</td></tr>
+<tr><td>EXP-020</td><td>User Story Map visar kortet</td><td>Pass</td><td>Samma User Story visas i kartan.</td><td>QA-kortet visades under No release assigned.</td><td>–</td></tr>
+<tr><td>EXP-021</td><td>Bevarad flik efter omladdning</td><td>Pass</td><td>User Story Map förblir vald.</td><td>aria-selected var true efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-022</td><td>Domain Events utan domänkort</td><td>Pass</td><td>Tomt resultat visas utan krasch.</td><td>Not linked to entity 0 visades.</td><td>–</td></tr>
+<tr><td>EXP-023</td><td>Read Models utan läsmodeller</td><td>Pass</td><td>Tomt resultat visas utan krasch.</td><td>Not linked to entity 0 visades.</td><td>–</td></tr>
+<tr><td>EXP-024</td><td>Historiksökning utan träff</td><td>Pass</td><td>Ett tomläge visas.</td><td>No data available visades för en obefintlig tagg.</td><td>–</td></tr>
+<tr><td>EXP-025</td><td>Rensa historiksökning</td><td>Pass</td><td>Historikraderna kommer tillbaka.</td><td>Raden created workflow visades igen.</td><td>–</td></tr>
+<tr><td>EXP-026</td><td>Öppna samtliga huvudflikar</td><td>Pass</td><td>Alla sju huvudflikar går att öppna.</td><td>Domain Model, Entities, Read Models, Domain Events, Backlog, User Story Map och History öppnades.</td><td>–</td></tr>
+<tr><td>EXP-027</td><td>Webbläsarens bakåtknapp</td><td>Pass</td><td>Föregående flik och URL återkommer.</td><td>Domain Events och selectedTab=3 återkom.</td><td>–</td></tr>
+<tr><td>EXP-028</td><td>Webbläsarens framåtknapp</td><td>Pass</td><td>Nästa flik och URL återkommer.</td><td>User Story Map och selectedTab=5 återkom.</td><td>–</td></tr>
+<tr><td>EXP-029</td><td>Export Workflow</td><td>Pass</td><td>En exportfil laddas ner.</td><td>En .qlerify-fil laddades ner. JSON-omslaget innehöll iv och ciphertext. Innehållets återimport är inte verifierad.</td><td>–</td></tr>
+<tr><td>EXP-030</td><td>Villkorslänk från händelsedetalj</td><td>Fail</td><td>Dokumentet med villkor öppnas.</td><td>Länken gick till /workflow/Qlerify_terms_of_service_and_privacy_policy.pdf och sedan /404.</td><td>APP-003</td></tr>
+<tr><td>EXP-031</td><td>Tillgängliga namn på ikonknappar</td><td>Fail</td><td>Ikonknappar har beskrivande namn.</td><td>Fyra synliga kontroller hade tomt tillgängligt namn. Tre hade en separat beskrivning.</td><td>APP-004</td></tr>
+<tr><td>EXP-032</td><td>Domänmodellens verktygsfält på smal skärm</td><td>Fail</td><td>Etiketter och kontroller går att läsa och använda utan överlappning.</td><td>Kontroller överlappade och etiketter bröts till enstaka bokstäver vid 390 och 552 pixlars bredd.</td><td>APP-002</td></tr>
+<tr><td>EXP-033</td><td>Escape i New Workflow</td><td>Pass</td><td>Dialogen stängs.</td><td>Dialogen stängdes utan att skapa data. Fokus återgick till dokumentets body.</td><td>–</td></tr>
+<tr><td>EXP-034</td><td>Cancel i New Workflow</td><td>Pass</td><td>Det inskrivna namnet sparas inte.</td><td>QA CANCEL – ska inte sparas skapades inte som arbetsflöde.</td><td>–</td></tr>
+<tr><td>EXP-035</td><td>Öppna hjälpen</td><td>Pass</td><td>Dashboardhjälp visas.</td><td>Home Dashboard-dialogen med vägledning öppnades.</td><td>–</td></tr>
+<tr><td>EXP-036</td><td>Hjälplänk User Story Mapping</td><td>Pass</td><td>Rätt publika hjälpsida öppnas.</td><td>/user-story-mapping skickade vidare till /user-story-mapping-tool.</td><td>–</td></tr>
+<tr><td>EXP-037</td><td>Skrivskyddat Cart-exempel</td><td>Pass</td><td>Redigering av synliga händelser och läsmodelltyp är avstängd.</td><td>View only mode visades. Händelsens add och Single Item var avstängda. Inga contenteditable=true fanns. Serverbehörighet testades inte.</td><td>–</td></tr>
+<tr><td>EXP-038</td><td>Skrivskyddets flik efter omladdning</td><td>Pass</td><td>Read Models och avstängd Single Item finns kvar.</td><td>selectedTab=2 och aria-selected=true återkom. Knappen var fortfarande avstängd.</td><td>–</td></tr>
+<tr><td>EXP-039</td><td>Completed låser QA-arbetsflödet</td><td>Pass</td><td>Ändringskontroller låses och tillståndet sparas.</td><td>This workflow is locked visades efter omladdning. Händelsens add var avstängd och redigerbara textfält saknades.</td><td>–</td></tr>
+<tr><td>EXP-040</td><td>Add lane när QA-arbetsflödet är låst</td><td>Pass</td><td>Ingen ny bana sparas.</td><td>Knappen såg aktiv ut men ingen Lane 2 skapades. Resultatet var oförändrat efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-041</td><td>Återgå till In Progress</td><td>Pass</td><td>QA-arbetsflödet kan redigeras igen.</td><td>Namnfältet var redigerbart igen efter omladdning.</td><td>–</td></tr>
+<tr><td>EXP-042</td><td>Publika adressen qlerify.com/login</td><td>Fail</td><td>Inloggningen öppnas eller adressen skickar vidare.</td><td>Page Not Found visades. Det är samma kända fel som i tidigare rapport.</td><td>QW-001</td></tr>
+<tr><td>EXP-043</td><td>Lösenordsinloggning och utloggning</td><td>Blocked</td><td>Kontoinnehavaren genomför inloggning och utloggning.</td><td>Testet behöver genomföras av kontoinnehavaren. Befintlig session användes i denna granskning.</td><td>–</td></tr>
+<tr><td>EXP-044</td><td>API-behörighet, roller och IDOR</td><td>Blocked</td><td>Åtkomst följer en fastställd rollmatris.</td><td>Två kontrollerade testkonton och en rollmatris saknades.</td><td>–</td></tr>
+<tr><td>EXP-045</td><td>Belastning och prestandagränser</td><td>Blocked</td><td>Svarstid och stabilitet mäts mot beslutade gränser.</td><td>Avgränsad testmiljö, belastningsbudget och prestandakrav saknades.</td><td>–</td></tr>
+<tr><td>EXP-046</td><td>Filuppladdning och ogiltiga filer</td><td>Ej körd</td><td>Tillåtna och otillåtna filer hanteras korrekt.</td><td>Inte utfört i denna session.</td><td>–</td></tr>
+<tr><td>EXP-047</td><td>Återimport av exportfil</td><td>Ej körd</td><td>Exporterad data kan återställas utan förlust.</td><td>Exporten laddades ner. Återimport och jämförelse utfördes inte.</td><td>–</td></tr>
+<tr><td>EXP-048</td><td>Permanent radering och återställning</td><td>Ej körd</td><td>Radering och återställning följer produktens regler.</td><td>Permanent radering och återställningsflöde utfördes inte.</td><td>–</td></tr>
+<tr><td>EXP-049</td><td>Integrationer och inbjudningar</td><td>Ej körd</td><td>Integrationer och delning följer bestämd åtkomst.</td><td>Jira, Azure DevOps, externa kopplingar och utskick testades inte.</td><td>–</td></tr></tbody></table></div>
+<h2>5. Buggrapporter</h2>
+<h3>APP-001 – Ett arbetsflöde kan skapas med bara blanksteg</h3>
+<ul><li>Severity: Low</li>
+<li>Priority: P2</li>
+<li>Status: Öppen, ny avvikelse.</li>
+<li>Risk: Arbetsflödet saknar ett synligt namn och blir svårt att identifiera.</li></ul>
+<p>Steg för att återskapa:</p>
+<ol><li>Öppna dashboarden och klicka på New Workflow.</li>
+<li>Välj ett projekt.</li>
+<li>Ersätt Workflow name med exakt tre blanksteg (<code>   </code>).</li>
+<li>Klicka på Add.</li></ol>
+<p>Förväntat: Samma obligatoriska namnkontroll som för ett tomt fält ska stoppa namnet.</p>
+<p>Faktiskt: Ett nytt arbetsflöde skapades och rubriken blev tom. Den tomma strängen stoppades med <code>Required.</code>, men tre blanksteg accepterades.</p>
+<p>Möjlig grundorsak: Valideringen kan sakna kontroll av innehållet efter trimning. Applikationskoden granskades inte.</p>
+<p><a href="../evidence/exploratory-2026-10-19/APP-001-blank-workflow.jpg"><img src="../evidence/exploratory-2026-10-19/APP-001-blank-workflow.jpg" alt="Arbetsflöde med tom synlig rubrik" loading="lazy"></a></p>
+<h3>APP-002 – Domänmodellens verktygsfält överlappar på smal skärm</h3>
+<ul><li>Severity: Medium</li>
+<li>Priority: P2</li>
+<li>Status: Öppen, ny avvikelse. Kravet på stödda skärmstorlekar är inte fastställt.</li>
+<li>Risk: Etiketter och val blir svåra att läsa och skilja åt.</li></ul>
+<p>Steg för att återskapa:</p>
+<ol><li>Öppna ett arbetsflöde med en händelse.</li>
+<li>Öppna Domain Model.</li>
+<li>Stäng den högra detaljpanelen.</li>
+<li>Använd en visningsyta på 390 × 844 pixlar. Problemet observerades även vid 552 × 790.</li>
+<li>Granska Domain View, händelsevalet och kryssrutornas etiketter.</li></ol>
+<p>Förväntat: Verktygsfältets vanliga formulärkontroller och etiketter ska gå att läsa utan att överlappa.</p>
+<p>Faktiskt: Kontroller överlappar och etiketterna bryts till enstaka bokstäver. Granskningen avser verktygsfältet; stora tvådimensionella diagram kräver en separat bedömning.</p>
+<p>Möjlig grundorsak: Grundorsaken är inte fastställd. CSS-koden granskades inte.</p>
+<p><a href="../evidence/exploratory-2026-10-19/APP-002-layout.json">Layoutmått</a>. Referens för vanliga kontrollers omflöde: <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">WCAG 2.2, 1.4.10</a>.</p>
+<p><a href="../evidence/exploratory-2026-10-19/APP-002-mobile-domain-model.jpg"><img src="../evidence/exploratory-2026-10-19/APP-002-mobile-domain-model.jpg" alt="Överlappande verktygsfält vid mobilbredd" loading="lazy"></a></p>
+<h3>APP-003 – Villkorslänken ger 404 från en händelses detaljadress</h3>
+<ul><li>Severity: Low</li>
+<li>Priority: P2</li>
+<li>Status: Öppen, ny avvikelse.</li>
+<li>Risk: Användaren kommer inte åt villkorsdokumentet från denna vy.</li></ul>
+<p>Steg för att återskapa:</p>
+<ol><li>Öppna QA-arbetsflödet.</li>
+<li>Klicka på dess händelse så att händelse-ID läggs till sist i adressen.</li>
+<li>Följ sidfotens Terms of Service &amp; Privacy Policy.</li></ol>
+<p>Förväntat: Villkorsdokumentet öppnas oavsett vilken arbetsflödesvy som används.</p>
+<p>Faktiskt: Den observerade länken var <code>../../Qlerify_terms_of_service_and_privacy_policy.pdf</code>. Från händelsens adress blev målet <code>https://app.qlerify.com/workflow/Qlerify_terms_of_service_and_privacy_policy.pdf</code>. Appen skickade vidare till <code>/404</code> och visade <code>Not found.</code>.</p>
+<p>Observerad grundorsak i DOM: Den relativa sökvägen beror på hur många segment den aktuella adressen har. Detta förklarar det felaktiga länkmålet. Serverns implementation granskades inte.</p>
+<p><a href="../evidence/exploratory-2026-10-19/APP-003-terms-link.txt">Länkmål och feltext</a>.</p>
+<p><a href="../evidence/exploratory-2026-10-19/APP-003-terms-link-404.jpg"><img src="../evidence/exploratory-2026-10-19/APP-003-terms-link-404.jpg" alt="Villkorslänken leder till Not found" loading="lazy"></a></p>
+<h3>APP-004 – Fyra ikonknappar saknar tillgängligt namn</h3>
+<ul><li>Severity: Medium</li>
+<li>Priority: P2</li>
+<li>Status: Öppen, ny avvikelse.</li>
+<li>Risk: Kontrollerna saknar ett beskrivande namn i tillgänglighetsträdet. Påverkan med en viss skärmläsare är inte testad.</li></ul>
+<p>Steg för att återskapa:</p>
+<ol><li>Öppna det redigerbara QA-arbetsflödet på bred skärm.</li>
+<li>Granska knapparnas namn i tillgänglighetsträdet.</li>
+<li>Kontrollera handverktyget, markeringsverktyget, förklaringsknappen och banans menyknapp.</li></ol>
+<p>Förväntat: Varje knapp har ett beskrivande tillgängligt namn.</p>
+<p>Faktiskt: De fyra kontrollerna matchade <code>button</code> med tomt tillgängligt namn. Tre hade separata beskrivningar: Hand tool, Pointer tool och View the legend for the workflow. Banans meny saknade även sådan beskrivning.</p>
+<p>Observerad grundorsak i DOM: De första tre använder ikonmarkup och <code>aria-describedby</code>, men saknar namn via text, <code>aria-label</code> eller <code>aria-labelledby</code>. Beskrivning och namn är olika egenskaper.</p>
+<p><a href="../evidence/exploratory-2026-10-19/APP-004-unnamed-buttons.json">DOM-bevis för de fyra knapparna</a>. Kravreferens: <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">WCAG 2.2, 4.1.2 Name, Role, Value</a>.</p>
+<h3>QW-001 – qlerify.com/login visar Page Not Found</h3>
+<ul><li>Severity: Low</li>
+<li>Priority: P2</li>
+<li>Status: Tidigare känt fel, reproducerat igen.</li>
+<li>Risk: Den som följer denna inloggningsadress hamnar på en felsida.</li></ul>
+<p>Steg för att återskapa:</p>
+<ol><li>Öppna <code>https://qlerify.com/login</code>.</li>
+<li>Vänta tills sidan har laddat.</li></ol>
+<p>Förväntat: Inloggningen öppnas eller användaren skickas vidare till appens inloggningssida.</p>
+<p>Faktiskt: Adressen blev <code>https://www.qlerify.com/login</code>. Sidan visade <code>Page Not Found</code> och att sidan saknas eller har flyttats. Sidans Log in-länk pekade på <code>https://app.qlerify.com/login</code>.</p>
+<p>Grundorsak: Inte fastställd.</p>
+<p><a href="../evidence/exploratory-2026-10-19/QW-001-login-not-found.jpg"><img src="../evidence/exploratory-2026-10-19/QW-001-login-not-found.jpg" alt="Den publika loginadressen visar Page Not Found" loading="lazy"></a></p>
+<h2>6. Övriga observationer och begränsningar</h2>
+<ul><li>Konsolen innehöll <code>Subscription error: Object</code> och <code>[HelpHero] Error: Inactive app</code>. Ingen tydlig funktionspåverkan kopplades till dessa loggar. De räknas inte som separata produktbuggar.</li>
+<li>Vid redigering visades en varning om att en annan användare hade ändrat objektet. En fullständig samtidighetstestning gjordes inte. Sparning med uttrycklig bekräftelse kontrollerades genom omladdning.</li>
+<li>Add lane såg aktiv ut även i låst läge. Det godkända testförsöket i QA-arbetsflödet skapade ingen bana. Ingen låsförbikoppling bekräftades.</li>
+<li>Exportfilen kunde läsas som JSON med <code>iv</code> och <code>ciphertext</code>. Modellens innehåll kunde därför inte jämföras som klartext. En lyckad nedladdning bevisar inte en lyckad återimport.</li>
+<li>Typvalet Number sparades. Negativa tal, decimaler, gränsvärden och databasregler verifierades inte genom detta test.</li>
+<li>HTML-liknande text granskades som text på ritytan. Ingen aktiv lagrad XSS, SQL-injektion, tokenmanipulation eller behörighetsbypass bekräftades.</li>
+<li>Lösenordsinloggning, utloggning, verklig serverbehörighet mellan två användare, nätverksavbrott, flera samtidiga redigerare och större datamängder återstår.</li>
+<li>Inga tillförlitliga mätningar av svarstid, CPU, minne eller belastningskapacitet gjordes. Verktygets väntetid räknas inte som produktens svarstid.</li></ul>
+<p><a href="../evidence/exploratory-2026-10-19/TC-console-errors.json">Sparade konsolloggar</a>. <a href="../evidence/exploratory-2026-10-19/TC-export-summary.json">Kontrollsumma och format för exporten</a>. Själva exportfilen finns lokalt i Downloads och ingår inte i rapportpaketet.</p>
+<h2>7. Kvalitetsbedömning och avvikelser</h2>
+<p>Underlaget räcker inte för ett releasegodkännande. Fem kontrollpunkter fick Fail. Ytterligare sju var blockerade eller kördes inte. De provade kärnflödena för skapande, sparning, sökning, Ångra/Gör om och tillståndslåsning fungerade i den angivna omfattningen.</p>
+<p>Detta var en utforskande session i den driftsatta appen. Fullständig API-, databas-, säkerhets-, tillgänglighets- och prestandatestning genomfördes inte. Resultatet ska inte ersätta hela gruppens regressionsresultat.</p>
+<p>QA-ansvarig: <strong>Ali Reza Hezareh – testerna är inte godkända, 2026-10-19.</strong></p>
+<h2>8. Sparat tillstånd efter testerna</h2>
+<p>QA-arbetsflödet lämnades i In Progress. Testnamn, entitet och kort finns kvar så att resultaten går att granska. Ingen permanent radering gjordes.</p>
+<p><a href="../evidence/exploratory-2026-10-19/TC-final-qa-workflow.jpg"><img src="../evidence/exploratory-2026-10-19/TC-final-qa-workflow.jpg" alt="QA-arbetsflödet efter återställning till In Progress" loading="lazy"></a></p></article>
+    <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
+  </main>
+</body>
+</html>

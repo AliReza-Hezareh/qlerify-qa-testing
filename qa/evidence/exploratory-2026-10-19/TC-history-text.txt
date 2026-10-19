@@ -1,0 +1,1 @@
+<td class="v-data-table__td v-data-table-column--align-start"><span data-v-5f21ea36="" class="emphasize">Ali Reza Hezareh</span> updated event text to <span data-v-5f21ea36="" class="emphasize">QA ÅÄÖ test 🧪</span></td>

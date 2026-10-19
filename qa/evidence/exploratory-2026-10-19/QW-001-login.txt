@@ -1,0 +1,114 @@
+- banner:
+  - link "home":
+    - /url: /
+  - navigation:
+    - button "Products":
+      - generic: 
+      - generic: Products
+    - link "Pricing":
+      - /url: /pricing
+      - generic: Pricing
+    - link "Customer stories":
+      - /url: /customer-stories
+      - generic: Customer stories
+    - link "Documentation":
+      - /url: /docs
+      - generic: Documentation
+    - link "Blog":
+      - /url: /blog
+      - generic: Blog
+  - link "Book a demo":
+    - /url: https://koalendar.com/e/meet-with-nikolaus-varzakakos
+    - generic: Book a demo
+  - link "Log in":
+    - /url: https://app.qlerify.com/login
+    - generic: Log in
+  - link "Sign up free":
+    - /url: https://app.qlerify.com/signup
+    - generic: Sign up free
+- generic: Page Not Found
+- generic: The page you are looking for doesn't exist or has been moved.
+- link "Go Back to Safety":
+  - /url: /
+  - generic: Go Back to Safety
+- link:
+  - /url: /
+- emphasis: A Techstars portfolio company
+- link "Sign up free":
+  - /url: https://app.qlerify.com/signup
+  - generic: Sign up free
+- link "Log in":
+  - /url: https://app.qlerify.com/login
+  - generic: Log in
+- link "Qlerify Live":
+  - /url: /qlerify-live
+  - generic: Qlerify Live
+- link "Qlerify Modeler":
+  - /url: /qlerify-modeler
+  - generic: Qlerify Modeler
+- link "Pricing":
+  - /url: /pricing
+  - generic: Pricing
+- link "FAQ":
+  - /url: /docs#faq
+  - generic: FAQ
+- link "Documentation":
+  - /url: /docs
+  - generic: Documentation
+- link "Blog":
+  - /url: /blog
+  - generic: Blog
+- link "Contact us":
+  - /url: /contact
+  - generic: Contact us
+- link "Customer Stories":
+  - /url: /customer-stories
+  - generic: Customer Stories
+- link "About us":
+  - /url: /about-us
+  - generic: About us
+- link "Partners":
+  - /url: /partners
+  - generic: Partners
+- link "Jobs":
+  - /url: /jobs
+  - generic: Jobs
+- link "Event storming":
+  - /url: /event-storming-tool
+  - generic: Event storming
+- link "Domain Driven Design (DDD)":
+  - /url: /domain-driven-design-tool
+  - generic: Domain Driven Design (DDD)
+- link "Event Modeling":
+  - /url: /event-modeling-tool
+  - generic: Event Modeling
+- link "User Story Mapping":
+  - /url: /user-story-mapping-tool
+  - generic: User Story Mapping
+- link "Spec-Driven Development (SDD)":
+  - /url: /spec-driven-development
+  - generic: Spec-Driven Development (SDD)
+- link "Simple Process Mapping":
+  - /url: /process-mapping-tool
+  - generic: Simple Process Mapping
+- link "LinkedIn":
+  - /url: https://se.linkedin.com/company/qlerify
+  - generic: LinkedIn
+- link "YouTube":
+  - /url: https://www.youtube.com/@qlerify2422
+  - generic: YouTube
+- link "Security":
+  - /url: /security
+  - generic: Security
+- link "Cookie Policy":
+  - /url: /cookie-policy
+  - generic: Cookie Policy
+- link "Cookie settings":
+  - /url: "#cookie-settings"
+- link "Privacy Policy":
+  - /url: /privacy-policy
+  - generic: Privacy Policy
+- link "Terms of service":
+  - /url: /terms-of-service
+  - generic: Terms of service
+- generic: Copyright 2026 Qlerify AB
