@@ -1,0 +1,457 @@
+- main:
+  - img "Qlerify logo"
+  - button "home":
+    - generic: home
+  - generic: Ali Reza's organisation
+  - generic: arrow_forward_ios
+  - generic: My first project
+  - generic: arrow_forward_ios
+  - generic: account_tree
+  - generic "Click to edit": QA 2026-10-19 – flöden och edge cases 2
+  - generic: keyboard_arrow_down
+  - button:
+    - generic: 󱠭
+  - button:
+    - generic: 󰩭
+  - button "replay":
+    - generic: replay
+  - button "replay" [disabled]:
+    - generic: replay
+  - button "filter_list":
+    - generic: filter_list
+  - button "Assistant":
+    - text: Assistant
+    - generic: 󰙴
+  - button "cloud_download":
+    - generic: cloud_download
+  - button "group_add":
+    - generic: group_add
+  - button "settings":
+    - generic: settings
+  - button:
+    - generic: 󰋽
+  - button "right_panel_open":
+    - generic: right_panel_open
+  - button "add_circle":
+    - generic: add_circle
+  - button "help":
+    - generic: help
+  - button "MCP":
+    - generic: MCP
+  - button "light_mode":
+    - generic: light_mode
+  - button "AH":
+    - generic: AH
+  - generic: Details for "QA Order betalad"
+  - button:
+    - generic: 󰤱
+  - button "close":
+    - generic: close
+  - tablist:
+    - tab "Cards" [selected]:
+      - generic: Cards
+    - tab "Data Fields":
+      - generic: Data Fields
+    - tab "File Uploads":
+      - generic: File Uploads
+    - tab:
+      - generic: 󰙴
+  - button "add":
+    - generic: add
+  - heading "User Story (3)" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - paragraph: QA R1 – Skapa order ÅÄÖ 🧪
+  - button:
+    - generic: 󰔓
+  - text: "1"
+  - button "thumb_down":
+    - generic: thumb_down
+  - button "chat_bubble":
+    - generic: chat_bubble
+  - text: "1"
+  - button "attach_file":
+    - generic: attach_file
+  - text: "1"
+  - button "delete":
+    - generic: delete
+  - generic: R1
+  - generic: AR
+  - paragraph: QA R2 – Bekräfta order
+  - paragraph: "Rad 2: \"citat\", komma; ÅÄÖ 🧪"
+  - button "thumb_up":
+    - generic: thumb_up
+  - button "thumb_down":
+    - generic: thumb_down
+  - button "chat_bubble":
+    - generic: chat_bubble
+  - button "attach_file":
+    - generic: attach_file
+  - button "delete":
+    - generic: delete
+  - generic: R2
+  - generic: AR
+  - generic: Show more
+  - generic: keyboard_double_arrow_down
+  - button "add":
+    - generic: add
+  - heading "Problem" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - button "add":
+    - generic: add
+  - heading "Opportunity" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - button "add":
+    - generic: add
+  - heading "Given-When-Then" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - button "add":
+    - generic: add
+  - heading "Command" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - paragraph: QA Skapa order
+  - button "thumb_up":
+    - generic: thumb_up
+  - button "thumb_down":
+    - generic: thumb_down
+  - button "chat_bubble":
+    - generic: chat_bubble
+  - button "attach_file":
+    - generic: attach_file
+  - button "delete":
+    - generic: delete
+  - generic: N/A
+  - generic: AR
+  - button "add":
+    - generic: add
+  - heading "Aggregate Root" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - combobox:
+    - generic: QA Order 2
+    - combobox
+    - button: 󰍝
+  - button "thumb_up":
+    - generic: thumb_up
+  - button "thumb_down":
+    - generic: thumb_down
+  - button "chat_bubble":
+    - generic: chat_bubble
+  - button "attach_file":
+    - generic: attach_file
+  - button "delete":
+    - generic: delete
+  - generic: N/A
+  - generic: AR
+  - button "add":
+    - generic: add
+  - heading "Read Model" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - combobox:
+    - generic: 󰛐
+    - text: QA Läsmodell order
+    - combobox
+    - button: 󰍝
+  - button "thumb_up":
+    - generic: thumb_up
+  - button "thumb_down":
+    - generic: thumb_down
+  - button "chat_bubble":
+    - generic: chat_bubble
+  - button "attach_file":
+    - generic: attach_file
+  - button "delete":
+    - generic: delete
+  - generic: N/A
+  - generic: AR
+  - button "add":
+    - generic: add
+  - heading "Domain Event" [level=4]
+  - button "temp_preferences_custom":
+    - generic: temp_preferences_custom
+  - generic: category
+  - generic: arrow_downward
+  - generic: 󰌸
+  - generic: delete
+  - generic: 󰲔
+  - generic: 󰃻
+  - generic: 󰆐
+  - generic: temp_preferences_custom
+  - text: 󰅁
+  - generic: Lane 1
+  - generic: Lane 2
+  - text: 󰅂
+  - button "add Add lane":
+    - generic: add
+    - text: Add lane
+  - button "add Add start point":
+    - generic: add
+    - text: Add start point
+  - button "add Add group":
+    - generic: add
+    - text: Add group
+  - tablist:
+    - tab "Domain Model":
+      - generic: Domain Model
+    - tab "Entities":
+      - generic: Entities
+    - tab "Read Models":
+      - generic: Read Models
+    - tab "Domain Events":
+      - generic: Domain Events
+    - tab "Backlog" [selected]:
+      - generic: Backlog
+    - tab "User Story Map":
+      - generic: User Story Map
+    - tab "History":
+      - generic: History
+  - checkbox "Show Done"
+  - generic: Show Done
+  - generic: Search
+  - textbox "Search"
+  - generic: 󰍉
+  - table:
+    - rowgroup:
+      - row "Row Reorder Description Type Release Lane / Event Actions":
+        - columnheader "Row":
+          - generic: Row
+        - columnheader "Reorder":
+          - generic: Reorder
+        - columnheader "Description":
+          - generic: Description
+        - columnheader "Type":
+          - generic: Type
+        - columnheader "Release":
+          - generic: Release
+        - columnheader "Lane / Event":
+          - generic: Lane / Event
+        - columnheader "Actions":
+          - generic: Actions
+    - rowgroup:
+      - cell "Release 1 add Add User Story":
+        - generic "Click to edit release name": Release 1
+        - button "add":
+          - generic: add
+        - generic: Add User Story
+      - row "1 QA R1 – Skapa order ÅÄÖ 🧪 1 thumb_down chat_bubble 1 attach_file 1 delete right_panel_open 19 minutes AR Show 1 reply User Story arrow_drop_down Release 1 arrow_drop_down Lane 1 / QA Order betalad more_horiz":
+        - cell "1"
+        - cell:
+          - button:
+            - generic: 󱋰
+        - cell "QA R1 – Skapa order ÅÄÖ 🧪 1 thumb_down chat_bubble 1 attach_file 1 delete right_panel_open 19 minutes AR Show 1 reply":
+          - paragraph: QA R1 – Skapa order ÅÄÖ 🧪
+          - button:
+            - generic: 󰔓
+          - text: "1"
+          - button "thumb_down":
+            - generic: thumb_down
+          - button "chat_bubble":
+            - generic: chat_bubble
+          - text: "1"
+          - button "attach_file":
+            - generic: attach_file
+          - text: "1"
+          - button "delete":
+            - generic: delete
+          - button "right_panel_open":
+            - generic: right_panel_open
+          - generic: 19 minutes
+          - generic: AR
+          - generic: 󰍝
+          - text: Show 1 reply
+        - cell "User Story arrow_drop_down":
+          - button "User Story arrow_drop_down":
+            - text: User Story
+            - generic: arrow_drop_down
+        - cell "Release 1 arrow_drop_down":
+          - button "Release 1 arrow_drop_down":
+            - text: Release 1
+            - generic: arrow_drop_down
+        - cell "Lane 1 / QA Order betalad"
+        - cell "more_horiz":
+          - button "more_horiz":
+            - generic: more_horiz
+      - cell "Release 2 add Add User Story":
+        - generic "Click to edit release name": Release 2
+        - button "add":
+          - generic: add
+        - generic: Add User Story
+      - 'row "2 QA R2 – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 thumb_up thumb_down chat_bubble attach_file delete right_panel_open 19 minutes AR User Story arrow_drop_down Release 2 arrow_drop_down Lane 1 / QA Order betalad more_horiz"':
+        - cell "2"
+        - cell:
+          - button:
+            - generic: 󱋰
+        - 'cell "QA R2 – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 thumb_up thumb_down chat_bubble attach_file delete right_panel_open 19 minutes AR"':
+          - paragraph: QA R2 – Bekräfta order
+          - paragraph: "Rad 2: \"citat\", komma; ÅÄÖ 🧪"
+          - button "thumb_up":
+            - generic: thumb_up
+          - button "thumb_down":
+            - generic: thumb_down
+          - button "chat_bubble":
+            - generic: chat_bubble
+          - button "attach_file":
+            - generic: attach_file
+          - button "delete":
+            - generic: delete
+          - button "right_panel_open":
+            - generic: right_panel_open
+          - generic: 19 minutes
+          - generic: AR
+        - cell "User Story arrow_drop_down":
+          - button "User Story arrow_drop_down":
+            - text: User Story
+            - generic: arrow_drop_down
+        - cell "Release 2 arrow_drop_down":
+          - button "Release 2 arrow_drop_down":
+            - text: Release 2
+            - generic: arrow_drop_down
+        - cell "Lane 1 / QA Order betalad"
+        - cell "more_horiz":
+          - button "more_horiz":
+            - generic: more_horiz
+      - 'row "3 QA KOPIA – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 thumb_up thumb_down chat_bubble attach_file delete right_panel_open 16 minutes AR User Story arrow_drop_down Release 2 arrow_drop_down Lane 1 / QA Order betalad more_horiz"':
+        - cell "3"
+        - cell:
+          - button:
+            - generic: 󱋰
+        - 'cell "QA KOPIA – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 thumb_up thumb_down chat_bubble attach_file delete right_panel_open 16 minutes AR"':
+          - paragraph: QA KOPIA – Bekräfta order
+          - paragraph: "Rad 2: \"citat\", komma; ÅÄÖ 🧪"
+          - button "thumb_up":
+            - generic: thumb_up
+          - button "thumb_down":
+            - generic: thumb_down
+          - button "chat_bubble":
+            - generic: chat_bubble
+          - button "attach_file":
+            - generic: attach_file
+          - button "delete":
+            - generic: delete
+          - button "right_panel_open":
+            - generic: right_panel_open
+          - generic: 16 minutes
+          - generic: AR
+        - cell "User Story arrow_drop_down":
+          - button "User Story arrow_drop_down":
+            - text: User Story
+            - generic: arrow_drop_down
+        - cell "Release 2 arrow_drop_down":
+          - button "Release 2 arrow_drop_down":
+            - text: Release 2
+            - generic: arrow_drop_down
+        - cell "Lane 1 / QA Order betalad"
+        - cell "more_horiz":
+          - button "more_horiz":
+            - generic: more_horiz
+  - button "add":
+    - generic: add
+  - generic: Add User Story to the selected event
+- contentinfo:
+  - generic: © 2026 Qlerify
+  - link "Terms of Service & Privacy Policy":
+    - /url: ../../Qlerify_terms_of_service_and_privacy_policy.pdf
+  - link "Cookie Policy":
+    - /url: https://www.qlerify.com/cookie-policy
+  - link "Cookie settings":
+    - /url: "#"
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- dialog:
+  - generic: Attachments
+  - button "close":
+    - generic: close
+  - figure
+  - generic: 󰌷
+  - link "https://inte-en-länk":
+    - /url: https://inte-en-länk
+  - link:
+    - /url: https://inte-en-länk
+    - generic: 󰏌
+  - button:
+    - generic: 󰩺
+  - separator
+  - generic: upload
+  - generic: Drop files here or click here to upload.
+  - separator
+  - textbox "Paste any link here"
+  - alert
+  - button "Attach" [disabled]:
+    - generic: Attach

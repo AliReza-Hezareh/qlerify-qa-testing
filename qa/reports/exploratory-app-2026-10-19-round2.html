@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
+  <title>Qlerify – testrapport, andra omgången 2026-10-19</title>
+  <style>
+    :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
+    header { background:#101828; color:#fff; padding:28px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { font-size:1.7rem; margin:0 0 8px; } header p { margin:0; color:#eaecf0; }
+    main { max-width:1228px; padding:24px; margin:auto; } section,article { background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px; margin-bottom:20px; }
+    h1,h2,h3,h4 { line-height:1.3; } article h1 { font-size:1.9rem; margin-top:0; } h2 { margin-top:32px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+    section h2 { margin-top:0; } p,li { overflow-wrap:anywhere; } a { color:var(--blue); text-underline-offset:3px; } a:focus-visible,[tabindex]:focus-visible { outline:3px solid #1570ef; outline-offset:3px; }
+    pre { background:#101828; color:#f9fafb; padding:16px; border-radius:6px; overflow:auto; font-size:.9rem; } code { font-family:Consolas,monospace; } :not(pre)>code { background:#eef2f6; padding:2px 5px; border-radius:4px; white-space:break-spaces; }
+    .table-scroll { overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:6px; } table { border-collapse:collapse; width:100%; font-size:.94rem; min-width:580px; } th,td { padding:12px; border-bottom:1px solid #eaecf0; text-align:left; vertical-align:top; } th { background:#eef2f6; } tbody tr:nth-child(even) { background:#f9fafb; } tr:last-child td { border-bottom:0; }
+    img { display:block; max-width:100%; height:auto; border:1px solid var(--line); margin:16px 0; } .links { display:flex; gap:20px; flex-wrap:wrap; } footer { color:var(--muted); font-size:.9rem; padding:0 0 24px; } hr { border:0; border-top:1px solid var(--line); margin:28px 0; }
+    @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
+    @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
+  </style>
+</head>
+<body>
+  <header><h1>Qlerify – testrapport, andra omgången 2026-10-19</h1><p>exploratory-app-2026-10-19-round2 · Testresultat, bekräftade fel och avgränsningar</p></header>
+  <main>
+    <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-19-round2
+Start-Process .\qa\reports\exploratory-app-2026-10-19-round2.html
+
+# Löpande uppdatering efter ändringar i Markdown-rapporten:
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-19-round2 --watch</code></pre><div class="links"><a href="exploratory-app-2026-10-19-round2.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+    <article><h1>Qlerify – testrapport, andra omgången 2026-10-19</h1>
+<h2>1. Sammanfattning</h2>
+<p>Jag skapade ett nytt arbetsflöde och testade vanliga och negativa användarflöden med egna testdata. Två nya fel hittades: en snabb följd av ändringar tappar den andra åtgärden och CSV-förhandsvisningen slår ihop två textrader utan mellanrum.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Resultat</th><th scope="col">Antal</th></tr></thead><tbody><tr><td>Dokumenterade kontrollpunkter</td><td>48</td></tr>
+<tr><td>Körda med slutligt Pass eller Fail</td><td>39</td></tr>
+<tr><td>Pass</td><td>37</td></tr>
+<tr><td>Fail</td><td>2</td></tr>
+<tr><td>Blocked</td><td>5</td></tr>
+<tr><td>Ej körda</td><td>4</td></tr></tbody></table></div>
+<p>Pass rate: 37 / 39 × 100 = 94,87 %. Fail rate: 2 / 39 × 100 = 5,13 %. Blocked och Ej körda ingår inte i nämnaren. Kontrollpunkterna är manuella kontroller, inte 39 automatiska testfall. Upprepade försök med samma kontroll räknas en gång.</p>
+<p>QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.</p>
+<h2>2. Omfattning och miljö</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Uppgift</th><th scope="col">Underlag</th></tr></thead><tbody><tr><td>Datum</td><td>2026-10-19</td></tr>
+<tr><td>Miljö</td><td>Qlerifys skarpa webbapp, befintlig inloggad session</td></tr>
+<tr><td>Plattform</td><td>Windows, inbyggd Chromium-baserad webbläsare</td></tr>
+<tr><td>Appversion</td><td>Observerad resurs: app.9855aa4c.js. Release- eller byggnummer visades inte.</td></tr>
+<tr><td>Skärm</td><td>Skrivbordsvy. Inställningen 1440 × 900 gav vid senare DOM-avläsning 1309 × 818 CSS-pixlar. Exakt jämförbar skärmmiljö är därför inte fastställd.</td></tr>
+<tr><td>Testobjekt</td><td>QA 2026-10-19 – flöden och edge cases 2</td></tr>
+<tr><td>Testdata</td><td>Två händelser, två banor, tre User Story-kort, två entiteter, Command, Aggregate Root, Read Model och Domain Event</td></tr>
+<tr><td>Inspelning</td><td>Skärmbilder och textbevis sparades. Ingen video spelades in.</td></tr></tbody></table></div>
+<p><a href="https://app.qlerify.com/workflow/8cc598e8-dd91-497c-aaa1-5e62ac66a36f/e9a7ff7a-1ced-42d9-87e6-2dc106d12e03">Öppna det nya QA-arbetsflödet</a>.</p>
+<p>Jag testade skapande, redigering, lagring efter omladdning, snabb följd av ändringar, releaser, filter, sökning, duplicering, Done/Reopen, kommentarer, röstning, entitetsfält, relationer, modellkopplingar, exportförhandsvisning, bilagelänk, historik och Ångra/Gör om.</p>
+<p>Jag ändrade bara syntetiska data i det nya QA-arbetsflödet. Jag loggade inte in, ändrade inga behörigheter och skickade inga inbjudningar. Appens källkod ändrades inte. Tidigare fynd i den första rapporten räknas inte som omtestade mot den här resursversionen.</p>
+<h2>3. Detaljerade testresultat</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">ID</th><th scope="col">Kontroll</th><th scope="col">Status</th><th scope="col">Förväntat och faktiskt resultat</th><th scope="col">Bugg/bevis</th></tr></thead><tbody><tr><td>R2-001</td><td>Dashboard och nytt arbetsflöde</td><td>Pass</td><td>Nytt namngivet arbetsflöde skapades i My first project och öppnades.</td><td>Slutbild</td></tr>
+<tr><td>R2-002</td><td>Startpunkt och kopplad händelse</td><td>Pass</td><td>Två händelser skapades med en synlig koppling.</td><td>Slutbild</td></tr>
+<tr><td>R2-003</td><td>Ändra händelsens namn</td><td>Pass</td><td>QA Order startad och QA Order betalad visades och sparades.</td><td>Historik</td></tr>
+<tr><td>R2-004</td><td>Namnändring direkt följd av Add lane</td><td>Fail</td><td>Båda åtgärderna skulle sparas eller den nya åtgärden stoppas tydligt. Namnet sparades men banan saknades och en konflikt visades. Två försök gav samma fel.</td><td>APP-005</td></tr>
+<tr><td>R2-005</td><td>Add lane efter avslutad lagring</td><td>Pass</td><td>Lane 2 skapades vid en separat åtgärd.</td><td>APP-005 kontrollförsök</td></tr>
+<tr><td>R2-006</td><td>Omladdning av arbetsflödet</td><td>Pass</td><td>Namn, två händelser och två banor fanns kvar. Ingen Lane 3 fanns efter den misslyckade följdåtgärden.</td><td>APP-005 efter omladdning</td></tr>
+<tr><td>R2-007</td><td>Skapa User Story-kort</td><td>Pass</td><td>Kort skapades och kopplades till QA Order betalad.</td><td>Historik</td></tr>
+<tr><td>R2-008</td><td>ÅÄÖ, emoji, citattecken och två textrader</td><td>Pass</td><td>Kortets två stycken och tecken fanns kvar i backloggen efter omladdning.</td><td>CSV-underlag och slutbild</td></tr>
+<tr><td>R2-009</td><td>Tilldela Release 1 och Release 2</td><td>Pass</td><td>Kortens releaser visades i backlogg och User Story Map.</td><td>Filterbevis</td></tr>
+<tr><td>R2-010</td><td>Filtrera bara Release 1</td><td>Pass</td><td>Bara R1-kortet visades i kartan.</td><td>Filterbevis</td></tr>
+<tr><td>R2-011</td><td>Filtrera bara Release 2</td><td>Pass</td><td>Bara R2-kortet visades före duplicering.</td><td>Filterbevis</td></tr>
+<tr><td>R2-012</td><td>Filtrera båda releaserna</td><td>Pass</td><td>Båda korten visades.</td><td>Filterbevis</td></tr>
+<tr><td>R2-013</td><td>Rensa releasefilter</td><td>Pass</td><td>Båda korten kom tillbaka.</td><td>Filterbevis</td></tr>
+<tr><td>R2-014</td><td>Duplicera ett kort</td><td>Pass</td><td>Kopian behöll text, radbrytning, tecken, typ, release och händelse. Kopian kunde namnändras separat.</td><td>Historik och CSV-underlag</td></tr>
+<tr><td>R2-015</td><td>Markera kort som Done</td><td>Pass</td><td>Kortet doldes när Show Done var avstängt.</td><td>Historik</td></tr>
+<tr><td>R2-016</td><td>Visa slutfört kort</td><td>Pass</td><td>Det slutförda kortet kunde visas med Show Done. Ingen bedömning gjordes av om aktiva kort också ska visas i det läget.</td><td>Historik</td></tr>
+<tr><td>R2-017</td><td>Reopen</td><td>Pass</td><td>Kortet blev aktivt igen och visades när Show Done stängdes av.</td><td>Historik</td></tr>
+<tr><td>R2-018</td><td>Rösta på kort</td><td>Pass</td><td>En röst visades och fanns kvar efter omladdning.</td><td>Kommentar/röstbild</td></tr>
+<tr><td>R2-019</td><td>Kommentar med bara blanksteg</td><td>Pass</td><td>Skicka-knappen var inaktiverad. Ingen tom kommentar skapades.</td><td>Manuell UI-kontroll</td></tr>
+<tr><td>R2-020</td><td>Kommentar med ÅÄÖ och emoji</td><td>Pass</td><td>Kommentaren sparades. Efter omladdning visades en kommentar och dess text fanns i CSV-förhandsvisningen.</td><td>Kommentarbild och CSV-underlag</td></tr>
+<tr><td>R2-021</td><td>Skapa och namnändra entiteter/fält</td><td>Pass</td><td>QA Order 2, QA Kund 2 och orderId visades med sparade namn.</td><td>Fältbevis</td></tr>
+<tr><td>R2-022</td><td>Required och Primary key</td><td>Pass</td><td>Inställningarna fanns kvar efter fullständig omladdning. Menyn visade Set as optional och Remove key.</td><td>Sparat fältbevis</td></tr>
+<tr><td>R2-023</td><td>Exempelvärde på entitetsfält</td><td>Pass</td><td>QA-ORDER-001 sparades som Example 1.</td><td>Command-bild</td></tr>
+<tr><td>R2-024</td><td>Object-relation med 1:N</td><td>Pass</td><td>kund pekade på QA Kund 2 med 1:N även efter omladdning.</td><td>Relationsbild och fältbevis</td></tr>
+<tr><td>R2-025</td><td>Command och begränsning till ett kort</td><td>Pass</td><td>QA Skapa order skapades. Försök att lägga till ett andra Command stoppades med text om max ett kort per händelse.</td><td>Command-bild</td></tr>
+<tr><td>R2-026</td><td>Aggregate Root och begränsning</td><td>Pass</td><td>QA Order 2 kopplades. Ytterligare Aggregate Root stoppades med text om max ett kort.</td><td>Fältbevis och slutbild</td></tr>
+<tr><td>R2-027</td><td>Command-fält och Data Fields</td><td>Pass</td><td>Val av orderId gav en förhandsvisning med Example 1 of 1 och QA-ORDER-001.</td><td>Command-bild</td></tr>
+<tr><td>R2-028</td><td>Skapa läsmodell</td><td>Pass</td><td>QA Läsmodell order skapades och orderId lades till.</td><td>Läsmodellbevis</td></tr>
+<tr><td>R2-029</td><td>Entitetskoppling och Single Item</td><td>Pass</td><td>QA Order 2, orderId och Single Item fanns kvar efter omladdning.</td><td>Läsmodellbevis</td></tr>
+<tr><td>R2-030</td><td>Länka befintlig läsmodell till kort</td><td>Pass</td><td>Kortet pekade på QA Läsmodell order efter omladdning.</td><td>Läsmodellbevis och slutbild</td></tr>
+<tr><td>R2-031</td><td>Textgränser i CSV-förhandsvisningen</td><td>Fail</td><td>Två textrader skulle behålla en synlig gräns. De blev orderRad 2 utan mellanrum.</td><td>APP-006</td></tr>
+<tr><td>R2-032</td><td>Hämta och läsa exporterad CSV</td><td>Blocked</td><td>Exportknappen användes. Testverktyget fångade ingen nedladdning inom 15 sekunder. Filens innehåll och CSV-escaping kunde inte verifieras.</td><td>CSV-underlag</td></tr>
+<tr><td>R2-033</td><td>File Uploads utan filer</td><td>Pass</td><td>En tydlig tomvy visades med besked att bilagor läggs på kort.</td><td>Manuell UI-kontroll</td></tr>
+<tr><td>R2-034</td><td>Bilagelänk utan protokoll</td><td>Pass</td><td>inte-en-länk sparades som en länk med https-prefix och IDN-domän. Länkens externa mål öppnades inte. Ingen verifiering av domänens existens förväntades.</td><td>Bilagebevis</td></tr>
+<tr><td>R2-035</td><td>Ändra release på befintligt kort</td><td>Pass</td><td>R2-kortet flyttades från Release 2 till Release 1. R1 syntes även efter omladdning. Kopian låg kvar i Release 2.</td><td>Historik och slutbild</td></tr>
+<tr><td>R2-036</td><td>Sökning med träff</td><td>Pass</td><td>Sökningen KOPIA visade bara kopian i backloggtabellen.</td><td>Manuell UI-kontroll</td></tr>
+<tr><td>R2-037</td><td>Sökning utan träff och rensning</td><td>Pass</td><td>QA-FINNS-INTE-987654 gav inga kortrader. Sökningen rensades.</td><td>Manuell UI-kontroll</td></tr>
+<tr><td>R2-038</td><td>Ändringshistorik</td><td>Pass</td><td>Historiken visade skapande, namnändringar, Done/Reopen, fält och senaste releaseändring i följd.</td><td>Historikbevis</td></tr>
+<tr><td>R2-039</td><td>Domänhändelsens schema och länk</td><td>Pass</td><td>QA OrderBetalad skapades, kopplades till QA Order 2 och valdes på Domain Event-kortet.</td><td>Slutbild</td></tr>
+<tr><td>R2-040</td><td>Ångra/Gör om för namnändring</td><td>Pass</td><td>Ångra tog bort tillägget ÅÄÖ från schemats namn. Gör om återställde det. Detaljpanelen stängdes först så att knapparna var fria.</td><td>Ångra/Gör om-bevis</td></tr>
+<tr><td>R2-041</td><td>Normal och tom filuppladdning</td><td>Blocked</td><td>Uppladdning av två syntetiska filer inväntar särskilt godkännande. Inga filer skickades.</td><td>Avgränsning</td></tr>
+<tr><td>R2-042</td><td>Rollstyrning och åtkomst mellan konton</td><td>Blocked</td><td>Ett andra konto med annan roll saknades. Ingen serverbehörighet kan godkännas från denna körning.</td><td>Avgränsning</td></tr>
+<tr><td>R2-043</td><td>Negativa API-payloads och rate limiting</td><td>Blocked</td><td>API-kontrakt och avgränsad testmiljö för manipulerade anrop saknades.</td><td>Avgränsning</td></tr>
+<tr><td>R2-044</td><td>Last, samtidighet och databasbegränsningar</td><td>Blocked</td><td>Ingen avgränsad lastmiljö, mätgräns eller direkt databasåtkomst fanns. Snabb UI-redigering är inte ett lasttest.</td><td>Avgränsning</td></tr>
+<tr><td>R2-045</td><td>Logout, utgången session och ny inloggning</td><td>Ej körda</td><td>Den befintliga sessionen behölls. Ingen inloggning utfördes.</td><td>Avgränsning</td></tr>
+<tr><td>R2-046</td><td>Lagrad XSS, IDOR och tokenmanipulation</td><td>Ej körda</td><td>Ingen sådan säkerhetskontroll genomfördes i denna omgång. Inga säkerhetsgarantier lämnas.</td><td>Avgränsning</td></tr>
+<tr><td>R2-047</td><td>Permanent radering och återställning</td><td>Ej körda</td><td>Inga testobjekt raderades permanent och ingen äldre version återställdes över arbetsflödet. Ångra/Gör om kontrollerades separat.</td><td>Avgränsning</td></tr>
+<tr><td>R2-048</td><td>Integrationer, delning och övriga kombinationer</td><td>Ej körda</td><td>Jira, Azure DevOps, inbjudningar, generering och alla kombinationer av modellfält testades inte.</td><td>Avgränsning</td></tr></tbody></table></div>
+<h2>4. Buggsammanfattning</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Severity</th><th scope="col">Nya bekräftade buggar</th></tr></thead><tbody><tr><td>Critical</td><td>0</td></tr>
+<tr><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>1</td></tr>
+<tr><td>Low</td><td>1</td></tr></tbody></table></div>
+<p>Noll Critical eller High betyder att inga sådana fel bekräftades inom denna täckning. Det är inte ett bevis för att systemet saknar allvarliga fel.</p>
+<h3>APP-005 – snabb namnändring följd av Add lane tappar den nya banan</h3>
+<ul><li>Severity: Medium. Priority: P2. Status: Öppen.</li>
+<li>Risk: vanliga snabba redigeringar kan tappa en åtgärd och kräva ett nytt försök.</li>
+<li>Testobjekt: det nya QA-arbetsflödet, In Progress. Ingen annan redigerare användes på detta arbetsflöde under försöken.</li></ul>
+<p>Reproduktion:</p>
+<ol><li>Skapa ett arbetsflöde med två kopplade händelser.</li>
+<li>Ändra den andra händelsens namn från New event till QA Order godkänd och tryck Enter.</li>
+<li>Klicka direkt på Add lane.</li>
+<li>Kontrollera meddelandet och antalet banor efter att vyn har laddat klart.</li>
+<li>Klicka separat på Add lane när föregående lagring är klar. Lane 2 skapas.</li>
+<li>Ändra QA Order godkänd till QA Order betalad, tryck Enter och klicka direkt på Add lane.</li>
+<li>Ladda om arbetsflödet. Lane 2 finns, Lane 3 saknas.</li></ol>
+<p><strong>Förväntat:</strong> namnändringen och den nya banan sparas. Om lagring fortfarande pågår ska den nya åtgärden köas eller blockeras tydligt innan den skickas.</p>
+<p><strong>Faktiskt:</strong> namnet sparas men Add lane utförs inte. Meddelandet är: “This item was modified by another user. Refreshing with the latest version.” Samma beteende sågs två gånger. Add lane fungerar när den körs separat efter sparning.</p>
+<p>Logg avläst i webbläsarens konsol vid de två misslyckade försöken:</p>
+<pre><code class="language-text">2026-10-19T14:07:17.147Z
+Error: GraphQL error: The conditional request failed
+(Service: DynamoDb, Status Code: 400, SDK Attempt Count: 1)
+at u.query (https://app.qlerify.com/js/app.9855aa4c.js:1:52296)
+at async ne.updateWorkflow (https://app.qlerify.com/js/app.9855aa4c.js:1:1974116)
+
+2026-10-19T14:07:55.601Z
+Samma feltyp: GraphQL error / The conditional request failed / DynamoDb 400.</code></pre>
+<p>Loggutdraget är återgivet från konsolavläsningen under försöken. Konsolen nollställdes vid en senare omladdning. Någon fullständig nätverksspårning sparades inte.</p>
+<p><strong>Möjlig orsak, inte bekräftad:</strong> två uppdateringar kan använda samma äldre versionsvärde innan den första uppdateringen hunnit bli klar. Serverns villkor stoppar då den andra uppdateringen. Källkod och serverloggar har inte granskats.</p>
+<p><a href="../evidence/exploratory-2026-10-19-round2/APP-005-fast-edit-conflict.jpg"><img src="../evidence/exploratory-2026-10-19-round2/APP-005-fast-edit-conflict.jpg" alt="APP-005 – konflikt efter snabb följd av ändringar" loading="lazy"></a></p>
+<p><a href="../evidence/exploratory-2026-10-19-round2/APP-005-fast-edit-conflict.txt">DOM-utdrag efter försöket</a> · <a href="../evidence/exploratory-2026-10-19-round2/APP-005-after-reload.jpg">Efter omladdning</a>. Konfliktmeddelandet syns i skärmbilden ovan.</p>
+<h3>APP-006 – CSV-förhandsvisningen tar bort gränsen mellan två textrader</h3>
+<ul><li>Severity: Low. Priority: P2. Status: Öppen.</li>
+<li>Risk: korttexten blir svårare att läsa och två ord kan bli ett i förhandsvisningen.</li>
+<li>Omfattning: endast förhandsvisningen. Den nedladdade filen har inte verifierats.</li></ul>
+<p>Reproduktion:</p>
+<ol><li>Lägg ett User Story-kort på en händelse.</li>
+<li>Skriv första raden QA R2 – Bekräfta order.</li>
+<li>Tryck Enter och skriv Rad 2: &quot;citat&quot;, komma; ÅÄÖ 🧪.</li>
+<li>Kontrollera att backloggen visar två stycken. Ladda om och kontrollera igen.</li>
+<li>Öppna Export/import → Export CSV.</li>
+<li>Läs kolumnen Card för samma kort.</li></ol>
+<p><strong>Förväntat:</strong> textens gräns mellan de två raderna bevaras som en radbrytning eller åtminstone ett mellanrum i förhandsvisningen.</p>
+<p><strong>Faktiskt:</strong> förhandsvisningen visar QA R2 – Bekräfta orderRad 2: &quot;citat&quot;, komma; ÅÄÖ 🧪. Samma hopslagning syns på den duplicerade texten. ÅÄÖ, emoji och citattecken visas. Något konsolfel kopplat till denna textavvikelse noterades inte.</p>
+<p><strong>Möjlig orsak, inte bekräftad:</strong> HTML-stycken kan ha omvandlats till text utan avskiljare. Ingen granskning av exportkoden har gjorts.</p>
+<p><a href="../evidence/exploratory-2026-10-19-round2/TC-csv-preview.jpg"><img src="../evidence/exploratory-2026-10-19-round2/TC-csv-preview.jpg" alt="APP-006 – hopslagna rader i CSV-förhandsvisningen" loading="lazy"></a></p>
+<p><a href="../evidence/exploratory-2026-10-19-round2/APP-006-csv-preview.json">Textutdrag från förhandsvisningen</a> · <a href="../evidence/exploratory-2026-10-19-round2/TC-csv-preview.txt">Hela synliga underlaget</a>.</p>
+<h2>5. Kvalitetsbedömning</h2>
+<p>Körningen ger inte underlag för att godkänna hela appen för release. Ett fel i snabb redigering är öppet. Exportförhandsvisningen har en textavvikelse och filens faktiska innehåll återstår att kontrollera. Behörigheter, säkerhetsgränser, last och återställning är inte godkända genom denna session.</p>
+<p>Flera grundflöden fungerade: skapande, vanliga sparade ändringar, releaser, filter, duplicering, Done/Reopen, sökning, modeller och historik. Resultatet gäller de angivna testdata och stegen.</p>
+<h2>6. Avvikelser och begränsningar</h2>
+<ul><li>CSV-nedladdningen kunde inte fångas. Verktygets timeout registreras som Blocked, inte som en bekräftad produktbugg eller ett prestandamått.</li>
+<li>Filuppladdning väntar på särskilt godkännande. En syntetisk bilagelänk skapades, men dess mål besöktes inte.</li>
+<li>Direkt efter omladdning saknades viss metadata tillfälligt i avläsningen. När sidan hade laddat färdigt fanns metadata kvar. Detta räknas inte som dataförlust.</li>
+<li>Ångra/Gör om kontrollerades med detaljpanelen stängd. Klick mot en täckt knapp används inte som bevis för ett funktionsfel.</li>
+<li>Ett fel från HelpHero med texten Inactive app förekom i konsolen. Ingen funktionell påverkan bevisades och det räknas inte som en ny produktbugg.</li>
+<li>Hela automatiska testsviten kördes inte. Den här rapporten ersätter inte dess tidigare resultat.</li>
+<li>Alla möjliga kombinationer, webbläsare, skärmar och säkerhetsscenarier är inte testade.</li></ul>
+<h2>7. Beslut och spårbarhet</h2>
+<p><strong>Beslut för denna körning: inte godkänd.</strong> APP-005 och APP-006 är öppna. Blockerade områden har inget godkänt resultat. Inget övergripande Go-beslut kan lämnas.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Underlag</th><th scope="col">Fil</th></tr></thead><tbody><tr><td>Första testomgången</td><td><a href="exploratory-app-2026-10-19.md">Tidigare rapport</a></td></tr>
+<tr><td>Filter: R1, R2, båda och rensning</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-release-filter.json">Observerad korttext per filter</a></td></tr>
+<tr><td>Kommentar och röst</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-card-comment-vote.jpg">Skärmbild</a></td></tr>
+<tr><td>Required, key och relation</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-field-metadata-persisted.txt">Sparat textbevis</a></td></tr>
+<tr><td>Entiteter och relation</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-entity-relation-metadata.jpg">Skärmbild</a></td></tr>
+<tr><td>Command och exempeldata</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-command-preview.jpg">Skärmbild</a></td></tr>
+<tr><td>Läsmodell efter omladdning</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-read-model-persisted.jpg">Skärmbild</a> och <a href="../evidence/exploratory-2026-10-19-round2/TC-read-model-persisted.txt">textbevis</a></td></tr>
+<tr><td>Bilagelänk</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-attachment-link.txt">Textbevis</a></td></tr>
+<tr><td>Historik före de sista schemaändringarna</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-history.txt">Textbevis</a></td></tr>
+<tr><td>Ångra/Gör om</td><td><a href="../evidence/exploratory-2026-10-19-round2/TC-undo-redo.txt">Textbevis</a></td></tr>
+<tr><td>Arbetsflödet vid avslut</td><td><a href="../evidence/exploratory-2026-10-19-round2/workflow-final.jpg">Slutbild</a> och <a href="../evidence/exploratory-2026-10-19-round2/workflow-final.txt">slutligt textbevis</a></td></tr></tbody></table></div>
+<p>Förväntningarna för entiteter, Object-relationer och Data Fields jämfördes med <a href="https://www.qlerify.com/domain-driven-design-tool">Qlerifys beskrivning av domänmodellering</a>, läst 2026-10-19. Övriga förväntningar i denna rapport utgår från angivna användarhandlingar och synligt UI. <a href="https://www.rfc-editor.org/info/rfc4180/">RFC 4180</a> användes som underlag för planerad filkontroll; ingen slutsats om CSV-filens format kan dras innan filen har lästs.</p>
+<p>Arbetsflödet lämnas kvar i In Progress med syntetiska testdata. Ingen applikationskod ändrades.</p></article>
+    <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "afterRedo": [
+    {
+      "description": "Undo: Ali Reza Hezareh renamed schema QA OrderBetalad → QA OrderBeta...",
+      "disabled": false
+    },
+    {
+      "description": "Redo: Ali Reza Hezareh restored workflow version 50",
+      "disabled": true
+    }
+  ],
+  "names": [
+    "QA 2026-10-19 – flöden och edge cases 2",
+    "QA Order betalad",
+    "QA OrderBetalad ÅÄÖ"
+  ],
+  "observedAfterUndo": "QA OrderBetalad; Redo enabled",
+  "observedAfterRedo": "QA OrderBetalad ÅÄÖ"
+}

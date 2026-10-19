@@ -1,0 +1,213 @@
+- main:
+  - img "Qlerify logo"
+  - button "home":
+    - generic: home
+  - generic: Ali Reza's organisation
+  - generic: arrow_forward_ios
+  - generic: My first project
+  - generic: arrow_forward_ios
+  - generic: account_tree
+  - generic "Click to edit": QA 2026-10-19 – flöden och edge cases 2
+  - generic: keyboard_arrow_down
+  - button:
+    - generic: 󱠭
+  - button:
+    - generic: 󰩭
+  - button "replay":
+    - generic: replay
+  - button "replay" [disabled]:
+    - generic: replay
+  - button "filter_list":
+    - generic: filter_list
+  - button "Assistant":
+    - text: Assistant
+    - generic: 󰙴
+  - button "cloud_download":
+    - generic: cloud_download
+  - button "group_add":
+    - generic: group_add
+  - button "settings":
+    - generic: settings
+  - button:
+    - generic: 󰋽
+  - button "right_panel_open":
+    - generic: right_panel_open
+  - button "add_circle":
+    - generic: add_circle
+  - button "help":
+    - generic: help
+  - button "MCP":
+    - generic: MCP
+  - button "light_mode":
+    - generic: light_mode
+  - button "AH":
+    - generic: AH
+  - text: 󰤱 󰙴 󰔓 󰍝 󰛐 󰍝 󰍝
+  - generic: category
+  - generic: arrow_downward
+  - generic: 󰌸
+  - generic: delete
+  - generic: 󰲔
+  - generic: 󰃻
+  - generic: 󰆐
+  - generic: temp_preferences_custom
+  - text: 󰅁
+  - generic: Lane 1
+  - generic: Lane 2
+  - text: 󰅂
+  - button "add Add lane":
+    - generic: add
+    - text: Add lane
+  - button "add Add start point":
+    - generic: add
+    - text: Add start point
+  - button "add Add group":
+    - generic: add
+    - text: Add group
+  - tablist:
+    - tab "Domain Model":
+      - generic: Domain Model
+    - tab "Entities":
+      - generic: Entities
+    - tab "Read Models":
+      - generic: Read Models
+    - tab "Domain Events":
+      - generic: Domain Events
+    - tab "Backlog":
+      - generic: Backlog
+    - tab "User Story Map" [selected]:
+      - generic: User Story Map
+    - tab "History":
+      - generic: History
+  - checkbox "Show Done"
+  - generic: Show Done
+  - generic: Search
+  - textbox "Search"
+  - generic: 󰍉
+  - table:
+    - rowgroup
+    - rowgroup:
+      - generic "Click to edit release name": Release 1
+      - row "QA R1 – Skapa order ÅÄÖ 🧪 R1 right_panel_open AR Show 1 reply":
+        - cell
+        - cell
+        - cell
+        - cell "QA R1 – Skapa order ÅÄÖ 🧪 R1 right_panel_open AR Show 1 reply":
+          - paragraph: QA R1 – Skapa order ÅÄÖ 🧪
+          - generic: R1
+          - button "right_panel_open":
+            - generic: right_panel_open
+          - generic: AR
+          - generic: 󰍝
+          - text: Show 1 reply
+        - cell
+      - 'row "QA R2 – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 R1 right_panel_open AR"':
+        - cell
+        - cell
+        - cell
+        - 'cell "QA R2 – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 R1 right_panel_open AR"':
+          - paragraph: QA R2 – Bekräfta order
+          - paragraph: "Rad 2: \"citat\", komma; ÅÄÖ 🧪"
+          - generic: R1
+          - button "right_panel_open":
+            - generic: right_panel_open
+          - generic: AR
+        - cell
+      - generic "Click to edit release name": Release 2
+      - 'row "QA KOPIA – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 R2 right_panel_open AR"':
+        - cell
+        - cell
+        - cell
+        - 'cell "QA KOPIA – Bekräfta order Rad 2: \"citat\", komma; ÅÄÖ 🧪 R2 right_panel_open AR"':
+          - paragraph: QA KOPIA – Bekräfta order
+          - paragraph: "Rad 2: \"citat\", komma; ÅÄÖ 🧪"
+          - generic: R2
+          - button "right_panel_open":
+            - generic: right_panel_open
+          - generic: AR
+        - cell
+  - button "add":
+    - generic: add
+  - generic: Add User Story to the selected event
+- contentinfo:
+  - generic: © 2026 Qlerify
+  - link "Terms of Service & Privacy Policy":
+    - /url: ../../Qlerify_terms_of_service_and_privacy_policy.pdf
+  - link "Cookie Policy":
+    - /url: https://www.qlerify.com/cookie-policy
+  - link "Cookie settings":
+    - /url: "#"
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip "Workflow settings":
+  - generic: Workflow settings
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip

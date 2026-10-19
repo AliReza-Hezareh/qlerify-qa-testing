@@ -1,0 +1,18 @@
+[
+  {
+    "filter": "R1",
+    "text": "Release 1\n\t\t\t\n\nQA R1 – Skapa order ÅÄÖ 🧪\n\nR1\nright_panel_open\nAR\n\t"
+  },
+  {
+    "filter": "R1+R2",
+    "text": "Release 1\n\t\t\t\n\nQA R1 – Skapa order ÅÄÖ 🧪\n\nR1\nright_panel_open\nAR\n\t\n\nRelease 2\n\t\t\t\n\nQA R2 – Bekräfta order\n\nRad 2: \"citat\", komma; ÅÄÖ 🧪\n\nR2\nright_panel_open\nAR\n\t"
+  },
+  {
+    "filter": "R2",
+    "text": "Release 2\n\t\t\t\n\nQA R2 – Bekräfta order\n\nRad 2: \"citat\", komma; ÅÄÖ 🧪\n\nR2\nright_panel_open\nAR\n\t"
+  },
+  {
+    "filter": "clear",
+    "text": "Release 1\n\t\t\t\n\nQA R1 – Skapa order ÅÄÖ 🧪\n\nR1\nright_panel_open\nAR\n\t\n\nRelease 2\n\t\t\t\n\nQA R2 – Bekräfta order\n\nRad 2: \"citat\", komma; ÅÄÖ 🧪\n\nR2\nright_panel_open\nAR\n\t"
+  }
+]

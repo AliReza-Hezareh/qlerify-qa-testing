@@ -7,30 +7,35 @@ Det här är arbetsmappen för QA-material, testplanering, filregister, testscen
 Kör kontrollen och öppna QA-sidan:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 .\qa\run-library-check.ps1
 ```
 
 Öppna bara QA-sidan:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 Start-Process .\qa\index.html
 ```
 
 Se status:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 Get-Content .\qa\STATUS.md
 ```
 
 Se blockers:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 Get-Content .\qa\BLOCKERS.md
 ```
 
 Se filregistret:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 Import-Csv .\qa\file-register.csv | Format-Table
 ```
 
@@ -54,21 +59,22 @@ Testerna öppnar Qlerifys webb och gör bara kontroller. De skapar, ändrar elle
 Första gången, installera testpaket och Chromium:
 
 ```powershell
-Set-Location .\qa
+Set-Location "D:\LIA 2\code\qa"
 npm install
 npx playwright install chromium
 ```
 
-Kör alla tester från repots rot. HTML-rapporten öppnas när körningen är klar:
+Kör alla tester från repots rot. Efter körningen öppnas Playwright-rapporten och QA-översikten `qa/index.html`. Där finns länken till andra omgångens manuella rapport:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 .\qa\run-tests.ps1
 ```
 
 Kör bara testet för den publika inloggningsadressen:
 
 ```powershell
-Set-Location .\qa
+Set-Location "D:\LIA 2\code\qa"
 npm run test:public
 ```
 
@@ -77,7 +83,7 @@ Testet QW-001 är markerat som ett känt fel eftersom `qlerify.com/login` visade
 App-testet kräver en inloggningssession som testaren själv skapar. Lösenordet ska aldrig läggas i testkod eller skickas till någon. Skapa sessionen i ett separat Playwright-fönster och logga in själv:
 
 ```powershell
-Set-Location .\qa
+Set-Location "D:\LIA 2\code\qa"
 New-Item -ItemType Directory -Force .\.auth | Out-Null
 npx playwright codegen --save-storage=.\.auth\user.json https://app.qlerify.com/login
 ```
@@ -85,14 +91,16 @@ npx playwright codegen --save-storage=.\.auth\user.json https://app.qlerify.com/
 Stäng Playwright-fönstret efter inloggningen. Sessionen sparas lokalt i `.auth` och mappen är ignorerad av Git. Kör därefter:
 
 ```powershell
+Set-Location "D:\LIA 2\code\qa"
 $env:QA_STORAGE_STATE = (Resolve-Path .\.auth\user.json).Path
 npm run test:app
 ```
 
-Uppdatera HTML-rapporten separat:
+Öppna QA-svitens befintliga Playwright-rapport från repots rot:
 
 ```powershell
-npm run report
+Set-Location "D:\LIA 2\code"
+npm --prefix .\qa run report
 ```
 
 App-testet läser det första synliga arbetsflödet från dashboarden. Det öppnar `Read Models`, laddar om sidan och kontrollerar att fliken är kvar och att ändringsknappen är inaktiverad.
@@ -114,6 +122,7 @@ Playwright-dokumentation: [testkonfiguration](https://playwright.dev/docs/test-c
 Kontrollera först vilka filer som har ändrats:
 
 ```powershell
+Set-Location "D:\LIA 2\code"
 git status --short
 git diff --stat
 ```
@@ -146,26 +155,29 @@ git status --short --branch
 
 Vid en konflikt ska konflikten lösas och granskas innan push. Kommandona använder ingen force-push.
 
-## Utforskande appgranskning 2026-10-19
+## Utforskande appgranskning 2026-10-19 – två omgångar
 
-Testresultat, buggar, reproduktionssteg och bilder finns i `qa/reports/exploratory-app-2026-10-19.md`. Den visuella versionen finns i `qa/reports/exploratory-app-2026-10-19.html` och länkas från `qa/index.html`.
+Aktuell rapport är [andra testomgången](reports/exploratory-app-2026-10-19-round2.md). Den visuella versionen finns i [andra omgångens HTML-rapport](reports/exploratory-app-2026-10-19-round2.html). Den [första omgångens Markdown-rapport](reports/exploratory-app-2026-10-19.md) och [HTML-rapport](reports/exploratory-app-2026-10-19.html) finns kvar. Båda omgångarna länkas från `qa/index.html`.
 
-Den visuella rapporten läser innehållet från Markdown-filen när `qa/run-tests.ps1` körs. Äldre automatiska testresultat visas som separata rapporter.
+`qa/run-tests.ps1` bygger HTML från samtliga befintliga `qa/reports/exploratory-app-*.md`. Därefter öppnas Playwright-rapporten och QA-översikten, där länken till andra omgången finns. Den manuella rapporten öppnas med länken eller kommandot nedan. Äldre automatiska testresultat visas som separata rapporter. Rapportgenerering innebär ingen ny testkörning.
 
 Uppdatera den visuella rapporten efter en dokumentändring och öppna den, utan att köra testerna igen:
 
 ```powershell
 Set-Location "D:\LIA 2\code"
-node .\qa\tools\render-exploratory-report.mjs
-Start-Process .\qa\reports\exploratory-app-2026-10-19.html
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-19-round2
+Start-Process .\qa\reports\exploratory-app-2026-10-19-round2.html
 ```
 
-Bevisen finns i `qa/evidence/exploratory-2026-10-19/`. Exportfilen ligger lokalt i Downloads; rapportpaketet innehåller bara dess format och kontrollsumma. Ingen videoinspelning gjordes.
+`--report` tar rapportens basnamn, utan mapp eller `.md`. Bara bokstäver A–Z, siffror och bindestreck tillåts. Utan `--report` används `exploratory-app-2026-10-19`, den första omgången. Filen måste finnas i `qa/reports/`.
+
+Första omgångens bevis finns i `qa/evidence/exploratory-2026-10-19/`. Varje rapport länkar till sina egna bevis. Den första omgångens exportfil ligger lokalt i Downloads; dess rapportpaket innehåller bara format och kontrollsumma. Ingen videoinspelning gjordes under den första omgången.
 
 För att bygga om rapporten automatiskt medan Markdown-filen redigeras, kör bevakningen från repots rot:
 
 ```powershell
-node .\qa\tools\render-exploratory-report.mjs --watch
+Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-19-round2 --watch
 ```
 
-I bevakningsläget uppdateras HTML-filen när Markdown ändras och den öppna rapporten laddas om var åttonde sekund. Stoppa bevakningen med Ctrl+C. Kör en vanlig rendering igen om automatisk omladdning ska tas bort.
+I bevakningsläget bevakas bara den valda Markdown-filen. HTML-filen uppdateras vid ändring och den öppna rapporten laddas om var åttonde sekund. Stoppa bevakningen med Ctrl+C. Kör samma kommando utan `--watch` om automatisk omladdning ska tas bort.

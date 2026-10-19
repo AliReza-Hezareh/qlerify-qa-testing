@@ -31,17 +31,21 @@
 Start-Process .\qa\index.html</pre>
   </section>
   <section aria-labelledby="manual-app-review">
-    <h2 id="manual-app-review">Aktuell manuell appgranskning – 2026-10-19</h2>
+    <h2 id="manual-app-review">Aktuell manuell appgranskning – andra omgången 2026-10-19</h2>
     <p>Här finns resultat, buggrapporter, bevis och avgränsningar från den utforskande granskningen av den inloggade Qlerify-appen.</p>
     <ul>
-      <li><a href="./reports/exploratory-app-2026-10-19.html">Öppna den visuella apprapporten</a></li>
-      <li><a href="./reports/exploratory-app-2026-10-19.md">Läs rapportens Markdown-källa</a></li>
+      <li><a href="./reports/exploratory-app-2026-10-19-round2.html">Andra omgången – visuell rapport</a></li>
+      <li><a href="./reports/exploratory-app-2026-10-19-round2.md">Andra omgången – Markdown-källa</a></li>
+      <li><a href="./reports/exploratory-app-2026-10-19.html">Första omgången – visuell rapport</a></li>
+      <li><a href="./reports/exploratory-app-2026-10-19.md">Första omgången – Markdown-källa</a></li>
     </ul>
-    <pre>node .\qa\tools\render-exploratory-report.mjs
-Start-Process .\qa\reports\exploratory-app-2026-10-19.html</pre>
-    <p>HTML-versionen byggs från Markdown-rapporten före rapporterna öppnas av testkörningen. För löpande uppdatering efter ändringar i Markdown-filen körs detta i en egen terminalflik:</p>
     <pre>Set-Location "D:\LIA 2\code"
-node .\qa\tools\render-exploratory-report.mjs --watch</pre>
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-19-round2
+Start-Process .\qa\reports\exploratory-app-2026-10-19-round2.html</pre>
+    <p>Testkörningen bygger alla befintliga apprapporter med namnet exploratory-app-*.md och öppnar sedan Playwright-rapporten samt denna QA-översikt. Öppna andra omgången med länken ovan. Flaggan --report väljer rapportens basnamn utan sökväg eller filändelse. Utan flaggan väljs den första omgången.</p>
+    <p>För löpande uppdatering av den valda rapporten körs detta i en egen terminalflik:</p>
+    <pre>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-19-round2 --watch</pre>
     <p>Bevakningen bygger om rapporten när just rapportens Markdown-fil ändras. Webbsidan laddas då om var åttonde sekund. Avsluta bevakningen med Ctrl+C. Engångskommandot bygger rapporten utan automatisk omladdning.</p>
   </section>
   <section>

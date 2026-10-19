@@ -3,11 +3,23 @@
 Senast uppdaterad: 2026-10-19  
 QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
 
-## Senaste utforskande appgranskning
+## Senaste utforskande appgranskning – andra omgången
+
+- Nytt arbetsflöde: QA 2026-10-19 – flöden och edge cases 2.
+- 48 dokumenterade kontrollpunkter: 39 körda, 5 Blocked och 4 Ej körda.
+- 37 Pass och 2 Fail bland de körda kontrollerna.
+- APP-005, Medium: namnändring direkt följd av Add lane ger konflikt och tappar den nya banan. Reproducerat två gånger.
+- APP-006, Low: CSV-förhandsvisningen slår ihop två textrader utan mellanrum. Den nedladdade filen kunde inte verifieras.
+- Releaser, filter, duplicering, Done/Reopen, sökning, fältmetadata, relationer, läsmodell, domänhändelse och Ångra/Gör om kontrollerades.
+- Filuppladdning, rollbehörigheter, negativa API-anrop och last har inget godkänt resultat.
+- [Andra omgångens rapport och detaljerade resultat](reports/exploratory-app-2026-10-19-round2.md).
+- [Andra omgångens visuella rapport](reports/exploratory-app-2026-10-19-round2.html).
+
+## Första utforskande appgranskningen
 
 - 49 dokumenterade kontrollpunkter: 42 körda, 3 Blocked och 4 Ej körda.
 - 37 Pass och 5 Fail bland de körda kontrollerna.
-- Fyra nya avvikelser: blanksteg som arbetsflödesnamn, överlappande verktygsfält på smal skärm, trasig villkorslänk från händelsedetalj och ikonknappar utan tillgängliga namn.
+- Fyra nya avvikelser vid första omgången: blanksteg som arbetsflödesnamn, överlappande verktygsfält på smal skärm, trasig villkorslänk från händelsedetalj och ikonknappar utan tillgängliga namn.
 - QW-001, den publika inloggningsadressens felsida, reproducerades igen.
 - QA-arbetsflödet finns kvar i In Progress med syntetiska testdata.
 - [Testrapport och detaljerade resultat](reports/exploratory-app-2026-10-19.md).
@@ -23,7 +35,7 @@ Hela den automatiska testsviten kördes inte i den utforskande appgranskningen. 
 - QA-regressionstester: `qa/tests/`.
 - App-testet kräver att `QA_STORAGE_STATE` pekar på en session som testaren har skapat lokalt.
 - Automatiska HTML-rapporter: `qa/evidence/playwright-report/` och `qa/playwright-report/`.
-- Den visuella appgranskningen skapas från sin Markdown-fil när `qa/run-tests.ps1` körs. Det ändrar inte de manuella resultaten.
+- De visuella appgranskningarna skapas från sina Markdown-filer när `qa/run-tests.ps1` körs. Det ändrar inte de manuella resultaten. `--report` väljer omgång och `--watch` bygger om den valda rapporten när Markdown-filen sparas. Kommandon finns i `qa/README.md` och överst på `qa/index.html`.
 
 ## Övriga underlag
 

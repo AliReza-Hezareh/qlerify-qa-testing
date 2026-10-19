@@ -3,7 +3,35 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const qaRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const reportName = 'exploratory-app-2026-10-19';
+const defaultReportName = 'exploratory-app-2026-10-19';
+
+function parseArguments(args) {
+  let reportName = defaultReportName;
+  let watch = false;
+  for (let index = 0; index < args.length; index++) {
+    if (args[index] === '--watch') {
+      watch = true;
+    } else if (args[index] === '--report') {
+      const value = args[++index];
+      if (!value || !/^[A-Za-z0-9][A-Za-z0-9-]*$/.test(value)) {
+        throw new Error('--report kräver ett basnamn med bara bokstäver A–Z, siffror och bindestreck. Ange ingen sökväg eller filändelse.');
+      }
+      reportName = value;
+    } else {
+      throw new Error(`Okänd flagga: ${args[index]}. Använd --report <basnamn> och/eller --watch.`);
+    }
+  }
+  return { reportName, watch };
+}
+
+let options;
+try {
+  options = parseArguments(process.argv.slice(2));
+} catch (error) {
+  console.error(`Fel i rapportkommandot: ${error.message}`);
+  process.exit(1);
+}
+const { reportName, watch } = options;
 const sourcePath = path.join(qaRoot, 'reports', `${reportName}.md`);
 const outputPath = path.join(qaRoot, 'reports', `${reportName}.html`);
 
@@ -161,14 +189,15 @@ function main() {
     throw new Error(`Markdown-rapporten saknas: ${sourcePath}. Skapa rapporten innan HTML-versionen uppdateras.`);
   }
   const source = fs.readFileSync(sourcePath, 'utf8');
+  const title = source.match(/^#\s+(.+)$/m)?.[1] || 'Qlerify – utforskande appgranskning';
   const html = `<!doctype html>
 <html lang="sv">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-${process.argv.includes('--watch') ? '  <meta http-equiv="refresh" content="8">' : ''}
+${watch ? '  <meta http-equiv="refresh" content="8">' : ''}
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
-  <title>Qlerify – utforskande appgranskning 2026-10-19</title>
+  <title>${escapeHtml(title)}</title>
   <style>
     :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
     * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
@@ -185,14 +214,14 @@ ${process.argv.includes('--watch') ? '  <meta http-equiv="refresh" content="8">'
   </style>
 </head>
 <body>
-  <header><h1>Qlerify – utforskande appgranskning</h1><p>2026-10-19 · Testresultat, bekräftade fel och avgränsningar</p></header>
+  <header><h1>${inline(title)}</h1><p>${escapeHtml(reportName)} · Testresultat, bekräftade fel och avgränsningar</p></header>
   <main>
     <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\\LIA 2\\code"
-node .\\qa\\tools\\render-exploratory-report.mjs
+node .\\qa\\tools\\render-exploratory-report.mjs --report ${reportName}
 Start-Process .\\qa\\reports\\${reportName}.html
 
 # Löpande uppdatering efter ändringar i Markdown-rapporten:
-node .\\qa\\tools\\render-exploratory-report.mjs --watch</code></pre><div class="links"><a href="${reportName}.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+node .\\qa\\tools\\render-exploratory-report.mjs --report ${reportName} --watch</code></pre><div class="links"><a href="${reportName}.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
     <article>${renderMarkdown(source)}</article>
     <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
   </main>
@@ -271,7 +300,7 @@ function watchReport() {
 }
 
 const rendered = renderSafely();
-if (process.argv.includes('--watch')) {
+if (watch) {
   watchReport();
 } else if (!rendered) {
   process.exitCode = 1;

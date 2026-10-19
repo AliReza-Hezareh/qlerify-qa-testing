@@ -24,9 +24,21 @@ try {
         if (-not (Test-Path -LiteralPath $manualReportRenderer)) {
             throw "Rapportverktyget saknas: $manualReportRenderer"
         }
-        & node $manualReportRenderer
-        if ($LASTEXITCODE -ne 0) {
-            throw 'Den manuella HTML-rapporten kunde inte uppdateras. Kontrollera Markdown-rapporten och felmeddelandet ovan.'
+        $manualReports = @(Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'reports') -Filter 'exploratory-app-*.md' -File -ErrorAction Stop | Sort-Object Name)
+        if ($manualReports.Count -eq 0) {
+            throw 'Ingen manuell apprapport hittades i qa/reports med namnet exploratory-app-*.md.'
+        }
+        foreach ($manualReport in $manualReports) {
+            try {
+                & node $manualReportRenderer --report $manualReport.BaseName
+                if ($LASTEXITCODE -ne 0) {
+                    throw "HTML-rapporten för $($manualReport.Name) kunde inte uppdateras. Kontrollera Markdown-filen och felmeddelandet ovan."
+                }
+            }
+            catch {
+                Write-Warning $_.Exception.Message
+                $results.Add(1)
+            }
         }
     }
     catch {

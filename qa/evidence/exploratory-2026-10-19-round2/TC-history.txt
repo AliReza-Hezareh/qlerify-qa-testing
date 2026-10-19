@@ -1,0 +1,185 @@
+Current
+	
+When
+	
+Description
+	
+Tag
+	
+Version
+	
+Action
+
+check	13 seconds ago	Ali Reza Hezareh changed release number of QA R2 – Bekräfta order Rad 2: "citat", komma; ÅÄÖ 🧪		44	
+
+	3 minutes ago	Ali Reza Hezareh linked read model	
+	43	
+Restore
+
+	3 minutes ago	Ali Reza Hezareh updated schema	
+	42	
+Restore
+
+	3 minutes ago	Ali Reza Hezareh renamed field QA Läsmodell order.NEW FIELD 1 → QA Läsmodell order.orderId	
+	41	
+Restore
+
+	3 minutes ago	Ali Reza Hezareh added field QA Läsmodell order.NEW FIELD 1	
+	40	
+Restore
+
+	4 minutes ago	Ali Reza Hezareh updated schema	
+	39	
+Restore
+
+	4 minutes ago	Ali Reza Hezareh renamed schema New Read Model 1 → QA Läsmodell order	
+	38	
+Restore
+
+	4 minutes ago	Ali Reza Hezareh added schema New Read Model 1	
+	37	
+Restore
+
+	5 minutes ago	Ali Reza Hezareh linked read model	
+	36	
+Restore
+
+	7 minutes ago	Ali Reza Hezareh added card New card	
+	35	
+Restore
+
+	7 minutes ago	Ali Reza Hezareh added schema QA Skapa order	
+	34	
+Restore
+
+	8 minutes ago	Ali Reza Hezareh updated root entity	
+	33	
+Restore
+
+	9 minutes ago	Ali Reza Hezareh added card New card	
+	32	
+Restore
+
+	9 minutes ago	Ali Reza Hezareh updated card QA Skapa order	
+	31	
+Restore
+
+	9 minutes ago	Ali Reza Hezareh added card New card	
+	30	
+Restore
+
+	13 minutes ago	Ali Reza Hezareh updated schema	
+	29	
+Restore
+
+	13 minutes ago	Ali Reza Hezareh updated schema	
+	28	
+Restore
+
+	14 minutes ago	Ali Reza Hezareh updated schema	
+	27	
+Restore
+
+	14 minutes ago	Ali Reza Hezareh renamed field QA Order 2.NEW FIELD 2 → QA Order 2.kund	
+	26	
+Restore
+
+	14 minutes ago	Ali Reza Hezareh added field QA Order 2.NEW FIELD 2	
+	25	
+Restore
+
+	15 minutes ago	Ali Reza Hezareh updated schema	
+	24	
+Restore
+
+	15 minutes ago	Ali Reza Hezareh renamed entity New Entity 2 → QA Kund 2	
+	23	
+Restore
+
+	15 minutes ago	Ali Reza Hezareh added entity New Entity 2	
+	22	
+Restore
+
+	16 minutes ago	Ali Reza Hezareh updated schema	
+	21	
+Restore
+
+	17 minutes ago	Ali Reza Hezareh renamed field QA Order 2.NEW FIELD 1 → QA Order 2.orderId	
+	20	
+Restore
+
+	17 minutes ago	Ali Reza Hezareh renamed entity New Entity 1 → QA Order 2	
+	19	
+Restore
+
+	17 minutes ago	Ali Reza Hezareh added entity New Entity 1	
+	18	
+Restore
+
+	19 minutes ago	Ali Reza Hezareh updated card QA KOPIA – Bekräfta order Rad 2: "citat", komma; ÅÄÖ 🧪	
+	17	
+Restore
+
+	19 minutes ago	Ali Reza Hezareh added card QA R2 – Bekräfta order Rad 2: "citat", komma; ÅÄÖ 🧪	
+	16	
+Restore
+
+	19 minutes ago	Ali Reza Hezareh reopened card QA R1 – Skapa order ÅÄÖ 🧪	
+	15	
+Restore
+
+	19 minutes ago	Ali Reza Hezareh marked card as done QA R1 – Skapa order ÅÄÖ 🧪	
+	14	
+Restore
+
+	21 minutes ago	Ali Reza Hezareh changed release number of QA R2 – Bekräfta order Rad 2: "citat", komma; ÅÄÖ 🧪	
+	13	
+Restore
+
+	21 minutes ago	Ali Reza Hezareh updated card QA R2 – Bekräfta order Rad 2: "citat", komma; ÅÄÖ 🧪	
+	12	
+Restore
+
+	21 minutes ago	Ali Reza Hezareh added card New card	
+	11	
+Restore
+
+	22 minutes ago	Ali Reza Hezareh changed release number of QA R1 – Skapa order ÅÄÖ 🧪	
+	10	
+Restore
+
+	22 minutes ago	Ali Reza Hezareh updated card QA R1 – Skapa order ÅÄÖ 🧪	
+	9	
+Restore
+
+	22 minutes ago	Ali Reza Hezareh added card New card	
+	8	
+Restore
+
+	23 minutes ago	Ali Reza Hezareh updated event text to QA Order betalad	
+	7	
+Restore
+
+	23 minutes ago	Ali Reza Hezareh added lane Lane 2	
+	6	
+Restore
+
+	23 minutes ago	Ali Reza Hezareh updated event text to QA Order godkänd	
+	5	
+Restore
+
+	23 minutes ago	Ali Reza Hezareh added event New event	
+	4	
+Restore
+
+	23 minutes ago	Ali Reza Hezareh updated event text to QA Order startad	
+	3	
+Restore
+
+	23 minutes ago	Ali Reza Hezareh added event New event	
+	2	
+Restore
+
+	24 minutes ago	Ali Reza Hezareh created workflow QA 2026-10-19 – flöden och edge cases 2	
+	1	
+Restore

@@ -1,0 +1,178 @@
+- main:
+  - img "Qlerify logo"
+  - button "home":
+    - generic: home
+  - generic: Ali Reza's organisation
+  - generic: arrow_forward_ios
+  - generic: My first project
+  - generic: arrow_forward_ios
+  - generic: account_tree
+  - generic "Click to edit": QA 2026-10-19 – flöden och edge cases 2
+  - generic: keyboard_arrow_down
+  - button:
+    - generic: 󱠭
+  - button:
+    - generic: 󰩭
+  - button "replay":
+    - generic: replay
+  - button "replay" [disabled]:
+    - generic: replay
+  - button "filter_list":
+    - generic: filter_list
+  - button "Assistant":
+    - text: Assistant
+    - generic: 󰙴
+  - button "cloud_download":
+    - generic: cloud_download
+  - button "group_add":
+    - generic: group_add
+  - button "settings":
+    - generic: settings
+  - button:
+    - generic: 󰋽
+  - button "right_panel_open":
+    - generic: right_panel_open
+  - button "add_circle":
+    - generic: add_circle
+  - button "help":
+    - generic: help
+  - button "MCP":
+    - generic: MCP
+  - button "light_mode":
+    - generic: light_mode
+  - button "AH":
+    - generic: AH
+  - text: 󰤱 󰙴 󰔓 󰍝 󰛐 󰍝
+  - generic: category
+  - generic: arrow_downward
+  - generic: 󰌸
+  - generic: delete
+  - generic: 󰲔
+  - generic: 󰃻
+  - generic: 󰆐
+  - generic: temp_preferences_custom
+  - text: 󰅁
+  - generic: Lane 1
+  - generic: Lane 2
+  - text: 󰅂
+  - button "add Add lane":
+    - generic: add
+    - text: Add lane
+  - button "add Add start point":
+    - generic: add
+    - text: Add start point
+  - button "add Add group":
+    - generic: add
+    - text: Add group
+  - tablist:
+    - tab "Domain Model":
+      - generic: Domain Model
+    - tab "Entities":
+      - generic: Entities
+    - tab "Read Models" [selected]:
+      - generic: Read Models
+    - tab "Domain Events":
+      - generic: Domain Events
+    - tab "Backlog":
+      - generic: Backlog
+    - tab "User Story Map":
+      - generic: User Story Map
+    - tab "History":
+      - generic: History
+  - button "help":
+    - generic: help
+  - generic: 󰆼
+  - generic: QA Order 2
+  - generic: "1"
+  - generic "Click to edit": QA Läsmodell order
+  - button:
+    - generic: 󰏫
+  - button:
+    - generic: 󰩺
+  - generic: Add a short description…
+  - generic: 󰆼
+  - generic: QA Order 2
+  - button "List":
+    - generic: List
+  - button "Single Item":
+    - generic: Single Item
+  - button "drag_indicator":
+    - generic: drag_indicator
+  - generic "Click to edit": orderId
+  - button:
+    - generic: 󰇙
+  - button:
+    - generic: 󰐕
+  - generic: 󰐕
+  - generic: 󰆼
+  - generic: Not linked to entity
+  - generic: "0"
+  - generic: 󰐕
+- contentinfo:
+  - generic: © 2026 Qlerify
+  - link "Terms of Service & Privacy Policy":
+    - /url: ../../Qlerify_terms_of_service_and_privacy_policy.pdf
+  - link "Cookie Policy":
+    - /url: https://www.qlerify.com/cookie-policy
+  - link "Cookie settings":
+    - /url: "#"
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
+- tooltip
