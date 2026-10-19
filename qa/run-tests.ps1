@@ -1,32 +1,36 @@
-param(
-  [string]$Test = "smoke"
-)
+$ErrorActionPreference = 'Continue'
 
-$ErrorActionPreference = "Stop"
-$RepoRoot = Split-Path -Parent $PSScriptRoot
-Set-Location $RepoRoot
+$repoRoot = Split-Path -Parent $PSScriptRoot
+$results = [System.Collections.Generic.List[int]]::new()
 
-Write-Host "Qlerify QA - black-box tester" -ForegroundColor Cyan
-Write-Host "Repo: $RepoRoot"
-Write-Host "Testtyp: $Test"
+Write-Host 'Qlerify QA: running public smoke tests and QA regression tests.' -ForegroundColor Cyan
 
-if (-not (Test-Path "node_modules")) {
-  Write-Host "Installerar testberoenden..." -ForegroundColor Yellow
-  npm install
+Push-Location $repoRoot
+try {
+    npm test
+    $results.Add($LASTEXITCODE)
+}
+finally {
+    Pop-Location
 }
 
-Write-Host "Installerar/uppdaterar Playwright browser om den saknas..." -ForegroundColor Yellow
-npx playwright install chromium
+Push-Location $PSScriptRoot
+try {
+    npm test
+    $results.Add($LASTEXITCODE)
 
-New-Item -ItemType Directory -Force -Path "qa\evidence" | Out-Null
-
-if ($Test -eq "smoke") {
-  npx playwright test tests/public-smoke.spec.js
-} else {
-  npx playwright test
+    $reportPath = Join-Path $PSScriptRoot 'playwright-report\index.html'
+    if (Test-Path -LiteralPath $reportPath) {
+        Start-Process -FilePath $reportPath
+    }
+}
+finally {
+    Pop-Location
 }
 
-$ExitCode = $LASTEXITCODE
-node "qa\tools\update-report.mjs"
-Start-Process "qa\index.html"
-exit $ExitCode
+Start-Process -FilePath (Join-Path $PSScriptRoot 'index.html')
+
+if ($results | Where-Object { $_ -ne 0 }) {
+    exit 1
+}
+exit 0

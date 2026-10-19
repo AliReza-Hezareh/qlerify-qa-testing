@@ -1,0 +1,13 @@
+{
+  "name": "qlerify-qa-checks",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:public": "playwright test --project=chromium-public",
+    "test:app": "playwright test --project=chromium-authenticated",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}

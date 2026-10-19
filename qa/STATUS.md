@@ -1,30 +1,30 @@
-# Teststatus - Qlerify QA
+# QA-status - Qlerify
 
-Datum: 2026-10-12
-QA ansvarig: Ali Reza Hezareh
+Senast uppdaterad: 2026-10-19  
+QA-ansvarig: Ali Reza Hezareh
 
-## Verifierade resultat
-- Publika smoke tests har körts med Playwright.
-- 36 tester kördes.
-- 21 tester passade.
-- 15 tester failade.
-- Rapport finns i `qa/index.html` och `qa/testresultat.md`.
+## Testkörning
 
-## Viktiga fynd
-- Kontaktformuläret på `https://www.qlerify.com/contact` är inte interaktivt i browser-test. Fälten finns i DOM men är dolda.
-- Telefonnummer på kontaktsidan saknar verifierad `tel:`-länk.
-- Bloggsidan saknar verifierad footer/contentinfo-landmark.
-- Signup med ogiltig e-post failade på mobile Chrome i senaste körningen.
+Automatiska tester ska köras efter att grenarna har sammanfogats. Resultatet ska dokumenteras här efter körningen.
 
-## Planerade tester
-- Manuell utforskande testning efter login.
-- Skapa egen organisation i Qlerify.
-- Dokumentera var flödet är svårt att förstå.
-- Gå igenom Google Drive-mappen `Introduction` när tid finns.
+## Känd observation
 
-## Ej bekräftat
-- GitHub-åtkomst.
-- Lokal testmiljö.
-- Separat testmiljö.
-- API-dokumentation.
-- Kravlista.
+- QW-001: Den publika adressen `https://qlerify.com/login` visade en felsida vid manuell kontroll den 2026-10-19. Inloggningssidan fanns på `https://app.qlerify.com/login`.
+- Reproduktion, förväntat resultat och faktiskt resultat finns i [den utforskande rapporten](reports/exploratory-qlerify-2026-10-19.md).
+
+## Automatiska kontroller
+
+- Publika smoke-tester finns i repots `tests`-mapp.
+- QA-regressionstester finns i `qa/tests`.
+- Det inloggade workflow-testet kräver att `QA_STORAGE_STATE` pekar på en lokal Playwright-session. Ingen session eller inloggningsuppgift sparas i repot.
+- HTML-rapporterna skapas i `qa/evidence/playwright-report` och `qa/playwright-report`.
+
+## Dokument
+
+- [Testrapport](testrapport.md)
+- [Testresultat](testresultat.md)
+- [Testplan](testplan.md)
+- [Testspecifikation](testspecifikation.md)
+- [Spårbarhetsmatris](traceability-matrix.md)
+- [Blockeringar](BLOCKERS.md)
+- [Äldre QA-biblioteksstatus](STATUS-library.md)

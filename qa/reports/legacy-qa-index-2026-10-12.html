@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qlerify QA Rapport</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f8fa; color: #111827; }
+    header { background: #101828; color: white; padding: 24px; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1, h2 { margin-top: 0; }
+    .commands, .panel { background: white; border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+    pre { background: #111827; color: white; padding: 12px; border-radius: 6px; overflow: auto; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .metric { background: white; border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; }
+    .metric strong { display: block; font-size: 28px; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th, td { border-bottom: 1px solid #eaecf0; padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #f2f4f7; }
+    .badge { padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: bold; }
+    .pass { background: #dcfae6; color: #067647; }
+    .fail { background: #fee4e2; color: #b42318; }
+    .blocked { background: #fef0c7; color: #b54708; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Qlerify QA Rapport</h1>
+    <p>Black-box smoke tests för publika sidor. Senast uppdaterad: 2026-10-12T14:47:07.999Z</p>
+  </header>
+  <main>
+    <section class="commands">
+      <h2>Kommandon</h2>
+      <pre>cd "D:\LIA 2"
+.qa
+un-tests.ps1
+npm run test:smoke
+npm run report
+Start-Process "D:\LIA 2\qa\index.html"</pre>
+    </section>
+    <section class="summary">
+      <div class="metric"><span>Totalt</span><strong>36</strong></div>
+      <div class="metric"><span>Pass</span><strong>21</strong></div>
+      <div class="metric"><span>Fail</span><strong>15</strong></div>
+      <div class="metric"><span>Pass rate</span><strong>58%</strong></div>
+    </section>
+    <section class="panel">
+      <h2>Testresultat</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Test</th><th>Status</th><th>Tid</th><th>Kommentar</th></tr></thead>
+        <tbody><tr><td>WEB-001</td><td>WEB-001 Startsida laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>6222 ms</td><td>-</td></tr>
+<tr><td>WEB-002</td><td>WEB-002 Pricing laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>3664 ms</td><td>-</td></tr>
+<tr><td>WEB-003</td><td>WEB-003 Contact laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>8605 ms</td><td>-</td></tr>
+<tr><td>WEB-004</td><td>WEB-004 Blog laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>3810 ms</td><td>-</td></tr>
+<tr><td>AUTH-LOGIN</td><td>AUTH-LOGIN Login laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>3930 ms</td><td>-</td></tr>
+<tr><td>AUTH-SIGNUP</td><td>AUTH-SIGNUP Signup laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>6513 ms</td><td>-</td></tr>
+<tr><td>AUTH-RESET</td><td>AUTH-RESET Reset password laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>12048 ms</td><td>-</td></tr>
+<tr><td>WEB-002</td><td>WEB-002 Pricing monthly/yearly toggle ändrar eller visar prisläge</td><td><span class="badge pass">PASS</span></td><td>5856 ms</td><td>-</td></tr>
+<tr><td>WEB-004</td><td>WEB-004 Blog har tydlig footer/landmark utan trasig bottenyta</td><td><span class="badge fail">FAIL</span></td><td>14596 ms</td><td>Error: Bloggen ska ha footer eller contentinfo-landmark</td></tr>
+<tr><td>WEB-001</td><td>WEB-001 Startsida laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>6148 ms</td><td>-</td></tr>
+<tr><td>WEB-002</td><td>WEB-002 Pricing laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>4046 ms</td><td>-</td></tr>
+<tr><td>WEB-003</td><td>WEB-003 Contact laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>8311 ms</td><td>-</td></tr>
+<tr><td>WEB-004</td><td>WEB-004 Blog laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>3279 ms</td><td>-</td></tr>
+<tr><td>AUTH-LOGIN</td><td>AUTH-LOGIN Login laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>4075 ms</td><td>-</td></tr>
+<tr><td>AUTH-SIGNUP</td><td>AUTH-SIGNUP Signup laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>6805 ms</td><td>-</td></tr>
+<tr><td>AUTH-RESET</td><td>AUTH-RESET Reset password laddar utan krasch</td><td><span class="badge pass">PASS</span></td><td>11998 ms</td><td>-</td></tr>
+<tr><td>WEB-002</td><td>WEB-002 Pricing monthly/yearly toggle ändrar eller visar prisläge</td><td><span class="badge pass">PASS</span></td><td>5714 ms</td><td>-</td></tr>
+<tr><td>WEB-004</td><td>WEB-004 Blog har tydlig footer/landmark utan trasig bottenyta</td><td><span class="badge fail">FAIL</span></td><td>12276 ms</td><td>Error: Bloggen ska ha footer eller contentinfo-landmark</td></tr>
+<tr><td>WEB-003</td><td>WEB-003 formulärfält och submit finns och är interaktiva</td><td><span class="badge fail">FAIL</span></td><td>30696 ms</td><td>Error: Namnfält ska vara synligt</td></tr>
+<tr><td>CONTACT-001</td><td>CONTACT-001 tomma fält stoppas</td><td><span class="badge fail">FAIL</span></td><td>26856 ms</td><td>Error: Submit-knapp ska vara synligt</td></tr>
+<tr><td>CONTACT-002</td><td>CONTACT-002 ogiltig e-post stoppas</td><td><span class="badge fail">FAIL</span></td><td>26022 ms</td><td>Error: E-postfält ska vara synligt</td></tr>
+<tr><td>CONTACT-003</td><td>CONTACT-003 väldigt lång text kraschar inte formuläret</td><td><span class="badge fail">FAIL</span></td><td>24935 ms</td><td>Error: Message-fält ska vara synligt</td></tr>
+<tr><td>CONTACT-004</td><td>CONTACT-004 specialtecken behandlas som text</td><td><span class="badge fail">FAIL</span></td><td>25347 ms</td><td>Error: Message-fält ska vara synligt</td></tr>
+<tr><td>CONTACT-005</td><td>CONTACT-005 telefonlänk använder tel-format om telefon visas</td><td><span class="badge fail">FAIL</span></td><td>8221 ms</td><td>Error: Telefonnummer ska vara klickbart med tel:-länk om det visas</td></tr>
+<tr><td>WEB-003</td><td>WEB-003 formulärfält och submit finns och är interaktiva</td><td><span class="badge fail">FAIL</span></td><td>25581 ms</td><td>Error: Namnfält ska vara synligt</td></tr>
+<tr><td>CONTACT-001</td><td>CONTACT-001 tomma fält stoppas</td><td><span class="badge fail">FAIL</span></td><td>26580 ms</td><td>Error: Submit-knapp ska vara synligt</td></tr>
+<tr><td>CONTACT-002</td><td>CONTACT-002 ogiltig e-post stoppas</td><td><span class="badge fail">FAIL</span></td><td>24525 ms</td><td>Error: E-postfält ska vara synligt</td></tr>
+<tr><td>CONTACT-003</td><td>CONTACT-003 väldigt lång text kraschar inte formuläret</td><td><span class="badge fail">FAIL</span></td><td>24612 ms</td><td>Error: Message-fält ska vara synligt</td></tr>
+<tr><td>CONTACT-004</td><td>CONTACT-004 specialtecken behandlas som text</td><td><span class="badge fail">FAIL</span></td><td>24401 ms</td><td>Error: Message-fält ska vara synligt</td></tr>
+<tr><td>CONTACT-005</td><td>CONTACT-005 telefonlänk använder tel-format om telefon visas</td><td><span class="badge fail">FAIL</span></td><td>5592 ms</td><td>Error: Telefonnummer ska vara klickbart med tel:-länk om det visas</td></tr>
+<tr><td>AUTH-001</td><td>AUTH-001 login med tomma fält visar validering</td><td><span class="badge pass">PASS</span></td><td>4815 ms</td><td>-</td></tr>
+<tr><td>AUTH-002</td><td>AUTH-002 signup med ogiltig e-post visar validering</td><td><span class="badge pass">PASS</span></td><td>14227 ms</td><td>-</td></tr>
+<tr><td>AUTH-003</td><td>AUTH-003 reset password med tom e-post visar validering</td><td><span class="badge pass">PASS</span></td><td>3206 ms</td><td>-</td></tr>
+<tr><td>AUTH-001</td><td>AUTH-001 login med tomma fält visar validering</td><td><span class="badge pass">PASS</span></td><td>14525 ms</td><td>-</td></tr>
+<tr><td>AUTH-002</td><td>AUTH-002 signup med ogiltig e-post visar validering</td><td><span class="badge fail">FAIL</span></td><td>31171 ms</td><td>[31mTest timeout of 30000ms exceeded.[39m</td></tr>
+<tr><td>AUTH-003</td><td>AUTH-003 reset password med tom e-post visar validering</td><td><span class="badge pass">PASS</span></td><td>3954 ms</td><td>-</td></tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Rapporter</h2>
+      <p><a href="testresultat.md">testresultat.md</a> | <a href="testplan.md">testplan.md</a> | <a href="testspecifikation.md">testspecifikation.md</a> | <a href="buggrapporter.md">buggrapporter.md</a> | <a href="manual-exploratory-organisation.md">manual-exploratory-organisation.md</a></p>
+    </section>
+  </main>
+</body>
+</html>
