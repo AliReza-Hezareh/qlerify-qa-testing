@@ -1,7 +1,15 @@
 # QA-status – Qlerify
 
-Senast uppdaterad: 2026-10-19  
+Senast uppdaterad: 2026-10-22
+
 QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
+
+## Dokumentationsarbete 2026-10-22
+
+- Tidigare testresultat sammanställdes för veckologg och senare rapportarbete. Inga nya produkttester eller omtester genomfördes i denna sammanställning.
+- Google-dokument, kalkylark, lokal arkivkopia och startprompt finns länkade i [veckologgens läsanvisning](veckologg/README.md).
+- Testdatumen 2026-10-19 och de två omgångarnas resultat är bevarade. Uppladdningen R2-041 är fortfarande Blocked; inget manuellt resultat har rapporterats.
+- Aktivt QA-repo är `D:\LIA 2\code`. En äldre Gitrot finns kvar i `D:\LIA 2`; ingen rensning av den ingick i dokumentationsarbetet.
 
 ## Senaste utforskande appgranskning – andra omgången
 

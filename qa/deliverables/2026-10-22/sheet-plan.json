@@ -1,0 +1,169 @@
+{
+  "outputPath": "D:\\LIA 2\\code\\qa\\deliverables\\2026-10-22\\Qlerify-QA-logg-och-testresultat.xlsx",
+  "commit": "4ba7e8fb81e5915a5e3d37a9a17cc5a3ca9012f2",
+  "plans": [
+    {
+      "sheet": "Daglogg",
+      "name": "DagloggTabell",
+      "rows": 5,
+      "columns": 9,
+      "headers": [
+        "Logg-ID",
+        "Datum",
+        "Vecka",
+        "Arbetstyp",
+        "Utfört arbete",
+        "Dokumenterat resultat",
+        "Lärdom / avgränsning",
+        "Status",
+        "Källa"
+      ],
+      "dropdowns": {
+        "3": [
+          "Testning",
+          "Dokumentation",
+          "Blockering"
+        ],
+        "7": [
+          "Dokumenterat",
+          "Pågående",
+          "Blockerat"
+        ]
+      },
+      "dateColumns": [
+        1
+      ]
+    },
+    {
+      "sheet": "Veckologg",
+      "name": "VeckologgTabell",
+      "rows": 2,
+      "columns": 10,
+      "headers": [
+        "År",
+        "Vecka",
+        "Veckostart",
+        "Veckoslut",
+        "Status",
+        "Dokumenterat arbete",
+        "Resultat",
+        "Kvarstående avgränsningar",
+        "Lärdom från underlaget",
+        "Källor"
+      ],
+      "dropdowns": {
+        "4": [
+          "Pågående",
+          "Avslutad"
+        ]
+      },
+      "dateColumns": [
+        2,
+        3
+      ]
+    },
+    {
+      "sheet": "Testomgångar",
+      "name": "TestomgangarTabell",
+      "rows": 3,
+      "columns": 15,
+      "headers": [
+        "Omgång",
+        "Testdatum",
+        "Vecka",
+        "Observerad skriptresurs",
+        "Dokumenterade",
+        "Körda",
+        "Pass",
+        "Fail",
+        "Blockerade",
+        "Ej körda",
+        "Passandel",
+        "Failandel",
+        "Beslut",
+        "Testad omfattning",
+        "Källa"
+      ],
+      "dropdowns": {
+        "12": [
+          "Inte godkänd",
+          "Godkänd"
+        ]
+      },
+      "dateColumns": [
+        1
+      ]
+    },
+    {
+      "sheet": "Buggar",
+      "name": "BuggarTabell",
+      "rows": 8,
+      "columns": 11,
+      "headers": [
+        "Bugg-ID",
+        "Titel",
+        "Severity",
+        "Prioritet",
+        "Status",
+        "Ny / tidigare",
+        "Omgång",
+        "Rapportdatum",
+        "Påverkan",
+        "Källa / bevis",
+        "Omtest"
+      ],
+      "dropdowns": {
+        "2": [
+          "Critical",
+          "High",
+          "Medium",
+          "Low"
+        ],
+        "3": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "4": [
+          "Öppen",
+          "Under arbete",
+          "Rättad",
+          "Stängd"
+        ],
+        "5": [
+          "Ny",
+          "Tidigare känt"
+        ]
+      },
+      "dateColumns": [
+        7
+      ]
+    },
+    {
+      "sheet": "Källor",
+      "name": "KallorTabell",
+      "rows": 8,
+      "columns": 6,
+      "headers": [
+        "Käll-ID",
+        "Underlag",
+        "Typ",
+        "Datum",
+        "Länk",
+        "Vad länken visar"
+      ],
+      "dropdowns": {},
+      "dateColumns": [
+        3
+      ]
+    }
+  ],
+  "names": [
+    "Översikt",
+    "Daglogg",
+    "Veckologg",
+    "Testomgångar",
+    "Buggar",
+    "Källor"
+  ]
+}

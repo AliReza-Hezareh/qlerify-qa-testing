@@ -41,6 +41,7 @@ Import-Csv .\qa\file-register.csv | Format-Table
 
 ## Viktiga filer
 
+- `qa/veckologg/README.md` - Google-dokument, kalkylark, veckologg och startprompt för en ny arbetsdag.
 - `qa/PLAN.md` - plan och delmål.
 - `qa/STATUS.md` - senaste status.
 - `qa/BLOCKERS.md` - saker som stoppar arbetet.

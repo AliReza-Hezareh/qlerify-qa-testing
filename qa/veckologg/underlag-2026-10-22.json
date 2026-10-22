@@ -1,0 +1,10 @@
+{
+  "document": "https://docs.google.com/document/d/1ojP28dH5XNDj-oowxUhK-xZ6c1tG0reOvhkMchx-Rls/edit?usp=drivesdk",
+  "spreadsheet": "https://docs.google.com/spreadsheets/d/1rWCCTZidf9dyKAlyuix1E1FJ8s9j6plluSayuItQJGU/edit?usp=drivesdk",
+  "createdOn": "2026-10-22",
+  "testDates": [
+    "2026-10-19"
+  ],
+  "sourceCommit": "4ba7e8fb81e5915a5e3d37a9a17cc5a3ca9012f2",
+  "notes": "Sammanställning. Ingen ny produkttestkörning. Google-underlagen och repot uppdateras separat."
+}
