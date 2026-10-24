@@ -2,7 +2,7 @@
 
 Körningsdatum: 2026-10-12
 Miljö: Windows, Playwright, Chromium desktop och mobile, publik webb
-Senaste körning: 36 tester, 21 Pass, 15 Fail
+Senaste hela körning: 38 tester, 32 Pass, 6 Fail den 2026-10-24
 
 ## BUG-CONTACT-001 - Kontaktformulär är inte interaktivt
 
@@ -38,7 +38,7 @@ Användare kan fastna på kontaktsidan och inte kunna skicka meddelande. Detta �
 Formuläret kan vara dolt, renderat med fel layout, ligga i ett lager som inte är interaktivt, eller påverkas av extern script/rendering.
 
 ### Status
-Open
+Stängd som felaktigt testresultat 2026-10-24. Det synliga formuläret ligger i en HubSpot-iframe. Efter att testet riktades mot iframen fick samtliga fem kontaktformulärkontroller Pass på desktop och mobil.
 
 ## BUG-CONTACT-002 - Telefonnummer visas men saknar klickbar tel-länk
 
@@ -134,3 +134,35 @@ Valideringen kan skilja sig mellan desktop och mobil viewport, eller testet kan 
 
 ### Status
 Open - behöver manuell verifiering
+
+## BUG-WEB-005 - Pricing har horisontell sidscroll
+
+Severity: Medium
+Priority: Medium
+Relaterat test-ID: WEB-002
+Sida: `https://www.qlerify.com/pricing`
+
+### Steps to reproduce
+1. Öppna Pricing i Chromium.
+2. Kontrollera dokumentets `clientWidth` och `scrollWidth`.
+3. Kör på desktop 1366 px och mobil 393 px.
+
+### Expected behavior
+Sidan ryms i visningsytan utan horisontell sidscroll.
+
+### Actual behavior
+Desktop var 1383 px bred på en visningsyta på 1366 px. Mobil var 897 px bred på en visningsyta på 393 px.
+
+### Bevis
+- Desktop: `scrollWidth=1383`, `clientWidth=1366`.
+- Mobil: `scrollWidth=897`, `clientWidth=393`.
+- Skärmbilder, video och trace finns i `test-results/public-smoke-Publika-smoke-dab5e-ingen-horisontell-sidscroll-*`.
+
+### Risk
+Innehåll kan hamna utanför skärmen. Mobilanvändare måste rulla i två riktningar.
+
+### Möjlig root cause
+Flera breda SVG-element observerades utanför sidans visningsyta. Applikationskoden granskades inte.
+
+### Status
+Open

@@ -63,7 +63,7 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $statusJs = "window.QA_STATUS = " + ($status | ConvertTo-Json -Depth 3) + ";"
 [System.IO.File]::WriteAllText((Join-Path $dataDir "status.js"), $statusJs, $utf8NoBom)
 
-$statusPath = Join-Path $qaRoot "STATUS.md"
+$statusPath = Join-Path $qaRoot "data\library-status.md"
 $statusText = @"
 # STATUS - QA kunskapsbibliotek
 

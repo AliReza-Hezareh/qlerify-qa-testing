@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
+  <title>Testresultat – omtest av filuppladdning</title>
+  <style>
+    :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
+    header { background:#101828; color:#fff; padding:28px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { font-size:1.7rem; margin:0 0 8px; } header p { margin:0; color:#eaecf0; }
+    main { max-width:1228px; padding:24px; margin:auto; } section,article { background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px; margin-bottom:20px; }
+    h1,h2,h3,h4 { line-height:1.3; } article h1 { font-size:1.9rem; margin-top:0; } h2 { margin-top:32px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+    section h2 { margin-top:0; } p,li { overflow-wrap:anywhere; } a { color:var(--blue); text-underline-offset:3px; } a:focus-visible,[tabindex]:focus-visible { outline:3px solid #1570ef; outline-offset:3px; }
+    pre { background:#101828; color:#f9fafb; padding:16px; border-radius:6px; overflow:auto; font-size:.9rem; } code { font-family:Consolas,monospace; } :not(pre)>code { background:#eef2f6; padding:2px 5px; border-radius:4px; white-space:break-spaces; }
+    .table-scroll { overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:6px; } table { border-collapse:collapse; width:100%; font-size:.94rem; min-width:580px; } th,td { padding:12px; border-bottom:1px solid #eaecf0; text-align:left; vertical-align:top; } th { background:#eef2f6; } tbody tr:nth-child(even) { background:#f9fafb; } tr:last-child td { border-bottom:0; }
+    img { display:block; max-width:100%; height:auto; border:1px solid var(--line); margin:16px 0; } .links { display:flex; gap:20px; flex-wrap:wrap; } footer { color:var(--muted); font-size:.9rem; padding:0 0 24px; } hr { border:0; border-top:1px solid var(--line); margin:28px 0; }
+    @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
+    @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
+  </style>
+</head>
+<body>
+  <header><h1>Testresultat – omtest av filuppladdning</h1><p>exploratory-app-2026-10-24-attachment-retest · Testresultat, bekräftade fel och avgränsningar</p></header>
+  <main>
+    <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-24-attachment-retest
+Start-Process .\qa\reports\exploratory-app-2026-10-24-attachment-retest.html
+
+# Löpande uppdatering efter ändringar i Markdown-rapporten:
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-24-attachment-retest --watch</code></pre><div class="links"><a href="exploratory-app-2026-10-24-attachment-retest.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+    <article><h1>Testresultat – omtest av filuppladdning</h1>
+<ul><li>Rapport-ID: QLERIFY-ATT-2026-10-24</li>
+<li>Datum: 2026-10-24</li>
+<li>Testare och QA-ansvarig: Ali Reza Hezareh</li>
+<li>Miljö: Qlerifys driftsatta webbapp i en redan inloggad webbläsarsession på Windows</li>
+<li>Testobjekt: Kortet <strong>QA R1 – Skapa order ÅÄÖ 🧪</strong></li>
+<li>Testdata: <code>qa/fixtures/attachments/qa-åäö.txt</code>, 28 byte</li></ul>
+<h2>Sammanfattning</h2>
+<p>Den lokala testfilen är korrekt. Det går däremot inte att godkänna uppladdningen. Testaren rapporterade först att filnamnet syntes efter omladdning och att innehållet var korrekt. En senare direkt kontroll av samma kort visade bara den gamla länken <code>https://inte-en-länk</code>. Filen <code>qa-åäö.txt</code> syntes inte.</p>
+<p>Filväljaren accepterar inte <code>.txt</code> enligt sidans <code>accept</code>-attribut. Därför är resultatet Blocked och räknas inte som ett bekräftat produktfel.</p>
+<h2>Detaljerade resultat</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Test-ID</th><th scope="col">Kontroll</th><th scope="col">Status</th><th scope="col">Förväntat resultat</th><th scope="col">Faktiskt resultat</th></tr></thead><tbody><tr><td>ATT-001</td><td>Kontrollera lokal testfil</td><td>Pass</td><td>Filen finns och är 28 byte.</td><td>Filen var 28 byte. SHA-256: <code>675B4D02E709C8614F9758FD1FF2F4B71797812A6BB5191EFFFF46DE681E29A9</code>.</td></tr>
+<tr><td>ATT-002</td><td>Välj normal textfil</td><td>Blocked</td><td>En tillåten fil kan väljas.</td><td>Testaren rapporterade att filen valdes. <code>.txt</code> finns inte i filväljarens lista över tillåtna typer.</td></tr>
+<tr><td>ATT-003</td><td>Ladda om sidan</td><td>Blocked</td><td>Bilagan finns kvar.</td><td>Testaren rapporterade först att namnet syntes. Senare direkt kontroll visade inte filen på kortet.</td></tr>
+<tr><td>ATT-004</td><td>Öppna bilagan</td><td>Blocked</td><td>Den sparade bilagan öppnas med oförändrat innehåll.</td><td>Innehållet rapporterades som korrekt, men det gick inte att koppla bekräftelsen till en kvarvarande bilaga i appen.</td></tr>
+<tr><td>ATT-005</td><td>Ladda upp tom fil</td><td>Blocked</td><td>Appen visar ett tydligt resultat för 0 byte.</td><td>Webbläsarverktygets filväljare stoppade försöket innan filen skickades.</td></tr></tbody></table></div>
+<h2>Resultatöversikt</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Mått</th><th scope="col">Antal</th></tr></thead><tbody><tr><td>Dokumenterade kontroller</td><td>5</td></tr>
+<tr><td>Pass</td><td>1</td></tr>
+<tr><td>Fail</td><td>0</td></tr>
+<tr><td>Blocked</td><td>4</td></tr></tbody></table></div>
+<p>Ingen ny produktbugg är bekräftad i bilagetestet. R2-041 från den 19 oktober är fortfarande Blocked.</p></article>
+    <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
+  </main>
+</body>
+</html>

@@ -1,14 +1,25 @@
 # QA-status – Qlerify
 
-Senast uppdaterad: 2026-10-22
+Senast uppdaterad: 2026-10-24
 
 QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
+
+## QA-arbete 2026-10-24
+
+- Slutlig publik helkörning efter korrigerad iframe-selektor och nytt layouttest: 38 tester, 32 Pass och 6 Fail.
+- BUG-WEB-004 och BUG-CONTACT-002 reproducerades på desktop och mobil.
+- Nytt layouttest bekräftade BUG-WEB-005: Pricing var 1383 px bred vid 1366 px och 897 px bred vid 393 px.
+- Kontaktformulärets tidigare 12 Fail var testfel. Det synliga formuläret ligger i en HubSpot-iframe och testerna fick Pass efter selektorfix.
+- APP-004 och APP-006 observerades igen i den inloggade appen. Backlog-sökning, omladdning samt bakåt/framåt fick Pass.
+- Bilagetestet är Blocked. Testaren rapporterade först Pass, men senare direkt kontroll visade inte `qa-åäö.txt` på kortet. `.txt` finns inte i filväljarens lista över tillåtna typer.
+- CSV-förhandsvisningen reproducerade APP-006. Faktisk CSV-nedladdning är fortfarande Blocked/oklar i sidowebbläsaren.
+- [Dagens logg](veckologg/daglogg-2026-10-24.md), [bilagerapport](reports/exploratory-app-2026-10-24-attachment-retest.md) och [visuell bilagerapport](reports/exploratory-app-2026-10-24-attachment-retest.html).
 
 ## Dokumentationsarbete 2026-10-22
 
 - Tidigare testresultat sammanställdes för veckologg och senare rapportarbete. Inga nya produkttester eller omtester genomfördes i denna sammanställning.
 - Google-dokument, kalkylark, lokal arkivkopia och startprompt finns länkade i [veckologgens läsanvisning](veckologg/README.md).
-- Testdatumen 2026-10-19 och de två omgångarnas resultat är bevarade. Uppladdningen R2-041 är fortfarande Blocked; inget manuellt resultat har rapporterats.
+- Testdatumen 2026-10-19 och de två omgångarnas resultat är bevarade. Bilagetestet fortsatte separat den 24 oktober men blev inte godkänt.
 - Aktivt QA-repo är `D:\LIA 2\code`. En äldre Gitrot finns kvar i `D:\LIA 2`; ingen rensning av den ingick i dokumentationsarbetet.
 
 ## Senaste utforskande appgranskning – andra omgången
@@ -19,8 +30,8 @@ QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
 - APP-005, Medium: namnändring direkt följd av Add lane ger konflikt och tappar den nya banan. Reproducerat två gånger.
 - APP-006, Low: CSV-förhandsvisningen slår ihop två textrader utan mellanrum. Den nedladdade filen kunde inte verifieras.
 - Releaser, filter, duplicering, Done/Reopen, sökning, fältmetadata, relationer, läsmodell, domänhändelse och Ångra/Gör om kontrollerades.
-- Filuppladdning, rollbehörigheter, negativa API-anrop och last har inget godkänt resultat.
-- Bilagetestet godkändes den 2026-10-19, men webbläsarverktygets säkerhetskontroll stoppade filåtkomsten. Testfilerna finns i `qa/fixtures/attachments/`. Ingen fil laddades upp och R2-041 är fortfarande Blocked.
+- Filuppladdning, tom fil, rollbehörigheter, negativa API-anrop och last har inget godkänt resultat.
+- Testfilerna godkändes för test den 2026-10-19, men webbläsarverktygets säkerhetskontroll stoppade då filåtkomsten. Detta historiska resultat för R2-041 är fortfarande Blocked och ändras inte i den äldre rapporten.
 - [Andra omgångens rapport och detaljerade resultat](reports/exploratory-app-2026-10-19-round2.md).
 - [Andra omgångens visuella rapport](reports/exploratory-app-2026-10-19-round2.html).
 
@@ -36,9 +47,9 @@ QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
 
 ## Automatiska tester
 
-Det publika QA-testet kördes tidigare den 2026-10-19. QW-001 återkom som ett förväntat fel. Playwrights gröna körningsstatus innebär därför inte att den sidan fungerade.
+Den publika huvudsviten kördes den 2026-10-24. Efter korrigerad iframe-selektor och nytt layouttest fick 32 av 38 kontroller Pass. Sex Fail motsvarar tre bekräftade fel i både desktop- och mobilprojektet.
 
-Hela den automatiska testsviten kördes inte i den utforskande appgranskningen. Äldre automatiska sammanfattningar är separata underlag och får inte läsas som resultat från den senaste manuella sessionen.
+Det publika QA-regressionstestet kördes samma dag. QW-001 återkom som ett förväntat fel. Playwrights gröna körningsstatus innebär därför inte att den sidan fungerade.
 
 - Publika smoke-tester: `tests/`.
 - QA-regressionstester: `qa/tests/`.

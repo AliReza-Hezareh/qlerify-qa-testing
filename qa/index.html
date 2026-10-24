@@ -30,6 +30,19 @@
 .\qa\run-tests.ps1
 Start-Process .\qa\index.html</pre>
   </section>
+  <section aria-labelledby="attachment-retest">
+    <h2 id="attachment-retest">Senaste QA-arbete – 2026-10-24</h2>
+    <p>Publika tester, inloggad utforskning och bilagekontroll kördes separat. Bilagetestet är Blocked eftersom senare direkt kontroll inte visade textfilen på kortet.</p>
+    <ul>
+      <li><a href="./reports/exploratory-app-2026-10-24-attachment-retest.html">Visuell rapport</a></li>
+      <li><a href="./reports/exploratory-app-2026-10-24-attachment-retest.md">Markdown-källa</a></li>
+      <li><a href="./evidence/attachment-upload-2026-10-24/manual-verification.md">Manuell verifiering</a></li>
+      <li><a href="./veckologg/daglogg-2026-10-24.md">Dagens arbetslogg</a></li>
+    </ul>
+    <pre>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-24-attachment-retest
+Start-Process .\qa\reports\exploratory-app-2026-10-24-attachment-retest.html</pre>
+  </section>
   <section aria-labelledby="manual-app-review">
     <h2 id="manual-app-review">Aktuell manuell appgranskning – andra omgången 2026-10-19</h2>
     <p>Här finns resultat, buggrapporter, bevis och avgränsningar från den utforskande granskningen av den inloggade Qlerify-appen.</p>

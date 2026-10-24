@@ -11,11 +11,12 @@ const pages = [
 ];
 
 function contactLocators(page) {
+  const form = page.frameLocator('iframe[title="Form"]');
   return {
-    name: page.locator('#name, input[name="name"], input[placeholder*="Eric" i]').first(),
-    email: page.locator('#email, input[type="email"], input[name*="email" i], input[placeholder*="email" i]').first(),
-    message: page.locator('#Plain-text, textarea[name="Plain-text"], textarea[placeholder*="demo" i], textarea').first(),
-    submit: page.locator('input[type="submit"], button[type="submit"], button:has-text("Submit")').first()
+    name: form.locator('input[name="0-1/firstname"], input[type="text"]').first(),
+    email: form.locator('input[name="0-1/email"], input[type="email"]').first(),
+    message: form.locator('textarea[name="0-1/message"], textarea').first(),
+    submit: form.locator('button[type="submit"], input[type="submit"]').first()
   };
 }
 
@@ -55,6 +56,19 @@ test.describe('Publika smoke tests', () => {
     expect(after.length, 'Pricing ska fortfarande ha innehåll efter yearly-klick').toBeGreaterThan(100);
     expect(after, 'Pricing ska inte bli tom efter toggle').not.toEqual('');
     expect(before.length, 'Pricing före toggle ska ha innehåll').toBeGreaterThan(100);
+  });
+
+  test('WEB-002 Pricing har ingen horisontell sidscroll', async ({ page }) => {
+    await page.goto('https://www.qlerify.com/pricing', { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle').catch(() => {});
+    const layout = await page.locator('html').evaluate((element) => ({
+      clientWidth: element.clientWidth,
+      scrollWidth: element.scrollWidth,
+    }));
+    expect(
+      layout.scrollWidth,
+      `Pricing ska rymmas i sidbredden ${layout.clientWidth}px utan horisontell sidscroll`,
+    ).toBeLessThanOrEqual(layout.clientWidth);
   });
 
   test('WEB-004 Blog har tydlig footer/landmark utan trasig bottenyta', async ({ page }) => {
