@@ -8,9 +8,19 @@ const defaultReportName = 'exploratory-app-2026-10-19';
 function parseArguments(args) {
   let reportName = defaultReportName;
   let watch = false;
+  let sourceFile = null;
   for (let index = 0; index < args.length; index++) {
     if (args[index] === '--watch') {
       watch = true;
+    } else if (args[index] === '--source') {
+      const value = args[++index];
+      if (!value) throw new Error('--source kräver en Markdown-sökväg relativt qa/.');
+      const resolved = path.resolve(qaRoot, value);
+      const relative = path.relative(qaRoot, resolved);
+      if (relative.startsWith('..') || path.isAbsolute(relative) || path.extname(resolved).toLowerCase() !== '.md') {
+        throw new Error('--source får endast ange en Markdown-fil inom qa/.');
+      }
+      sourceFile = resolved;
     } else if (args[index] === '--report') {
       const value = args[++index];
       if (!value || !/^[A-Za-z0-9][A-Za-z0-9-]*$/.test(value)) {
@@ -21,7 +31,7 @@ function parseArguments(args) {
       throw new Error(`Okänd flagga: ${args[index]}. Använd --report <basnamn> och/eller --watch.`);
     }
   }
-  return { reportName, watch };
+  return { reportName, watch, sourceFile };
 }
 
 let options;
@@ -31,9 +41,17 @@ try {
   console.error(`Fel i rapportkommandot: ${error.message}`);
   process.exit(1);
 }
-const { reportName, watch } = options;
-const sourcePath = path.join(qaRoot, 'reports', `${reportName}.md`);
-const outputPath = path.join(qaRoot, 'reports', `${reportName}.html`);
+const { reportName, watch, sourceFile } = options;
+const sourcePath = sourceFile || path.join(qaRoot, 'reports', `${reportName}.md`);
+const outputPath = sourcePath.replace(/\.md$/i, '.html');
+const relativeUrl = target => path.relative(path.dirname(outputPath), target).split(path.sep).join('/');
+const stylesheetUrl = relativeUrl(path.join(qaRoot, 'styles', 'qlerify-qa.css'));
+const overviewUrl = relativeUrl(path.join(qaRoot, 'index.html'));
+const sourceUrl = path.basename(sourcePath);
+const commandArgs = sourceFile
+  ? '--source "' + path.relative(qaRoot, sourceFile).split(path.sep).join('/') + '"'
+  : '--report ' + reportName;
+const outputRelative = path.relative(qaRoot, outputPath).split(path.sep).join('\\');
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => ({
@@ -185,6 +203,10 @@ function renderMarkdown(markdown) {
 }
 
 function main() {
+  if (fs.existsSync(outputPath) && fs.readFileSync(outputPath, 'utf8').includes('<!-- qa:custom-design')) {
+    console.log('Fristående designprov bevaras: ' + outputPath);
+    return;
+  }
   if (!fs.existsSync(sourcePath)) {
     throw new Error(`Markdown-rapporten saknas: ${sourcePath}. Skapa rapporten innan HTML-versionen uppdateras.`);
   }
@@ -196,7 +218,7 @@ function main() {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 ${watch ? '  <meta http-equiv="refresh" content="8">' : ''}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
   <title>${escapeHtml(title)}</title>
   <style>
     :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
@@ -212,16 +234,17 @@ ${watch ? '  <meta http-equiv="refresh" content="8">' : ''}
     @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
     @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
   </style>
+  <link rel="stylesheet" href="${escapeHtml(stylesheetUrl)}">
 </head>
-<body>
-  <header><h1>${inline(title)}</h1><p>${escapeHtml(reportName)} · Testresultat, bekräftade fel och avgränsningar</p></header>
+<body class="qa-document">
+  <header><h1>${inline(title)}</h1><p>${escapeHtml(path.basename(sourcePath, '.md'))} · Testresultat, bekräftade fel och avgränsningar</p></header>
   <main>
     <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\\LIA 2\\code"
-node .\\qa\\tools\\render-exploratory-report.mjs --report ${reportName}
-Start-Process .\\qa\\reports\\${reportName}.html
+node .\\qa\\tools\\render-exploratory-report.mjs ${escapeHtml(commandArgs)}
+Start-Process ".\\qa\\${escapeHtml(outputRelative)}"
 
 # Löpande uppdatering efter ändringar i Markdown-rapporten:
-node .\\qa\\tools\\render-exploratory-report.mjs --report ${reportName} --watch</code></pre><div class="links"><a href="${reportName}.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+node .\\qa\\tools\\render-exploratory-report.mjs ${escapeHtml(commandArgs)} --watch</code></pre><div class="links"><a href="${escapeHtml(sourceUrl)}">Läs Markdown-källan</a><a href="${escapeHtml(overviewUrl)}">Öppna QA-översikten</a></div></section>
     <article>${renderMarkdown(source)}</article>
     <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
   </main>

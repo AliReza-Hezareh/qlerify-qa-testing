@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
+  <title>Omtest APP-005 – snabb namnändring följd av Add lane</title>
+  <style>
+    :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
+    header { background:#101828; color:#fff; padding:28px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { font-size:1.7rem; margin:0 0 8px; } header p { margin:0; color:#eaecf0; }
+    main { max-width:1228px; padding:24px; margin:auto; } section,article { background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px; margin-bottom:20px; }
+    h1,h2,h3,h4 { line-height:1.3; } article h1 { font-size:1.9rem; margin-top:0; } h2 { margin-top:32px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+    section h2 { margin-top:0; } p,li { overflow-wrap:anywhere; } a { color:var(--blue); text-underline-offset:3px; } a:focus-visible,[tabindex]:focus-visible { outline:3px solid #1570ef; outline-offset:3px; }
+    pre { background:#101828; color:#f9fafb; padding:16px; border-radius:6px; overflow:auto; font-size:.9rem; } code { font-family:Consolas,monospace; } :not(pre)>code { background:#eef2f6; padding:2px 5px; border-radius:4px; white-space:break-spaces; }
+    .table-scroll { overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:6px; } table { border-collapse:collapse; width:100%; font-size:.94rem; min-width:580px; } th,td { padding:12px; border-bottom:1px solid #eaecf0; text-align:left; vertical-align:top; } th { background:#eef2f6; } tbody tr:nth-child(even) { background:#f9fafb; } tr:last-child td { border-bottom:0; }
+    img { display:block; max-width:100%; height:auto; border:1px solid var(--line); margin:16px 0; } .links { display:flex; gap:20px; flex-wrap:wrap; } footer { color:var(--muted); font-size:.9rem; padding:0 0 24px; } hr { border:0; border-top:1px solid var(--line); margin:28px 0; }
+    @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
+    @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
+  </style>
+  <link rel="stylesheet" href="../styles/qlerify-qa.css">
+</head>
+<body class="qa-document">
+  <header><h1>Omtest APP-005 – snabb namnändring följd av Add lane</h1><p>exploratory-app-2026-10-26-app-005-retest · Testresultat, bekräftade fel och avgränsningar</p></header>
+  <main>
+    <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --source &quot;reports/exploratory-app-2026-10-26-app-005-retest.md&quot;
+Start-Process ".\qa\reports\exploratory-app-2026-10-26-app-005-retest.html"
+
+# Löpande uppdatering efter ändringar i Markdown-rapporten:
+node .\qa\tools\render-exploratory-report.mjs --source &quot;reports/exploratory-app-2026-10-26-app-005-retest.md&quot; --watch</code></pre><div class="links"><a href="exploratory-app-2026-10-26-app-005-retest.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+    <article><h1>Omtest APP-005 – snabb namnändring följd av Add lane</h1>
+<ul><li><strong>Testdatum:</strong> 2026-10-26</li>
+<li><strong>QA-ansvarig:</strong> Ali Reza Hezareh</li>
+<li><strong>Status för omtestet:</strong> Pass – APP-005 reproducerades inte i de två försöken</li>
+<li><strong>Historisk buggstatus:</strong> APP-005 är fortsatt öppen; dagens omtest bevisar inte att felet är åtgärdat.</li></ul>
+<h2>Sammanfattning</h2>
+<p>Jag testade två gånger om en snabb namnändring följd direkt av <strong>Add lane</strong> skapar och sparar en bana. Båda försöken lyckades utan synligt konfliktmeddelande. Efter omladdning fanns Lane 2 och Lane 3 kvar. APP-005 reproducerades alltså inte i detta omtest.</p>
+<h2>Miljö och omfattning</h2>
+<ul><li>Applikation: Qlerify, live webbapp.</li>
+<li>Miljö: Windows, Chrome på skrivbord.</li>
+<li>Session: befintlig inloggad session. Inga inloggningsuppgifter hanterades.</li>
+<li>Testdata: det separata QA-arbetsflödet <code>QA APP-005 omtest 2026-10-26</code>, med två kopplade händelser.</li>
+<li>Appversion/build: inte fastställd.</li>
+<li>Omfattning: två snabba namnändringar följda direkt av <strong>Add lane</strong>, därefter omladdning.</li>
+<li>Bevis: gränssnittet kontrollerades direkt efter varje åtgärd och efter omladdning. Ingen skärmbild sparades i repot.</li></ul>
+<h2>Testresultat</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Test-ID</th><th scope="col">Steg</th><th scope="col">Förväntat resultat</th><th scope="col">Faktiskt resultat</th><th scope="col">Status</th></tr></thead><tbody><tr><td>APP-005-RETEST-01</td><td>Byt den andra händelsen till <code>QA Order godkänd</code>, tryck Enter och klicka direkt på <strong>Add lane</strong>.</td><td>Namnet sparas och Lane 2 skapas utan konflikt.</td><td>Lane 2 visades direkt. Inget konfliktmeddelande syntes.</td><td>Pass – felet reproducerades inte</td></tr>
+<tr><td>APP-005-RETEST-02</td><td>Byt namnet till <code>QA Order betalad</code>, tryck Enter och klicka direkt på <strong>Add lane</strong>. Ladda sedan om arbetsflödet.</td><td>Lane 3 skapas och finns kvar efter omladdning.</td><td>Lane 3 visades direkt och fanns kvar efter omladdning tillsammans med Lane 2 och namnet <code>QA Order betalad</code>. Inget konfliktmeddelande syntes.</td><td>Pass – felet reproducerades inte</td></tr></tbody></table></div>
+<h2>Visuell sammanfattning</h2>
+<p>Antal snabba försök i detta omtest, 2026-10-26:</p>
+<pre><code class="language-text">Bana skapad och kvar efter omladdning   2  ██
+Bana saknades efter omladdning          0
+Konfliktmeddelande observerat           0</code></pre>
+<p>Staplarna visar bara de två försöken i detta omtest. Historiska resultat från 19 oktober är inte inräknade.</p>
+<h2>Bedömning och begränsningar</h2>
+<p>APP-005 rapporterades som reproducerad två gånger den 2026-10-19 och står kvar som ett öppet historiskt fynd med severity Medium. I omtestet den 2026-10-26 skapades båda banorna och överlevde omladdning. Det finns därför ingen reproduktion i dagens två försök, men det räcker inte för att fastställa att felet är åtgärdat.</p>
+<p>Testet omfattade ett separat QA-arbetsflöde, en Chrome-session och två försök. Appversion, serverloggar och backend observerades inte. Ingen automatiserad regression kördes och inga skärmbilder sparades.</p>
+<h2>PowerShell</h2>
+<pre><code class="language-powershell">Set-Location &quot;D:\LIA 2\code&quot;
+node .\qa\tools\render-exploratory-report.mjs --source &quot;reports/exploratory-app-2026-10-26-app-005-retest.md&quot;
+Start-Process .\qa\reports\exploratory-app-2026-10-26-app-005-retest.html</code></pre>
+<ul><li><a href="../index.html">Öppna QA-översikten</a></li>
+<li><a href="../veckologg/daglogg-2026-10-26.md">Dagens arbetslogg</a></li></ul></article>
+    <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
+  </main>
+</body>
+</html>

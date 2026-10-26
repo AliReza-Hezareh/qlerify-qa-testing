@@ -9,19 +9,19 @@
 
 ## Sammanfattning
 
-Den lokala testfilen är korrekt. Det går däremot inte att godkänna uppladdningen. Testaren rapporterade först att filnamnet syntes efter omladdning och att innehållet var korrekt. En senare direkt kontroll av samma kort visade bara den gamla länken `https://inte-en-länk`. Filen `qa-åäö.txt` syntes inte.
+Testfilen qa-åäö.txt (28 byte) skulle laddas upp som bilaga på kortet **QA R1 – Skapa order ÅÄÖ 🧪**. Testaren rapporterade först att filnamnet syntes efter omladdning och att filen öppnades med rätt innehåll. Vid en senare direkt kontroll av samma kort syntes qa-åäö.txt inte; bilagelistan visade bara den äldre länken https://inte-en-länk.
 
-Filväljaren accepterar inte `.txt` enligt sidans `accept`-attribut. Därför är resultatet Blocked och räknas inte som ett bekräftat produktfel.
+Därför går det inte att bekräfta att filen sparades på kortet eller att den öppnade filen var den sparade bilagan. Resultatet är **Blocked**. Det är inte i sig bevis på ett produktfel. Sidans filväljare listar inte .txt i sitt accept-filter, men det visar inte om servern skulle acceptera filtypen.
 
 ## Detaljerade resultat
 
 | Test-ID | Kontroll | Status | Förväntat resultat | Faktiskt resultat |
 | --- | --- | --- | --- | --- |
 | ATT-001 | Kontrollera lokal testfil | Pass | Filen finns och är 28 byte. | Filen var 28 byte. SHA-256: `675B4D02E709C8614F9758FD1FF2F4B71797812A6BB5191EFFFF46DE681E29A9`. |
-| ATT-002 | Välj normal textfil | Blocked | En tillåten fil kan väljas. | Testaren rapporterade att filen valdes. `.txt` finns inte i filväljarens lista över tillåtna typer. |
-| ATT-003 | Ladda om sidan | Blocked | Bilagan finns kvar. | Testaren rapporterade först att namnet syntes. Senare direkt kontroll visade inte filen på kortet. |
-| ATT-004 | Öppna bilagan | Blocked | Den sparade bilagan öppnas med oförändrat innehåll. | Innehållet rapporterades som korrekt, men det gick inte att koppla bekräftelsen till en kvarvarande bilaga i appen. |
-| ATT-005 | Ladda upp tom fil | Blocked | Appen visar ett tydligt resultat för 0 byte. | Webbläsarverktygets filväljare stoppade försöket innan filen skickades. |
+| ATT-002 | Välj normal textfil | Blocked | Det går att välja qa-åäö.txt på kortet. | Testaren rapporterade att filen valdes. Vid senare kontroll syntes den inte på kortet. Filväljarens accept-filter listar inte .txt; serverns stöd för filtypen är inte fastställt. |
+| ATT-003 | Ladda om sidan | Blocked | qa-åäö.txt syns kvar på kortet efter omladdning. | Först rapporterades filnamnet synligt efter omladdning. Vid senare direkt kontroll syntes filen inte. Uppgifterna motsäger varandra, så det är inte verifierat att bilagan sparades. |
+| ATT-004 | Öppna bilagan | Blocked | Den sparade bilagan öppnas och innehåller testtexten. | Testaren rapporterade att filen öppnades med rätt innehåll. Eftersom filen senare inte syntes på kortet kunde kontrollen inte bekräftas mot en kvarvarande bilaga. |
+| ATT-005 | Ladda upp tom fil | Blocked | Appen visar vad som händer när qa-empty.txt (0 byte) väljs. | Webbläsarverktyget stoppade filvalet innan filen skickades till appen. Appens hantering av en tom fil testades därför inte. |
 
 ## Resultatöversikt
 
@@ -32,5 +32,5 @@ Filväljaren accepterar inte `.txt` enligt sidans `accept`-attribut. Därför ä
 | Fail | 0 |
 | Blocked | 4 |
 
-Ingen ny produktbugg är bekräftad i bilagetestet. R2-041 från den 19 oktober är fortfarande Blocked.
+Kort sagt: testfilen var korrekt lokalt, men det gick inte att bekräfta att qa-åäö.txt låg kvar på Qlerify-kortet efter omladdning. Därför är uppladdningen fortfarande **Blocked**. Ingen ny produktbugg är bekräftad. R2-041 från den 19 oktober avser det tidigare försöket och står kvar som Blocked.
 

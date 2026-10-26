@@ -7,6 +7,7 @@ QA-ansvarig: Ali Reza Hezareh. Upprättad: 2026-10-22.
 - [Google-dokument: veckologg och rapporter](https://docs.google.com/document/d/1ojP28dH5XNDj-oowxUhK-xZ6c1tG0reOvhkMchx-Rls/edit?usp=drivesdk)
 - [Google-kalkylark: logg och testresultat](https://docs.google.com/spreadsheets/d/1rWCCTZidf9dyKAlyuix1E1FJ8s9j6plluSayuItQJGU/edit?usp=drivesdk)
 - [Lokal arkivkopia av veckologgen, vecka 43](veckologg-2026-V43.md)
+- [Lokal arkivkopia av veckologgen, vecka 44](veckologg-2026-V44.md)
 - [Startprompt för en ny arbetsdag](startprompt.md)
 
 Google-dokumentet används för den löpande veckobeskrivningen. Kalkylarket används för daglogg, veckologg, separata testomgångar, buggar och källor. Detaljerade testresultat och bevis ligger kvar i `qa/reports/` och `qa/evidence/`.

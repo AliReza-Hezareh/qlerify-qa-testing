@@ -30,9 +30,21 @@
 .\qa\run-tests.ps1
 Start-Process .\qa\index.html</pre>
   </section>
-  <section aria-labelledby="attachment-retest">
+  <section aria-labelledby="app-005-retest">
+    <h2 id="app-005-retest">Senaste QA-arbete – 2026-10-26</h2>
+    <p>APP-005 omtestades två gånger i ett separat arbetsflöde. Båda snabba följderna skapade en bana utan synligt konfliktmeddelande. Lane 2 och Lane 3 fanns kvar efter omladdning. Felet reproducerades inte i dessa försök; det historiska APP-005-fyndet står kvar som öppet.</p>
+    <ul>
+      <li><a href="./reports/exploratory-app-2026-10-26-app-005-retest.html">Visuell omtestrapport</a></li>
+      <li><a href="./reports/exploratory-app-2026-10-26-app-005-retest.md">Markdown-rapport</a></li>
+      <li><a href="./veckologg/daglogg-2026-10-26.md">Dagens arbetslogg</a></li>
+      <li><a href="./veckologg/veckologg-2026-V44.md">Veckologg vecka 44</a></li>
+    </ul>
+    <pre>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --source "reports/exploratory-app-2026-10-26-app-005-retest.md"
+Start-Process .\qa\reports\exploratory-app-2026-10-26-app-005-retest.html</pre>
+  </section>  <section aria-labelledby="attachment-retest">
     <h2 id="attachment-retest">Senaste QA-arbete – 2026-10-24</h2>
-    <p>Publika tester, inloggad utforskning och bilagekontroll kördes separat. Bilagetestet är Blocked eftersom senare direkt kontroll inte visade textfilen på kortet.</p>
+    <p>Bilagetest: qa-åäö.txt (28 byte) skulle bifogas på kortet QA R1 – Skapa order ÅÄÖ 🧪. Filnamn och korrekt innehåll rapporterades först efter omladdning, men en senare direkt kontroll visade inte filen. Det går därför inte att bekräfta att bilagan sparades; status är Blocked, inte bekräftat produktfel.</p>
     <ul>
       <li><a href="./reports/exploratory-app-2026-10-24-attachment-retest.html">Visuell rapport</a></li>
       <li><a href="./reports/exploratory-app-2026-10-24-attachment-retest.md">Markdown-källa</a></li>

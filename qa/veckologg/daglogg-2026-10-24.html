@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
+  <title>Daglogg – 2026-10-24</title>
+  <style>
+    :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
+    header { background:#101828; color:#fff; padding:28px max(24px,calc((100vw - 1180px)/2)); }
+    header h1 { font-size:1.7rem; margin:0 0 8px; } header p { margin:0; color:#eaecf0; }
+    main { max-width:1228px; padding:24px; margin:auto; } section,article { background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px; margin-bottom:20px; }
+    h1,h2,h3,h4 { line-height:1.3; } article h1 { font-size:1.9rem; margin-top:0; } h2 { margin-top:32px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+    section h2 { margin-top:0; } p,li { overflow-wrap:anywhere; } a { color:var(--blue); text-underline-offset:3px; } a:focus-visible,[tabindex]:focus-visible { outline:3px solid #1570ef; outline-offset:3px; }
+    pre { background:#101828; color:#f9fafb; padding:16px; border-radius:6px; overflow:auto; font-size:.9rem; } code { font-family:Consolas,monospace; } :not(pre)>code { background:#eef2f6; padding:2px 5px; border-radius:4px; white-space:break-spaces; }
+    .table-scroll { overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:6px; } table { border-collapse:collapse; width:100%; font-size:.94rem; min-width:580px; } th,td { padding:12px; border-bottom:1px solid #eaecf0; text-align:left; vertical-align:top; } th { background:#eef2f6; } tbody tr:nth-child(even) { background:#f9fafb; } tr:last-child td { border-bottom:0; }
+    img { display:block; max-width:100%; height:auto; border:1px solid var(--line); margin:16px 0; } .links { display:flex; gap:20px; flex-wrap:wrap; } footer { color:var(--muted); font-size:.9rem; padding:0 0 24px; } hr { border:0; border-top:1px solid var(--line); margin:28px 0; }
+    @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
+    @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
+  </style>
+  <link rel="stylesheet" href="../styles/qlerify-qa.css">
+</head>
+<body class="qa-document">
+  <header><h1>Daglogg – 2026-10-24</h1><p>daglogg-2026-10-24 · Testresultat, bekräftade fel och avgränsningar</p></header>
+  <main>
+    <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\LIA 2\code"
+node .\qa\tools\render-exploratory-report.mjs --source &quot;veckologg/daglogg-2026-10-24.md&quot;
+Start-Process ".\qa\veckologg\daglogg-2026-10-24.html"
+
+# Löpande uppdatering efter ändringar i Markdown-rapporten:
+node .\qa\tools\render-exploratory-report.mjs --source &quot;veckologg/daglogg-2026-10-24.md&quot; --watch</code></pre><div class="links"><a href="daglogg-2026-10-24.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
+    <article><h1>Daglogg – 2026-10-24</h1>
+<h2>Kort sammanfattning</h2>
+<p>Jag körde publika Playwright-tester och fortsatte utforskande testning i en redan inloggad Qlerify-session. Jag rättade en inaktuell testselektor efter att kontaktformuläret flyttats till en HubSpot-iframe. Omtestet bekräftade två kända publika fel och ett nytt layoutfel på Pricing. Bilagetestet kunde inte godkännas eftersom senare kontroll inte visade textfilen på kortet.</p>
+<h2>Arbetslogg</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Kontroll</th><th scope="col">Resultat</th></tr></thead><tbody><tr><td>Publik helkörning före selektorfix</td><td>22 Pass, 14 Fail av 36. Tolv Fail kom från inaktuell åtkomst till kontaktformuläret.</td></tr>
+<tr><td>Kontaktformulär i iframe</td><td>Testet uppdaterades till det synliga HubSpot-formuläret. Namn, e-post, meddelande, submit, tomma fält, ogiltig e-post, lång text och specialtecken fick Pass på desktop och mobil.</td></tr>
+<tr><td>Publik helkörning efter selektorfix</td><td>32 Pass, 4 Fail av 36.</td></tr>
+<tr><td>Slutlig publik helkörning med nytt Pricing-test</td><td>32 Pass, 6 Fail av 38. Tre fel reproducerades i både desktop och mobil.</td></tr>
+<tr><td>BLOG-FOOTER</td><td>Fail på desktop och mobil. Ingen <code>&lt;footer&gt;</code> eller <code>role=&quot;contentinfo&quot;</code> hittades.</td></tr>
+<tr><td>CONTACT-005</td><td>Fail på desktop och mobil. <code>+46 (0)8 503 556 55</code> länkar till <code>#</code>, inte <code>tel:</code>.</td></tr>
+<tr><td>Pricing sidbredd</td><td>Fail på desktop och mobil. 1383/1366 px respektive 897/393 px.</td></tr>
+<tr><td>Publikt QA-regressionstest</td><td>Förväntat fel QW-001 reproducerades. Grön körningsstatus betyder att det kända felet fortfarande finns.</td></tr>
+<tr><td>Backlog efter omladdning</td><td>Pass. Vald Backlog-flik och QA-kort fanns kvar.</td></tr>
+<tr><td>Backlog-sökning</td><td>Pass. Ingen träff doldes och kortet kom tillbaka när sökningen rensades.</td></tr>
+<tr><td>Bakåt och framåt</td><td>Pass. Backlog och History återställdes med rätt <code>selectedTab</code>.</td></tr>
+<tr><td>CSV-förhandsvisning</td><td>APP-006 reproducerades. Radbrytningen i korttexten saknades i förhandsvisningen.</td></tr>
+<tr><td>CSV-nedladdning</td><td>Blocked/oklar. Knappen gav ingen nedladdningshändelse, ingen fil och inget konsolfel i sidowebbläsaren.</td></tr>
+<tr><td>Bilaga <code>qa-åäö.txt</code></td><td>Blocked. Testaren rapporterade först Pass, men senare direkt kontroll visade inte filen. <code>.txt</code> är inte listad som tillåten filtyp.</td></tr>
+<tr><td>Tillgängliga namn i appen</td><td>APP-004 är fortfarande synlig. Flera ikonknappar saknade namn i den aktuella DOM-kontrollen.</td></tr>
+<tr><td>Mobil History-vy</td><td>Observation. Vid 390 × 844 var sidans bredd 1621 px och innehållet klipptes. Stödkrav för mobil är inte fastställt.</td></tr>
+<tr><td>QA-verktyg</td><td><code>qa/run-library-check.ps1</code> skrev tidigare över <code>qa/STATUS.md</code>. Sökvägen ändrades till <code>qa/data/library-status.md</code>.</td></tr></tbody></table></div>
+<h2>Bekräftade produktfel</h2>
+<ul><li>BUG-WEB-004: bloggen saknar footer/contentinfo-landmark.</li>
+<li>BUG-CONTACT-002: telefonnumret saknar <code>tel:</code>-länk.</li>
+<li>BUG-WEB-005: Pricing har horisontell sidscroll på desktop och mobil.</li>
+<li>APP-004 och APP-006 reproducerades i den inloggade appen.</li></ul>
+<p>Kravreferenser: <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships">WCAG 2.2 – Info and Relationships</a> och <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow">WCAG 2.2 – Reflow</a>.</p></article>
+    <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
+  </main>
+</body>
+</html>
