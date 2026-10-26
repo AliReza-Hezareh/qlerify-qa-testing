@@ -1,130 +1,141 @@
 # Qlerify QA Testrepo
 
-Det här repot innehåller black-box tester, manuella tester, testresultat och buggrapporter för Qlerify.
+Det här repot innehåller black-box tester, manuella tester, testresultat och buggrapporter för Qlerify. Repot innehåller ingen produktkod.
 
-## Viktiga kommandon
+Aktiv arbetsmapp: `D:\LIA 2\code`.
 
-Öppna repot i VS Code:
+## Förutsättningar
+
+| Svit | Mapp | Krävs |
+|---|---|---|
+| Publika smoke-tester | `tests/` | Node.js, `npm install` i roten och Chromium (`npx playwright install chromium`) |
+| Publikt QA-regressionstest | `qa/tests/qlerify-public.spec.ts` | `npm install` i `qa/` |
+| Inloggat apptest | `qa/tests/qlerify-authenticated.spec.ts` | `QA_STORAGE_STATE` som pekar på en lokal inloggad session. Utan den hoppas testet över. |
+
+Installera första gången:
 
 ```powershell
-cd "D:\LIA 2"
-code .
+cd "D:\LIA 2\code"
+npm install
+npx playwright install chromium
+cd .\qa
+npm install
 ```
 
-Kör alla smoke tests och öppna rapporten automatiskt:
+## Köra tester
+
+Kör alla sviter, bygg om de manuella HTML-rapporterna och öppna rapportöversikten:
 
 ```powershell
-cd "D:\LIA 2"
+cd "D:\LIA 2\code"
 .\qa\run-tests.ps1
 ```
 
-Kör bara Playwright smoke tests:
+`qa/run-tests.ps1` kör först de publika smoke-testerna i roten och sedan `qa/tests/`. Därefter bygger skriptet om `qa/reports/exploratory-app-*.html` från Markdown-filerna och öppnar Playwright-rapporten och `qa/index.html`.
+
+Kör bara de publika smoke-testerna:
 
 ```powershell
-cd "D:\LIA 2"
-npm run test:smoke
+cd "D:\LIA 2\code"
+npx playwright test
 ```
 
-Uppdatera rapporten från senaste testkörning:
+Kör bara det inloggade apptestet:
 
 ```powershell
-cd "D:\LIA 2"
-npm run report
+cd "D:\LIA 2\code\qa"
+$env:QA_STORAGE_STATE = "D:\LIA 2\code\qa\.auth\state.json"
+npm run test:app
 ```
 
-Öppna visuell rapport:
+`qa/.auth/` är ignorerad i Git. Sessionsfilen ska aldrig committas.
+
+Öppna rapportöversikten:
 
 ```powershell
-Start-Process "D:\LIA 2\qa\index.html"
+Start-Process "D:\LIA 2\code\qa\index.html"
 ```
-
-Öppna Qlerify för manuell testning:
-
-```powershell
-Start-Process "https://app.qlerify.com/login"
-```
-
-## Dokumentation
-
-- Visuell rapport: `qa/index.html`
-- Testresultat: `qa/testresultat.md`
-- Testrapport: `qa/testrapport.md`
-- Testplan: `qa/testplan.md`
-- Testspecifikation: `qa/testspecifikation.md`
-- Buggrapporter: `qa/buggrapporter.md`
-- Manuell organisationstestning: `qa/manual-exploratory-organisation.md`
-- Manuella tester från tidigare repo: `qa/docs/MANUELLA_TESTER.md`
-- Buggrapporter och skärmbilder från tidigare repo: `qa/bugs/BUG-001.md`, `qa/bugs/BUG-002.md`, `qa/bugs/BUG-003.md`
-- Screenshots och Playwright-data: `test-results/` och `qa/evidence/`
 
 ## Nuvarande status
 
-Senaste automatiska körning:
+Senaste publika helkörning: 2026-10-24 (`qa/evidence/playwright-results.json`).
 
-- 36 tester körda
-- 21 Pass
-- 15 Fail
-- Pass rate: 58%
+| Totalt | Pass | Fail | Blocked | Ej körda | Pass rate |
+|---|---|---|---|---|---|
+| 38 | 32 | 6 | 0 | 0 | 84 % |
 
-Viktigaste fynd:
+Pass rate = 32 / (32 + 6) × 100 = 84,2 %.
 
-- Kontaktformuläret på publika kontaktsidan är inte interaktivt i browser-test.
-- Telefonnummer saknar verifierad `tel:`-länk.
-- Bloggsidan saknar verifierad footer/contentinfo-landmark.
-- Signup med ogiltig e-post failar på mobile Chrome och behöver manuell verifiering.
+De sex Fail motsvarar tre unika produktfel. Varje fel syns i både desktop- och mobilprojektet:
 
-## Vad testas först?
+| Bugg-ID | Fel | Severity | Status |
+|---|---|---|---|
+| BUG-WEB-005 | Pricing har horisontell sidscroll (1383 px innehåll vid 1366 px, 897 px vid 393 px) | Medium | Öppen |
+| BUG-CONTACT-002 | Telefonnumret på kontaktsidan länkar till `#` i stället för `tel:` | Medium | Öppen |
+| BUG-WEB-004 | Bloggen saknar `<footer>` eller `role="contentinfo"` | Low | Öppen |
 
-Publika smoke tests:
+Fel från utforskande testning i appen: APP-004, APP-005, APP-006 och QW-001. Se `qa/STATUS.md`.
 
-- `WEB-001` Startsida laddar
-- `WEB-002` Pricing laddar och monthly/yearly kontrolleras
-- `WEB-003` Contact laddar och formulär kontrolleras
-- `WEB-004` Blog laddar och footer kontrolleras
-- `AUTH-001` Login med tomma fält
-- `AUTH-002` Signup med ogiltig e-post
-- `AUTH-003` Reset password med tom e-post
+Övrigt:
 
-Nästa manuella test:
+- BUG-CONTACT-001 är stängd som testfel. Formuläret ligger i en HubSpot-iframe och testerna fick Pass efter selektorfix 2026-10-24.
+- BUG-AUTH-002 fick Pass i körningen 2026-10-24 men står kvar som öppen tills manuell verifiering är gjord.
+- QW-001 är markerat med `test.fail` i `qa/tests/qlerify-public.spec.ts`. Grön status där betyder att felet fortfarande finns.
+- Bilagetestet och CSV-nedladdningen är Blocked.
 
-- skapa egen organisation i Qlerify
-- dokumentera var flödet är otydligt
-- dokumentera var användaren fastnar
+Testerna är inte godkända.
+
+## Dokumentation
+
+| Underlag | Fil |
+|---|---|
+| Rapportöversikt | `qa/index.html` |
+| Senaste status | `qa/STATUS.md` |
+| Testplan | `qa/testplan.md` |
+| Testspecifikation | `qa/testspecifikation.md` |
+| Testresultat | `qa/testresultat.md` |
+| Testrapport | `qa/testrapport.md` |
+| Buggrapporter | `qa/buggrapporter.md`, `qa/bugs/` |
+| Utforskande appgranskningar | `qa/reports/exploratory-app-*.md` och `.html` |
+| Dag- och veckologg | `qa/veckologg/` |
+| Bevis (skärmbilder, loggar, Playwright-data) | `qa/evidence/` |
+| Kunskapsbiblioteket och dess blockers | `qa/README.md`, `qa/BLOCKERS.md` |
+
+Rapporterna uppdateras efter varje fullständig testkörning. De manuella HTML-rapporterna byggs om från Markdown när `qa/run-tests.ps1` körs.
+
+Öppna buggrapporter och bevis:
+
+```powershell
+cd "D:\LIA 2\code"
+code .\qa\buggrapporter.md
+Invoke-Item .\qa\evidence
+```
 
 ## Viktig regel för testdata
 
-Skriv endast testdata i formulären. Använd inte riktiga lösenord eller personuppgifter i testfallen.
+Skriv endast syntetiska testdata i formulären. Använd inte riktiga lösenord eller personuppgifter.
 
-## Uppdatera repot
+## Git
 
-Hämta senaste ändringar innan du börjar:
+Hämta senaste ändringar och kontrollera branch:
 
 ```powershell
-cd "D:\LIA 2"
-git pull --ff-only origin main
+cd "D:\LIA 2\code"
+git fetch origin
+git status -sb
 ```
 
-Kontrollera ändringar:
+Granska och lägg bara till QA-filer:
 
 ```powershell
-git status --short
-```
-
-Lägg bara till QA/test-filer:
-
-```powershell
-git add -- README.md qa tests package.json package-lock.json playwright.config.js .gitignore Qlerify-Testagent-Plan.md
-```
-
-Kontrollera vad som ska committas:
-
-```powershell
+git diff
+git add -- README.md qa tests
 git diff --cached --name-only
 ```
 
-Commit och push:
+Commit och push till den branch du arbetar på:
 
 ```powershell
-git commit -m "Uppdatera Qlerify QA-tester och rapporter"
-git push origin main
+git commit -m "qa: <kort beskrivning>"
+git push -u origin <branch>
 ```
