@@ -1,8 +1,16 @@
 # QA-status – Qlerify
 
-Senast uppdaterad: 2026-10-24
+Senast uppdaterad: 2026-10-26
 
 QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
+
+## Dokumentation och APP-005-omtest 2026-10-26
+
+- [APP-005-omtestrapport](reports/exploratory-app-2026-10-26-app-005-retest.md), [visuell rapport](reports/exploratory-app-2026-10-26-app-005-retest.html), [daglogg](veckologg/daglogg-2026-10-26.md) och [veckologg](veckologg/veckologg-2026-V44.md).
+
+- Bilagerapport, bevislogg och QA-sammanfattningar förtydligades: vilken fil som skulle bifogas, på vilket kort, vad som först rapporterades och vad den senare kontrollen visade.
+- Bilagetestet från 24 oktober är fortfarande Blocked och kördes inte om i dag. Inget nytt produktfel bekräftades.
+- APP-005 omtestades i ett separat QA-arbetsflöde. Två snabba namnändringar följda direkt av Add lane skapade Lane 2 och Lane 3; båda fanns kvar efter omladdning. Felet reproducerades inte i dessa två försök men står kvar som historiskt öppet.
 
 ## QA-arbete 2026-10-24
 
@@ -11,7 +19,7 @@ QA-ansvarig: Ali Reza Hezareh – testerna är inte godkända.
 - Nytt layouttest bekräftade BUG-WEB-005: Pricing var 1383 px bred vid 1366 px och 897 px bred vid 393 px.
 - Kontaktformulärets tidigare 12 Fail var testfel. Det synliga formuläret ligger i en HubSpot-iframe och testerna fick Pass efter selektorfix.
 - APP-004 och APP-006 observerades igen i den inloggade appen. Backlog-sökning, omladdning samt bakåt/framåt fick Pass.
-- Bilagetestet är Blocked. Testaren rapporterade först Pass, men senare direkt kontroll visade inte `qa-åäö.txt` på kortet. `.txt` finns inte i filväljarens lista över tillåtna typer.
+- Bilagetest: qa-åäö.txt (28 byte) skulle bifogas på **QA R1 – Skapa order ÅÄÖ 🧪**. Testaren rapporterade först att filnamnet syntes efter omladdning och att filen öppnades korrekt. Senare syntes filen inte på kortet; bara den äldre länken visades. Resultatet är Blocked: sparandet och öppningen är inte verifierade. Filväljarens filter listar inte .txt, men serverstödet är okänt.
 - CSV-förhandsvisningen reproducerade APP-006. Faktisk CSV-nedladdning är fortfarande Blocked/oklar i sidowebbläsaren.
 - [Dagens logg](veckologg/daglogg-2026-10-24.md), [bilagerapport](reports/exploratory-app-2026-10-24-attachment-retest.md) och [visuell bilagerapport](reports/exploratory-app-2026-10-24-attachment-retest.html).
 

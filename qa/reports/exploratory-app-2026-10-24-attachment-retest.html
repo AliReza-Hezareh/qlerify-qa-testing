@@ -1,58 +1,193 @@
 <!doctype html>
-<html lang="sv">
+<!-- qa:custom-design - bevara detta fristående interaktiva designprov -->
+<html lang="sv" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' https: http:; base-uri 'none'; form-action 'none'">
-  <title>Testresultat – omtest av filuppladdning</title>
-  <style>
-    :root { color-scheme:light; --ink:#182230; --muted:#475467; --line:#d0d5dd; --blue:#175cd3; }
-    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:#f3f5f8; font:16px/1.6 "Segoe UI",Arial,sans-serif; }
-    header { background:#101828; color:#fff; padding:28px max(24px,calc((100vw - 1180px)/2)); }
-    header h1 { font-size:1.7rem; margin:0 0 8px; } header p { margin:0; color:#eaecf0; }
-    main { max-width:1228px; padding:24px; margin:auto; } section,article { background:#fff; border:1px solid var(--line); border-radius:10px; padding:24px; margin-bottom:20px; }
-    h1,h2,h3,h4 { line-height:1.3; } article h1 { font-size:1.9rem; margin-top:0; } h2 { margin-top:32px; border-bottom:1px solid var(--line); padding-bottom:10px; }
-    section h2 { margin-top:0; } p,li { overflow-wrap:anywhere; } a { color:var(--blue); text-underline-offset:3px; } a:focus-visible,[tabindex]:focus-visible { outline:3px solid #1570ef; outline-offset:3px; }
-    pre { background:#101828; color:#f9fafb; padding:16px; border-radius:6px; overflow:auto; font-size:.9rem; } code { font-family:Consolas,monospace; } :not(pre)>code { background:#eef2f6; padding:2px 5px; border-radius:4px; white-space:break-spaces; }
-    .table-scroll { overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:6px; } table { border-collapse:collapse; width:100%; font-size:.94rem; min-width:580px; } th,td { padding:12px; border-bottom:1px solid #eaecf0; text-align:left; vertical-align:top; } th { background:#eef2f6; } tbody tr:nth-child(even) { background:#f9fafb; } tr:last-child td { border-bottom:0; }
-    img { display:block; max-width:100%; height:auto; border:1px solid var(--line); margin:16px 0; } .links { display:flex; gap:20px; flex-wrap:wrap; } footer { color:var(--muted); font-size:.9rem; padding:0 0 24px; } hr { border:0; border-top:1px solid var(--line); margin:28px 0; }
-    @media(max-width:640px) { main { padding:12px; } section,article { padding:16px; } header { padding:20px; } article h1 { font-size:1.5rem; } }
-    @media print { body { background:#fff; font-size:10pt; } header { padding:12px; color:#000; background:#fff; } header p { color:#333; } main { padding:0; } section,article { padding:12px; border:0; } table { min-width:0; font-size:8pt; } .table-scroll { overflow:visible; } pre { white-space:pre-wrap; color:#000; background:#f4f4f4; } h2,h3 { break-after:avoid; } img { max-height:80vh; object-fit:contain; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Filuppladdning under lupp · Qlerify QA · 24 oktober</title>
+<link rel="stylesheet" href="../styles/qlerify-qa.css">
 </head>
 <body>
-  <header><h1>Testresultat – omtest av filuppladdning</h1><p>exploratory-app-2026-10-24-attachment-retest · Testresultat, bekräftade fel och avgränsningar</p></header>
-  <main>
-    <section aria-labelledby="commands"><h2 id="commands">PowerShell-kommandon</h2><p>HTML-rapporten skapas från Markdown-filen. För löpande uppdatering används bevakningsläget i en egen terminalflik. Då byggs rapporten om när Markdown-filen ändras och webbsidan laddas om var åttonde sekund. Avsluta med Ctrl+C.</p><pre><code>Set-Location "D:\LIA 2\code"
-node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-24-attachment-retest
-Start-Process .\qa\reports\exploratory-app-2026-10-24-attachment-retest.html
+<a class="skip" href="#main">Hoppa till rapporten</a>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="display:none">
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 17H3V9h18v8h-3M6 14h12v7H6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+<symbol id="i-file" viewBox="0 0 40 48"><path d="M8 2h17l10 10v33H5V2h3zm16 0v12h11M12 25h15m-15 7h15m-15 7h9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+</svg>
+<header class="topbar">
+<div class="bar-inner">
+<a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">q.</span>qlerify<span>QA / LAB</span></a>
+<nav class="top-links" aria-label="Rapportnavigation">
+<a href="#verdict">Bedömning</a><a href="#journey">Händelseförlopp</a><a href="#results">Testkontroller</a><a href="#evidence">Bevis</a>
+<button class="icon-button" id="theme" type="button" aria-label="Aktivera ljust tema" aria-pressed="false"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+<button class="quiet-button" id="print" type="button" aria-label="Skriv ut hela rapporten"><svg aria-hidden="true"><use href="#i-print"/></svg>Skriv ut</button>
+</nav></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+<main class="shell" id="main">
+<div class="eyebrow"><span>TESTRESULTAT / BILAGOR</span><span class="line"></span><time datetime="2026-10-24">24 OKTOBER 2026</time></div>
 
-# Löpande uppdatering efter ändringar i Markdown-rapporten:
-node .\qa\tools\render-exploratory-report.mjs --report exploratory-app-2026-10-24-attachment-retest --watch</code></pre><div class="links"><a href="exploratory-app-2026-10-24-attachment-retest.md">Läs Markdown-källan</a><a href="../index.html">Öppna QA-översikten</a></div></section>
-    <article><h1>Testresultat – omtest av filuppladdning</h1>
-<ul><li>Rapport-ID: QLERIFY-ATT-2026-10-24</li>
-<li>Datum: 2026-10-24</li>
-<li>Testare och QA-ansvarig: Ali Reza Hezareh</li>
-<li>Miljö: Qlerifys driftsatta webbapp i en redan inloggad webbläsarsession på Windows</li>
-<li>Testobjekt: Kortet <strong>QA R1 – Skapa order ÅÄÖ 🧪</strong></li>
-<li>Testdata: <code>qa/fixtures/attachments/qa-åäö.txt</code>, 28 byte</li></ul>
-<h2>Sammanfattning</h2>
-<p>Den lokala testfilen är korrekt. Det går däremot inte att godkänna uppladdningen. Testaren rapporterade först att filnamnet syntes efter omladdning och att innehållet var korrekt. En senare direkt kontroll av samma kort visade bara den gamla länken <code>https://inte-en-länk</code>. Filen <code>qa-åäö.txt</code> syntes inte.</p>
-<p>Filväljaren accepterar inte <code>.txt</code> enligt sidans <code>accept</code>-attribut. Därför är resultatet Blocked och räknas inte som ett bekräftat produktfel.</p>
-<h2>Detaljerade resultat</h2>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Test-ID</th><th scope="col">Kontroll</th><th scope="col">Status</th><th scope="col">Förväntat resultat</th><th scope="col">Faktiskt resultat</th></tr></thead><tbody><tr><td>ATT-001</td><td>Kontrollera lokal testfil</td><td>Pass</td><td>Filen finns och är 28 byte.</td><td>Filen var 28 byte. SHA-256: <code>675B4D02E709C8614F9758FD1FF2F4B71797812A6BB5191EFFFF46DE681E29A9</code>.</td></tr>
-<tr><td>ATT-002</td><td>Välj normal textfil</td><td>Blocked</td><td>En tillåten fil kan väljas.</td><td>Testaren rapporterade att filen valdes. <code>.txt</code> finns inte i filväljarens lista över tillåtna typer.</td></tr>
-<tr><td>ATT-003</td><td>Ladda om sidan</td><td>Blocked</td><td>Bilagan finns kvar.</td><td>Testaren rapporterade först att namnet syntes. Senare direkt kontroll visade inte filen på kortet.</td></tr>
-<tr><td>ATT-004</td><td>Öppna bilagan</td><td>Blocked</td><td>Den sparade bilagan öppnas med oförändrat innehåll.</td><td>Innehållet rapporterades som korrekt, men det gick inte att koppla bekräftelsen till en kvarvarande bilaga i appen.</td></tr>
-<tr><td>ATT-005</td><td>Ladda upp tom fil</td><td>Blocked</td><td>Appen visar ett tydligt resultat för 0 byte.</td><td>Webbläsarverktygets filväljare stoppade försöket innan filen skickades.</td></tr></tbody></table></div>
-<h2>Resultatöversikt</h2>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Tabell i testrapporten"><table><thead><tr><th scope="col">Mått</th><th scope="col">Antal</th></tr></thead><tbody><tr><td>Dokumenterade kontroller</td><td>5</td></tr>
-<tr><td>Pass</td><td>1</td></tr>
-<tr><td>Fail</td><td>0</td></tr>
-<tr><td>Blocked</td><td>4</td></tr></tbody></table></div>
-<p>Ingen ny produktbugg är bekräftad i bilagetestet. R2-041 från den 19 oktober är fortfarande Blocked.</p></article>
-    <footer>Rapportens resultat och datum hämtas från Markdown-källan. Generering av HTML innebär ingen ny testkörning.</footer>
-  </main>
+<section class="section verdict" id="verdict" aria-labelledby="verdict-title">
+<div><span class="pill blocked"><span class="dot" aria-hidden="true"></span>SAMLAD BEDÖMNING</span><h2 id="verdict-title">Uppladdningen är<br>inte verifierad.</h2><p>qa-åäö.txt (28 byte) skulle bifogas på QA R1 – Skapa order ÅÄÖ 🧪. Filnamn efter omladdning och korrekt innehåll rapporterades först. Vid senare direkt kontroll syntes filen inte på kortet. Därför är sparandet inte bekräftat och resultatet är Blocked, inte en bekräftad produktbugg.</p></div>
+<div class="verdict-aside"><div><span>Godkänd kontroll</span>Enbart den lokala testfilen</div><div><span>Historiskt test</span>R2-041 är fortfarande Blocked</div><div><span>Bevismaterial</span>Textbevis · inga sparade bilder eller videor</div></div>
+</section>
+
+<section class="section" id="journey" aria-labelledby="journey-title">
+<div class="section-top"><div><span class="section-num">02 / HÄNDELSEFÖRLOPP</span><h2 id="journey-title">Från återkoppling<br>till bedömning.</h2></div><p class="section-note">Klicka på ett steg. Ordningen är dokumenterad; exakta klockslag saknas.</p></div>
+<div class="journey" aria-label="Välj steg i händelseförloppet">
+<button class="step" type="button" data-step="0" aria-pressed="true" aria-controls="step-panel"><span>STEG 01 · KONTROLL</span><strong>Lokal testfil</strong></button>
+<button class="step" type="button" data-step="1" aria-pressed="false" aria-controls="step-panel"><span>STEG 02 · FÖRST RAPPORTERAT</span><strong>Filnamnet syntes efter omladdning</strong></button>
+<button class="step" type="button" data-step="2" aria-pressed="false" aria-controls="step-panel"><span>STEG 03 · OBSERVERAT</span><strong>Filen saknades</strong></button>
+<button class="step" type="button" data-step="3" aria-pressed="false" aria-controls="step-panel"><span>STEG 04 · SLUTSTATUS</span><strong>Sparandet ej verifierat</strong></button>
+</div>
+<div class="step-panel" id="step-panel" role="region" aria-label="Beskrivning av valt steg" aria-live="polite"><h3 id="step-title">01 — Den lokala filen verifierades</h3><p id="step-copy">qa-åäö.txt fanns och var 28 byte. Den kontrollen fick Pass. Det säger inget om filens överföring eller lagring i appen.</p></div>
+</section>
+
+<section class="hero" aria-labelledby="report-title">
+<div class="reveal">
+<span class="pill blocked"><span class="dot" aria-hidden="true"></span>BLOCKERAT · UPPLADDNING EJ VERIFIERAD</span>
+<h1 id="report-title">Filuppladdning,<br><em>under lupp.</em></h1>
+<p class="hero-copy">Testfilen qa-åäö.txt skulle bifogas på QA R1 – Skapa order ÅÄÖ 🧪. Först rapporterades att filen fanns kvar efter omladdning och öppnades korrekt. En senare kontroll visade inte filen på kortet. Därför kan vi ännu inte bekräfta att uppladdningen sparades.</p>
+<div class="hero-actions"><a class="primary-button" href="#results">Utforska testresultaten <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a><button class="quiet-button" id="copy" type="button">Kopiera sammanfattning</button></div>
+<p style="font-size:11px;margin-top:22px">Ali Reza Hezareh <span aria-hidden="true"> · </span> Windows <span aria-hidden="true"> · </span> Befintlig inloggad session</p>
+</div>
+<div class="summary-card reveal">
+<div class="card-heading"><span class="overline">UTFALL / FEM KONTROLLER</span><span class="pill blocked"><span class="dot" aria-hidden="true"></span>Blocked</span></div>
+<div class="ring-wrap">
+<svg viewBox="0 0 240 240" role="img" aria-label="Fem kontroller: en Pass, fyra Blocked, noll Fail och noll Ej körda.">
+<circle class="ring-track" cx="120" cy="120" r="94"/>
+<circle class="ring-blocked" id="ring-blocked" cx="120" cy="120" r="94" stroke-dasharray="472.496 590.62" stroke-dashoffset="0"/>
+<circle class="ring-pass" id="ring-pass" cx="120" cy="120" r="94" stroke-dasharray="118.124 590.62" stroke-dashoffset="-472.496"/>
+</svg>
+<div class="ring-center"><strong id="ring-count">5</strong><span id="ring-label">kontroller totalt</span></div></div>
+<div class="legend" aria-label="Filtrera testkontroller via diagrammet">
+<button type="button" data-filter="pass" aria-pressed="false"><span class="label" style="color:var(--pass)"><span class="dot" aria-hidden="true"></span>Pass</span><strong>1</strong></button>
+<button type="button" data-filter="blocked" aria-pressed="false"><span class="label" style="color:var(--blocked)"><span class="dot" aria-hidden="true"></span>Blocked</span><strong>4</strong></button>
+<button type="button" data-filter="fail" aria-pressed="false"><span class="label" style="color:var(--fail)"><span class="dot" aria-hidden="true"></span>Fail</span><strong>0</strong></button>
+<button type="button" data-filter="all" aria-pressed="true"><span class="label">Alla kontroller</span><strong>5</strong></button>
+</div>
+<p class="card-foot">Diagrammet visar fem kontroller: den lokala filen fick Pass; uppladdningskontrollerna är Blocked. Ej körda: 0.</p>
+</div>
+</section>
+<details class="source-detail"><summary>PowerShell · öppna den här rapporten</summary><pre><code>Start-Process "D:\LIA 2\code\qa\reports\exploratory-app-2026-10-24-attachment-retest.html"</code></pre><p>Fristående designprov med JavaScript och gemensam CSS. Originalunderlaget finns i Markdown-filen. Ordinarie rapportgenerering kan ersätta den här specialdesignen.</p></details>
+
+
+
+<div class="metric-grid" aria-label="Resultat i siffror">
+<div class="metric"><div class="metric-head"><span>Dokumenterade</span><span>01</span></div><strong>5</strong><small>kontroller i denna omgång</small></div>
+<div class="metric pass"><div class="metric-head"><span>Pass</span><span aria-hidden="true">✓</span></div><strong>1</strong><small>lokal fil verifierad</small></div>
+<div class="metric blocked"><div class="metric-head"><span>Blocked</span><span aria-hidden="true">Ⅱ</span></div><strong>4</strong><small>saknar godkänt slutresultat</small></div>
+<div class="metric"><div class="metric-head"><span>Bekräftade produktfel</span><span>—</span></div><strong>0</strong><small>i den här bilagekontrollen</small></div>
+</div>
+
+<section class="section" id="results" aria-labelledby="results-title">
+<div class="section-top"><div><span class="section-num">03 / TESTKONTROLLER</span><h2 id="results-title">Varje kontroll.<br>Hela bilden.</h2></div><p class="section-note">Filtrera på status eller sök efter en kontroll. Öppna en rad för förväntat resultat, faktiskt resultat och bevis.</p></div>
+<div class="toolbar">
+<div class="filters" aria-label="Filtrera testresultat">
+<button class="filter" type="button" data-filter="all" aria-pressed="true">Alla <span>5</span></button>
+<button class="filter" type="button" data-filter="pass" aria-pressed="false">Pass <span>1</span></button>
+<button class="filter" type="button" data-filter="blocked" aria-pressed="false">Blocked <span>4</span></button>
+<button class="filter" type="button" data-filter="fail" aria-pressed="false">Fail <span>0</span></button>
+</div>
+<label class="search"><svg aria-hidden="true"><use href="#i-search"/></svg><input id="search" type="search" aria-label="Sök testkontroll" placeholder="Sök test-ID eller kontroll…" autocomplete="off"></label></div>
+
+<div class="test-list" id="test-list">
+<details class="test" data-status="pass">
+<summary><span class="state-icon" aria-hidden="true">✓</span><span class="case-id">ATT-001</span><span class="case-title">Kontrollera lokal testfil</span><span class="pill pass">Pass</span><span class="chevron" aria-hidden="true">›</span></summary>
+<div class="test-body"><div><span class="overline">FÖRVÄNTAT</span><p>Filen finns och är 28 byte.</p></div><div><span class="overline">FAKTISKT</span><p><strong>qa-åäö.txt fanns och var 28 byte.</strong> Den lokala filkontrollen är godkänd.</p></div><div class="evidence">SHA-256: <code>675B4D02E709C8614F9758FD1FF2F4B71797812A6BB5191EFFFF46DE681E29A9</code></div></div>
+</details>
+<details class="test" data-status="blocked">
+<summary><span class="state-icon" aria-hidden="true">Ⅱ</span><span class="case-id">ATT-002</span><span class="case-title">Välj normal textfil</span><span class="pill blocked">Blocked</span><span class="chevron" aria-hidden="true">›</span></summary>
+<div class="test-body"><div><span class="overline">FÖRVÄNTAT</span><p>qa-åäö.txt kan väljas och visas som bilaga på QA-kortet.</p></div><div><span class="overline">FAKTISKT</span><p>Testaren rapporterade att filen valdes. Vid senare direkt kontroll syntes den inte på kortet. Filväljarens accept-filter listar inte .txt, men serverns stöd för filtypen är inte fastställt.</p></div><div class="evidence">Underlag: <a href="../evidence/attachment-upload-2026-10-24/manual-verification.md">Manuell verifiering och direkt kontroll</a>.</div></div>
+</details>
+<details class="test" data-status="blocked">
+<summary><span class="state-icon" aria-hidden="true">Ⅱ</span><span class="case-id">ATT-003</span><span class="case-title">Ladda om sidan</span><span class="pill blocked">Blocked</span><span class="chevron" aria-hidden="true">›</span></summary>
+<div class="test-body"><div><span class="overline">FÖRVÄNTAT</span><p>qa-åäö.txt finns kvar på kortet efter omladdning.</p></div><div><span class="overline">FAKTISKT</span><p>Först rapporterades filnamnet synligt efter omladdning. <strong>Vid senare direkt kontroll syntes filen inte på kortet.</strong> Uppgifterna motsäger varandra, så sparandet är inte verifierat.</p></div><div class="evidence">Bilagelistan visade den gamla länken <code>https://inte-en-länk</code>. <code>qa-åäö.txt</code> syntes inte.</div></div>
+</details>
+<details class="test" data-status="blocked">
+<summary><span class="state-icon" aria-hidden="true">Ⅱ</span><span class="case-id">ATT-004</span><span class="case-title">Öppna bilagan</span><span class="pill blocked">Blocked</span><span class="chevron" aria-hidden="true">›</span></summary>
+<div class="test-body"><div><span class="overline">FÖRVÄNTAT</span><p>Den sparade bilagan öppnas med oförändrat innehåll och korrekta ÅÄÖ.</p></div><div><span class="overline">FAKTISKT</span><p>Testaren rapporterade att qa-åäö.txt öppnades med rätt innehåll. Eftersom filen senare inte syntes på kortet kunde öppningen inte verifieras mot en kvarvarande bilaga.</p></div><div class="evidence">Förväntat lokalt innehåll: <code>Bara QA-testdata ÅÄÖ 🧪</code>. Detta bevisar inte att filen lagrades som bilaga.</div></div>
+</details>
+<details class="test" data-status="blocked">
+<summary><span class="state-icon" aria-hidden="true">Ⅱ</span><span class="case-id">ATT-005</span><span class="case-title">Ladda upp tom fil</span><span class="pill blocked">Blocked</span><span class="chevron" aria-hidden="true">›</span></summary>
+<div class="test-body"><div><span class="overline">FÖRVÄNTAT</span><p>Appen visar vad som händer när qa-empty.txt (0 byte) väljs.</p></div><div><span class="overline">FAKTISKT</span><p><strong>Webbläsarverktygets filväljare stoppade försöket innan filen skickades.</strong> Appens hantering av tom fil kunde inte bedömas.</p></div><div class="evidence">Testdata: <code>qa-empty.txt</code>, 0 byte. Verktygsblockering; ingen produktbugg är bekräftad.</div></div>
+</details>
+</div>
+<p class="empty" id="empty" hidden>Inga kontroller matchar valet. Välj Alla eller rensa sökningen.</p>
+<div class="results-meta"><span id="result-count" role="status" aria-live="polite">Visar 5 av 5 kontroller</span><button class="quiet-button" id="expand" type="button" aria-pressed="false">Öppna alla detaljer</button></div>
+<noscript><p>Alla kontroller kan öppnas utan JavaScript. Filter, temaswitch och tidslinjens val kräver JavaScript.</p></noscript>
+</section>
+
+<section class="section" id="evidence" aria-labelledby="evidence-title">
+<div class="section-top"><div><span class="section-num">04 / TESTDATA &amp; BEVIS</span><h2 id="evidence-title">Vad vet vi faktiskt?</h2></div><p class="section-note">En verifierad lokal fil och en observerad filtypbegränsning. Två skilda saker som påverkar bedömningen.</p></div>
+<div class="two-columns">
+<article class="evidence-card"><span class="pill pass"><span class="dot" aria-hidden="true"></span>LOKALT VERIFIERAD</span><h3>Testfilen är korrekt.</h3><p>Filens existens och storlek verifierades lokalt före bedömningen av uppladdningen.</p>
+<div class="file-picture"><svg viewBox="0 0 40 48" aria-hidden="true"><use href="#i-file"/></svg><div><div class="file-name">qa-åäö.txt</div><div class="file-size">TEXTFIL / 28 BYTE</div></div></div>
+<div class="file-line"><span>Filstorlek</span><strong>28 byte</strong></div><div class="file-line"><span>Tom testfil</span><strong>0 byte</strong></div><div class="file-line"><span>Tecken i testdata</span><strong>ÅÄÖ 🧪</strong></div>
+<p style="margin-top:17px;font-size:11px">Lokal kontroll: ATT-001. Filens innehåll och storlek är inga bevis för lyckad överföring till Qlerify.</p></article>
+<article class="evidence-card"><span class="pill blocked"><span class="dot" aria-hidden="true"></span>OBSERVERAT I FILVÄLJAREN</span><h3>Textformatet saknas i listan.</h3><p>Filfältets accept-attribut listar bilder, video och dokument. Filändelsen .txt finns inte med.</p>
+<div class="type-cloud" aria-label="Filtyper som listas i filväljaren"><span>image/*</span><span>video/*</span><span>.pdf</span><span>.doc</span><span>.docx</span><span>.xls</span><span>.xlsx</span><span>.ppt</span><span>.pptx</span><span class="missing">.txt saknas</span></div>
+<div class="callout">Detta beskriver filväljarens filter. Stöd för .txt och serverns validering är inte fastställda genom den här kontrollen.</div>
+<p style="margin-top:22px;font-size:11px">Källa: direkt DOM-kontroll, sparad i bevisloggen för bilagetestet.</p></article>
+</div></section>
+
+
+
+
+
+<details class="source-detail"><summary>Källor, spårbarhet och designprovets avgränsning</summary>
+<ul><li><a href="exploratory-app-2026-10-24-attachment-retest.md">Originalrapport i Markdown</a></li><li><a href="../evidence/attachment-upload-2026-10-24/manual-verification.md">Bilagetestets bevislogg</a></li><li><a href="../reports/exploratory-app-2026-10-19-round2.md">Historisk omgång från 19 oktober</a></li><li>Rapport-ID: QLERIFY-ATT-2026-10-24.</li><li>Testobjekt: QA R1 – Skapa order ÅÄÖ 🧪.</li><li>Designprovet använder samma verifierade testresultat. Ingen ny produktkörning har genomförts för designändringen.</li><li>Diagrammet visar fem dokumenterade kontrollpunkter. Det mäter inte produktens kvalitet eller testtäckning.</li><li>HTML-provet är fristående och kan ersättas av det ordinarie rapportverktyget. Den gemensamma stilen ligger i qa/styles/qlerify-qa.css.</li></ul>
+<p>Designreferens: <a href="https://linear.app/now/behind-the-latest-design-refresh">Linears arbete med visuell hierarki</a>. Rörelsehantering: <a href="https://www.w3.org/WAI/WCAG21/Techniques/client-side-script/SCR40">W3C om minskad rörelse</a>. Dessa är designreferenser och inga källor till testresultaten.</p>
+</details>
+<footer class="footer"><div><strong>Qlerify QA</strong> · Bilagekontroll / 24 oktober 2026</div><div>Ali Reza Hezareh · Verifierat underlag, synliga begränsningar.</div></footer>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+(function(){
+'use strict';
+const tests=Array.from(document.querySelectorAll('.test'));
+const filterButtons=Array.from(document.querySelectorAll('[data-filter]'));
+const search=document.getElementById('search');
+let filter='all',timer;
+const counts={all:tests.length,pass:0,blocked:0,fail:0};
+tests.forEach(function(test){counts[test.dataset.status]++;});
+function render(){
+const query=search.value.toLocaleLowerCase('sv').trim();let shown=0;
+tests.forEach(function(test){const match=(filter==='all'||test.dataset.status===filter)&&test.textContent.toLocaleLowerCase('sv').includes(query);test.hidden=!match;if(match)shown++;});
+filterButtons.forEach(function(button){button.setAttribute('aria-pressed',String(button.dataset.filter===filter));});
+document.getElementById('result-count').textContent='Visar '+shown+' av '+tests.length+' kontroller';
+document.getElementById('empty').hidden=shown!==0;
+document.getElementById('ring-count').textContent=String(counts[filter]);
+document.getElementById('ring-label').textContent=filter==='all'?'kontroller totalt':filter==='pass'?'lokal kontroll · Pass':filter==='blocked'?'kontroller · Blocked':'kontroller · Fail';
+document.getElementById('ring-pass').style.opacity=filter==='all'||filter==='pass'?'1':'.15';
+document.getElementById('ring-blocked').style.opacity=filter==='all'||filter==='blocked'?'1':'.15';
+}
+filterButtons.forEach(function(button){button.addEventListener('click',function(){filter=button.dataset.filter;render();});});
+search.addEventListener('input',render);
+document.getElementById('expand').addEventListener('click',function(){const open=this.getAttribute('aria-pressed')!=='true';tests.filter(function(test){return !test.hidden;}).forEach(function(test){test.open=open;});this.setAttribute('aria-pressed',String(open));this.textContent=open?'Stäng alla detaljer':'Öppna alla detaljer';});
+const steps=[
+['01 — Den lokala filen verifierades','qa-åäö.txt fanns och var 28 byte. Den kontrollen fick Pass. Det säger inget om filens överföring eller lagring i appen.'],
+['02 — Först rapporterades filen kvar efter omladdning','Testaren rapporterade att qa-åäö.txt syntes efter omladdning och öppnades med korrekt innehåll. Det var den första återkopplingen; den senare direkta kontrollen gav ett annat resultat.'],
+['03 — Den senare kontrollen visade inte filen','På samma kort syntes bara den äldre länken https://inte-en-länk. qa-åäö.txt saknades. Filväljarens filter listar inte .txt, men serverstödet är inte fastställt.'],
+['04 — Sparandet kunde inte verifieras','Eftersom uppgifterna skiljer sig går det inte att bekräfta att qa-åäö.txt sparades på kortet. Resultatet är Blocked, inte en bekräftad produktbugg. Försöket med qa-empty.txt stoppades av webbläsarverktyget innan filen skickades.']
+];
+document.querySelectorAll('[data-step]').forEach(function(button){button.addEventListener('click',function(){const item=steps[Number(button.dataset.step)];document.getElementById('step-title').textContent=item[0];document.getElementById('step-copy').textContent=item[1];document.querySelectorAll('[data-step]').forEach(function(other){other.setAttribute('aria-pressed',String(other===button));});});});
+document.getElementById('theme').addEventListener('click',function(){const light=document.documentElement.dataset.theme!=='light';document.documentElement.dataset.theme=light?'light':'dark';this.setAttribute('aria-pressed',String(light));this.setAttribute('aria-label',light?'Aktivera mörkt tema':'Aktivera ljust tema');});
+function toast(message){const node=document.getElementById('toast');node.textContent=message;node.hidden=false;clearTimeout(timer);timer=setTimeout(function(){node.hidden=true;},3500);}
+document.getElementById('copy').addEventListener('click',async function(){const text='Bilagetest 24 oktober 2026: qa-åäö.txt skulle bifogas på QA R1 – Skapa order ÅÄÖ 🧪. Filnamnet rapporterades först synligt efter omladdning, men syntes inte vid senare kontroll. Sparandet är inte verifierat; status Blocked. Ingen produktbugg är bekräftad.';try{await navigator.clipboard.writeText(text);toast('Sammanfattningen är kopierad.');}catch(error){toast('Kopiering stöds inte här. Sammanfattningen finns i rapporten.');}});
+let savedOpen=[];
+window.addEventListener('beforeprint',function(){savedOpen=tests.map(function(test){return test.open;});tests.forEach(function(test){test.open=true;});});
+window.addEventListener('afterprint',function(){tests.forEach(function(test,i){test.open=savedOpen[i]||false;});});
+document.getElementById('print').addEventListener('click',function(){window.print();});
+function scrollProgress(){const max=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('progress').style.width=(max>0?Math.min(100,100*window.scrollY/max):0)+'%';}
+window.addEventListener('scroll',scrollProgress,{passive:true});
+window.addEventListener('resize',scrollProgress);
+render();scrollProgress();
+})();
+</script>
 </body>
 </html>

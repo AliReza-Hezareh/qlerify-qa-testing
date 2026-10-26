@@ -79,7 +79,7 @@ Hela den automatiska sviten kördes inte i de utforskande omgångarna. Ett tidig
 
 Rollbehörigheter mellan konton, manipulerade API-anrop, last, databasbegränsningar och flera säkerhetsscenarier saknar godkänt testresultat. Inga slutsatser om säkerhet eller prestanda kan dras från vanliga UI-klick.
 
-R2-041, filuppladdning: qa-åäö.txt på 28 byte och qa-empty.txt på 0 byte skapades och godkändes för test. Webbläsarverktygets säkerhetskontroll stoppade första filvalet. Ingen fil laddades upp. Manuell fortsättning efterfrågades, men något resultat har inte rapporterats.
+Historiskt, 19 oktober – R2-041: qa-åäö.txt (28 byte) och qa-empty.txt (0 byte) skapades för test. Webbläsarverktyget stoppade filvalet innan någon fil skickades. Den senare fortsättningen den 24 oktober dokumenteras separat: qa-åäö.txt skulle bifogas på QA R1 – Skapa order ÅÄÖ 🧪. Filnamn efter omladdning och korrekt innehåll rapporterades först, men vid en senare direkt kontroll syntes filen inte på kortet. Uppladdningen är fortsatt Blocked; ingen produktbugg har bekräftats.
 
 R2-032, CSV-fil: testverktyget kunde inte fånga nedladdningen. Detta är en blockering och inte bevis för en produktbugg. APP-006 gäller bara förhandsvisningen.
 
@@ -111,7 +111,7 @@ Utgå från QA-repot D:\LIA 2\code. Kontrollera Git-status och läs qa/STATUS.md
 
 En äldre Gitrot finns kvar i D:\LIA 2. Den kontrollerades den 22 oktober. Arbeta därför i den uttryckligen angivna QA-mappen och utgå inte från att mappfrågan är löst.
 
-För bilagetestet behövs först resultat från den manuella uppladdningen av qa-åäö.txt på R1-kortet. Fortsätt sedan med den tomma filen. Ändra inte Blocked till Pass innan resultatet och bevisen finns.
+Nästa steg för bilagetestet: upprepa uppladdningen av qa-åäö.txt på samma R1-kort. Kontrollera filnamnet efter omladdning och öppna bilagan för att verifiera innehållet. Om försöket blockeras ska blockeringen dokumenteras; ändra inte Blocked till Pass utan verifierbara resultat. Den tomma filen är en separat kontroll och har ännu inte skickats till appen.
 
 Automatiska kontroller för APP-005, APP-006 och releasefilter har föreslagits. De är inte registrerade som implementerade i detta underlag.
 
