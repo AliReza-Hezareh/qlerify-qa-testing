@@ -1,0 +1,96 @@
+{
+  "runDate": "2026-09-29 04:55:32",
+  "environment": "Publika Qlerify-sidor, Windows, PowerShell HTTP-kontroller",
+  "total": 7,
+  "passed": 4,
+  "failed": 3,
+  "blocked": 0,
+  "passRate": 57.1,
+  "failRate": 42.9,
+  "results": [
+    {
+      "id": "SMK-HTTP-01",
+      "title": "Startsidan svarar och visar Qlerify",
+      "type": "Smoke",
+      "priority": "High",
+      "url": "https://www.qlerify.com/",
+      "expected": "HTTP 200 och sidinnehåll för Qlerify visas.",
+      "actual": "HTTP 200. Qlerify och Try for free hittades.",
+      "status": "Pass",
+      "error": "",
+      "durationMs": 242
+    },
+    {
+      "id": "SMK-HTTP-02",
+      "title": "Prissidan svarar och visar prisval",
+      "type": "Smoke",
+      "priority": "High",
+      "url": "https://www.qlerify.com/pricing",
+      "expected": "HTTP 200 och prisval för Monthly/Yearly visas.",
+      "actual": "HTTP 200. Monthly och Yearly hittades.",
+      "status": "Pass",
+      "error": "",
+      "durationMs": 133
+    },
+    {
+      "id": "SMK-HTTP-03",
+      "title": "Inloggningssidan svarar",
+      "type": "Smoke",
+      "priority": "High",
+      "url": "https://app.qlerify.com/login",
+      "expected": "HTTP 200 och ingen serverkrasch.",
+      "actual": "HTTP 200. Inloggningssidan svarade utan serverfel.",
+      "status": "Pass",
+      "error": "",
+      "durationMs": 339
+    },
+    {
+      "id": "API-HTTP-01",
+      "title": "Publikt arbetsflöde går att läsa utan krasch",
+      "type": "API/UI Smoke",
+      "priority": "High",
+      "url": "https://app.qlerify.com/workflow/0cbc80c0-a79b-4920-90db-c6e7d9077e04/75d19947-1b0a-4e4b-a8dd-570862681788",
+      "expected": "Sidan svarar utan serverfel.",
+      "actual": "HTTP 200. Inget serverfel från publikt arbetsflöde.",
+      "status": "Pass",
+      "error": "",
+      "durationMs": 285
+    },
+    {
+      "id": "REG-WEB-01",
+      "title": "Bloggsidan visar inte generisk mallsektion efter sidfot",
+      "type": "Regression/UI",
+      "priority": "Medium",
+      "url": "https://www.qlerify.com/blog",
+      "expected": "Bloggsidan ska inte visa generisk malltext efter sidfoten.",
+      "actual": "BUG-001 kvarstår: Generisk text 'Grow your business' och 'Start Now' hittades på bloggsidan.",
+      "status": "Fail",
+      "error": "BUG-001 kvarstår: Generisk text 'Grow your business' och 'Start Now' hittades på bloggsidan.",
+      "durationMs": 130
+    },
+    {
+      "id": "REG-WEB-02",
+      "title": "Bloggartikel visar inte intern markör",
+      "type": "Regression/UI",
+      "priority": "Medium",
+      "url": "https://www.qlerify.com/post/ai-legacy-modernization-reverse-engineer-ecommerce-cart",
+      "expected": "Intern markör ska inte visas på publika artiklar.",
+      "actual": "BUG-002 kvarstår: Texten '///SOCIAL SHARE' hittades i artikeln.",
+      "status": "Fail",
+      "error": "BUG-002 kvarstår: Texten '///SOCIAL SHARE' hittades i artikeln.",
+      "durationMs": 117
+    },
+    {
+      "id": "REG-WEB-03",
+      "title": "Telefonnumret på kontaktsidan har tel-länk",
+      "type": "Regression/UI",
+      "priority": "Medium",
+      "url": "https://www.qlerify.com/contact",
+      "expected": "Telefonnumret ska länka med tel: och inte #.",
+      "actual": "BUG-003 kvarstår: Telefonnumret använder href='#' i stället för tel-länk.",
+      "status": "Fail",
+      "error": "BUG-003 kvarstår: Telefonnumret använder href='#' i stället för tel-länk.",
+      "durationMs": 123
+    }
+  ]
+}

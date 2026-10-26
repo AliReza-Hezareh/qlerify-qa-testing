@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qlerify QA-rapport</title>
+  <style>
+    :root { color-scheme: light; --bg: #f7f8fa; --text: #111827; --muted: #4b5563; --line: #d1d5db; --pass: #0f7b45; --fail: #b42318; --card: #ffffff; --accent: #1d4ed8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    header { background: #111827; color: white; padding: 24px; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1, h2 { margin: 0 0 12px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+    a { color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+    .metric { font-size: 30px; font-weight: 700; }
+    .muted { color: var(--muted); }
+    pre { white-space: pre-wrap; background: #0b1220; color: #e5e7eb; border-radius: 8px; padding: 14px; overflow: auto; }
+    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--line); }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #eef2f7; }
+    .status-pass { color: var(--pass); font-weight: 700; }
+    .status-fail { color: var(--fail); font-weight: 700; }
+    .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .links a { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; text-decoration: none; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr 1fr; } main { padding: 14px; } table { font-size: 14px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Qlerify QA-rapport</h1>
+    <div>Senaste körning: 2026-09-29 04:55:32</div>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Kommandon</h2>
+      <pre>cd "C:\Users\Ali Reza\Documents\qlerify-qa-testing"
+git pull --ff-only origin main
+.\qa\run-tests.ps1
+git status --short
+git add -- README.md qa
+git commit -m "Uppdatera QA-tester och rapport"
+git push origin main</pre>
+    </section>
+
+    <section class="grid">
+      <div class="card"><div class="muted">Totalt</div><div class="metric">7</div></div>
+      <div class="card"><div class="muted">Pass</div><div class="metric status-pass">4</div></div>
+      <div class="card"><div class="muted">Fail</div><div class="metric status-fail">3</div></div>
+      <div class="card"><div class="muted">Pass rate</div><div class="metric">57.1%</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Dokumentation</h2>
+      <div class="links">
+        <a href="results/latest-results.md">Testresultat</a>
+        <a href="reports/test-summary.md">Testrapport</a>
+        <a href="docs/MANUELLA_TESTER.md">Manuella tester</a>
+        <a href="bugs/BUG-001.md">BUG-001</a>
+        <a href="bugs/BUG-002.md">BUG-002</a>
+        <a href="bugs/BUG-003.md">BUG-003</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Senaste automatiska kontroller</h2>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Titel</th><th>Typ</th><th>Prio</th><th>Status</th><th>Faktiskt resultat</th></tr>
+        </thead>
+        <tbody>          <tr><td>SMK-HTTP-01</td><td><a href="https://www.qlerify.com/">Startsidan svarar och visar Qlerify</a></td><td>Smoke</td><td>High</td><td class="status-pass">Pass</td><td>HTTP 200. Qlerify och Try for free hittades.</td></tr>
+          <tr><td>SMK-HTTP-02</td><td><a href="https://www.qlerify.com/pricing">Prissidan svarar och visar prisval</a></td><td>Smoke</td><td>High</td><td class="status-pass">Pass</td><td>HTTP 200. Monthly och Yearly hittades.</td></tr>
+          <tr><td>SMK-HTTP-03</td><td><a href="https://app.qlerify.com/login">Inloggningssidan svarar</a></td><td>Smoke</td><td>High</td><td class="status-pass">Pass</td><td>HTTP 200. Inloggningssidan svarade utan serverfel.</td></tr>
+          <tr><td>API-HTTP-01</td><td><a href="https://app.qlerify.com/workflow/0cbc80c0-a79b-4920-90db-c6e7d9077e04/75d19947-1b0a-4e4b-a8dd-570862681788">Publikt arbetsfl&#246;de g&#229;r att l&#228;sa utan krasch</a></td><td>API/UI Smoke</td><td>High</td><td class="status-pass">Pass</td><td>HTTP 200. Inget serverfel fr&#229;n publikt arbetsfl&#246;de.</td></tr>
+          <tr><td>REG-WEB-01</td><td><a href="https://www.qlerify.com/blog">Bloggsidan visar inte generisk mallsektion efter sidfot</a></td><td>Regression/UI</td><td>Medium</td><td class="status-fail">Fail</td><td>BUG-001 kvarst&#229;r: Generisk text &#39;Grow your business&#39; och &#39;Start Now&#39; hittades p&#229; bloggsidan.</td></tr>
+          <tr><td>REG-WEB-02</td><td><a href="https://www.qlerify.com/post/ai-legacy-modernization-reverse-engineer-ecommerce-cart">Bloggartikel visar inte intern mark&#246;r</a></td><td>Regression/UI</td><td>Medium</td><td class="status-fail">Fail</td><td>BUG-002 kvarst&#229;r: Texten &#39;///SOCIAL SHARE&#39; hittades i artikeln.</td></tr>
+          <tr><td>REG-WEB-03</td><td><a href="https://www.qlerify.com/contact">Telefonnumret p&#229; kontaktsidan har tel-l&#228;nk</a></td><td>Regression/UI</td><td>Medium</td><td class="status-fail">Fail</td><td>BUG-003 kvarst&#229;r: Telefonnumret anv&#228;nder href=&#39;#&#39; i st&#228;llet f&#246;r tel-l&#228;nk.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
