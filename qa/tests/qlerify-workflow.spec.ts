@@ -85,8 +85,7 @@ function workflowTitle(page: Page) {
 }
 
 function syntheticName(caseId: string) {
-  const run = process.env.QA_RUN_ID ?? 'direct';
-  return ['QA-AUTO', caseId, run, randomUUID().slice(0, 8)].join(' ');
+  return ['QA', caseId, randomUUID().slice(0, 8)].join(' ');
 }
 
 async function createWorkflow(page: Page, project: Project, info: TestInfo, name: string) {
@@ -164,6 +163,7 @@ test('PW-WF-03 – spara en diagramändring och kontrollera samma lane', async (
   await page.getByRole('button', { name: /Add start point/ }).click();
   const event = page.locator('svg#flowchart .event-name');
   await expect(event).toHaveCount(1);
+  await event.dblclick();
   await expect(event).toBeEditable();
   const id = await event.getAttribute('id');
   expect(id, 'Eventets identifierare ska vara synlig i diagrammet.').toBeTruthy();
