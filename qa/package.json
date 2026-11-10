@@ -5,6 +5,7 @@
     "test": "playwright test",
     "test:public": "playwright test --project=chromium-public",
     "test:app": "playwright test --project=chromium-authenticated",
+    "test:workflow": "playwright test --config=playwright.workflow.config.ts",
     "report": "playwright show-report"
   },
   "devDependencies": {

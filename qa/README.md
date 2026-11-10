@@ -2,6 +2,36 @@
 
 Det här är arbetsmappen för QA-material, testplanering, filregister, testscenarier och rapporter.
 
+## Workflow-sviten för punkt 1 och 2
+
+Sviten skapar egna syntetiska workflows i ett i förväg godkänt Qlerify-projekt. Varje test använder ett unikt workflow och verifierar sparandet via projektlistan eller omladdning. QA-workflowet som användes manuellt fungerar som referens för teststegen.
+
+Installera från låsfilen i QA-paketet. Skapa sessionen i ett eget Playwright-fönster. Logga in själv, kontrollera att rätt QA-projekt öppnas och stäng sedan webbläsarfönstret. Använd projektets exakta URL från adressfältet.
+
+```powershell
+Push-Location .\qa
+npm ci
+npx playwright install chromium
+New-Item -ItemType Directory -Force .\.auth | Out-Null
+npx playwright codegen --save-storage=.auth/workflow-user.json https://app.qlerify.com/login
+$env:QA_STORAGE_STATE = (Resolve-Path -LiteralPath '.\.auth\workflow-user.json').Path
+$env:QA_PROJECT_URL = Read-Host 'Exakt URL till godkänt QA-projekt'
+$env:QA_PROJECT_NAME = Read-Host 'Exakt projektnamn i Qlerify'
+$env:QA_ALLOW_WORKFLOW_WRITES = '1'
+Pop-Location
+$qaWorkspace = Read-Host 'Sökväg till det lokala arbetsunderlaget'
+.\qa\run-tests.ps1 -Suite Workflow -Workspace $qaWorkspace
+```
+
+För varje körning skapas ett eget körnings-ID, Playwright-resultat under den lokala mappen test-results och ett Markdown-protokoll i arbetsunderlaget. Rapporten öppnar arbetsunderlagets qa/index.html. Manuella körningar läggs in i reports/runs-manifest.json och läses in med kommandot nedan.
+
+```powershell
+.\qa\run-tests.ps1 -Suite Overview -Workspace $qaWorkspace
+npm --prefix .\qa run test:workflow -- --list --reporter=list
+```
+
+GitHub Actions kör testupptäckten med --list. Sessioner, projektets adress och råa testbevis ligger lokalt. En blockerad lokal körning visas som Blocked i rapporten.
+
 ## Snabbstart i PowerShell
 
 Kör kontrollen och öppna QA-sidan:
@@ -55,7 +85,7 @@ Import-Csv .\qa\file-register.csv | Format-Table
 
 ## Automatiska Qlerify-tester
 
-Testerna öppnar Qlerifys webb och gör bara kontroller. De skapar, ändrar eller tar inte bort data.
+Den här standardkörningen använder de publika kontrollerna och det skrivskyddade apptestet. Workflow-sviten har ett separat körkommando.
 
 Första gången, installera testpaket och Chromium:
 

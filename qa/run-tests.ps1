@@ -1,3 +1,57 @@
+param(
+    [ValidateSet('All', 'Workflow', 'Overview')]
+    [string]$Suite = 'All',
+    [string]$Workspace,
+    [switch]$NoOpen
+)
+
+if ($Suite -ne 'All') {
+    $ErrorActionPreference = 'Stop'
+    if (-not $Workspace -or -not (Test-Path -LiteralPath $Workspace -PathType Container)) {
+        throw 'Ange -Workspace med sökvägen till det lokala arbetsunderlaget.'
+    }
+    $workflowWorkspace = (Resolve-Path -LiteralPath $Workspace).Path
+    $workflowReports = [IO.Directory]::CreateDirectory((Join-Path $workflowWorkspace 'reports'))
+    $workflowLock = [IO.File]::Open(
+        (Join-Path $workflowReports.FullName '.workflow-run.lock'),
+        [IO.FileMode]::OpenOrCreate, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None
+    )
+    try {
+        $workflowRenderer = Join-Path $PSScriptRoot 'tools\workflow-report.mjs'
+        $workflowTestExit = 0
+        if ($Suite -eq 'Workflow') {
+            $workflowTimestamp = [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssZ')
+            $workflowSuffix = [guid]::NewGuid().ToString('N').Substring(0, 8)
+            $workflowRunId = "RUN-$workflowTimestamp-PW-$workflowSuffix"
+            Write-Host "Körnings-ID $workflowRunId"
+            $workflowPreviousId = $env:QA_RUN_ID
+            Push-Location $PSScriptRoot
+            try {
+                $env:QA_RUN_ID = $workflowRunId
+                npm run test:workflow
+                $workflowTestExit = $LASTEXITCODE
+            }
+            finally {
+                $env:QA_RUN_ID = $workflowPreviousId
+                Pop-Location
+            }
+            node $workflowRenderer $workflowWorkspace $workflowRunId
+        }
+        else {
+            node $workflowRenderer $workflowWorkspace
+        }
+        $workflowReportExit = $LASTEXITCODE
+        if ($workflowReportExit -in 0, 2 -and -not $NoOpen) {
+            Start-Process -FilePath (Join-Path $workflowWorkspace 'qa\index.html')
+        }
+        if ($workflowReportExit -ne 0) { exit $workflowReportExit }
+        exit $workflowTestExit
+    }
+    finally {
+        $workflowLock.Dispose()
+    }
+}
+
 $ErrorActionPreference = 'Continue'
 
 $repoRoot = Split-Path -Parent $PSScriptRoot

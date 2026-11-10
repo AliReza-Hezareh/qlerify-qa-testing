@@ -1,0 +1,35 @@
+name: Qlerify workflow QA
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, 'codex/qlerify-workflow-qa']
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    name: Kontrollera tre workflow-tester
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: qa
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+      - run: npm ci
+      - name: Lista sviten utan appsession
+        shell: bash
+        run: |
+          npm run test:workflow -- --list --reporter=list | tee "$RUNNER_TEMP/workflow-tests.txt"
+          grep -F 'Total: 3 tests' "$RUNNER_TEMP/workflow-tests.txt"
+          for id in PW-WF-01 PW-WF-02 PW-WF-03; do
+            grep -F "$id" "$RUNNER_TEMP/workflow-tests.txt"
+          done
