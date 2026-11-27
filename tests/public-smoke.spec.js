@@ -27,6 +27,12 @@ async function expectInteractable(locator, label) {
   await expect(locator, `${label} ska vara enabled`).toBeEnabled();
 }
 
+const {
+  collectPhoneFindings,
+  phoneFindingProblem,
+  formatPhoneFinding
+} = require('./helpers/phone-link');
+
 test.describe('Publika smoke tests', () => {
   for (const item of pages) {
     test(`${item.id} ${item.name} laddar utan krasch`, async ({ page }) => {
@@ -140,11 +146,36 @@ test.describe('Kontaktformulär black-box', () => {
     expect(errors.length, 'Specialtecken ska inte trigga frontend-krasch').toBe(0);
   });
 
-  test('CONTACT-005 telefonlänk använder tel-format om telefon visas', async ({ page }) => {
-    const bodyText = await page.locator('body').innerText();
-    const hasPhoneLikeText = /\+\d|\b\d{2,4}[\s-]?\d{2,4}[\s-]?\d{2,4}\b/.test(bodyText);
-    const telLinks = await page.locator('a[href^="tel:"]').count();
-    expect(!hasPhoneLikeText || telLinks > 0, 'Telefonnummer ska vara klickbart med tel:-länk om det visas').toBeTruthy();
+  test('CONTACT-005 synligt telefonnummer har tel:-länk med samma nummer', async ({ page }) => {
+    const findings = await collectPhoneFindings(page);
+
+    // Visas inget telefonnummer är kravet inte tillämpligt. Det redovisas som
+    // skipped, inte Pass, så resultatet inte läses som att länken är kontrollerad.
+    test.skip(
+      findings.length === 0,
+      'Inget synligt telefonnummer hittades på sidan. CONTACT-005 är inte tillämpligt.'
+    );
+
+    const avlast = findings.map(formatPhoneFinding).join('\n');
+    const fel = findings
+      .map((finding, index) => ({ finding, index, problem: phoneFindingProblem(finding) }))
+      .filter((rad) => rad.problem !== null);
+
+    const rapport = fel.length === 0 ? '' : [
+      `CONTACT-005 underkände ${fel.length} av ${findings.length} telefonnummer på ${page.url()}`,
+      '',
+      'Förväntat resultat:',
+      '  Varje telefonnummer som visas ligger i ett <a>-element med href som börjar',
+      '  på "tel:", och numret i href är samma som det som visas för besökaren.',
+      '',
+      'Faktiskt resultat, per nummer kontrollen läste av:',
+      avlast,
+      '',
+      'Underkända nummer:',
+      ...fel.map((rad) => `  [${rad.index + 1}] ${rad.finding.shown} vid "${rad.finding.section}" - ${rad.problem}`)
+    ].join('\n');
+
+    expect(rapport, 'CONTACT-005: synligt telefonnummer ska ha tel:-länk med samma nummer').toBe('');
   });
 });
 

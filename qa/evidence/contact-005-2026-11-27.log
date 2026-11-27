@@ -1,0 +1,55 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 [chromium-desktop] › tests/public-smoke.spec.js:149:3 › Kontaktformulär black-box › CONTACT-005 synligt telefonnummer har tel:-länk med samma nummer (1.7s)
+
+
+  1) [chromium-desktop] › tests/public-smoke.spec.js:149:3 › Kontaktformulär black-box › CONTACT-005 synligt telefonnummer har tel:-länk med samma nummer 
+
+    Error: CONTACT-005: synligt telefonnummer ska ha tel:-länk med samma nummer
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: ""
+    Received: "CONTACT-005 underkände 1 av 1 telefonnummer på https://www.qlerify.com/contact·
+    Förväntat resultat:
+      Varje telefonnummer som visas ligger i ett <a>-element med href som börjar
+      på \"tel:\", och numret i href är samma som det som visas för besökaren.·
+    Faktiskt resultat, per nummer kontrollen läste av:
+      [1] nummer på sidan : +46 (0)8 503 556 55
+          plats             : <section> | står ovanför sidans första rubrik | omgivande text: \"Box 13034, 103 01 Stockholm +46 (0)8 503 556 55 support@qlerify.com\"
+          element           : div.w-layout-blockcontainer.container > div.div-block-21 > div.div-block-24 > div.w-layout-hflex.flex-block-73 > div > a
+          länk              : href=\"#\"
+          utfall            : FEL - länkmålet är \"#\" i stället för \"tel:\"·
+    Underkända nummer:
+      [1] +46 (0)8 503 556 55 vid \"<section> | står ovanför sidans första rubrik | omgivande text: \"Box 13034, 103 01 Stockholm +46 (0)8 503 556 55 support@qlerify.com\"\" - länkmålet är \"#\" i stället för \"tel:\""
+
+      176 |     ].join('\n');
+      177 |
+    > 178 |     expect(rapport, 'CONTACT-005: synligt telefonnummer ska ha tel:-länk med samma nummer').toBe('');
+          |                                                                                             ^
+      179 |   });
+      180 | });
+      181 |
+        at /home/user/qlerify-qa-testing/tests/public-smoke.spec.js:178:93
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/claude-0/-home-user-qlerify-qa-testing/9b61137a-5a1a-52d8-857b-758a02f6c255/scratchpad/run-artifacts/public-smoke-Kontaktformul-99ff5--tel--länk-med-samma-nummer-chromium-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../tmp/claude-0/-home-user-qlerify-qa-testing/9b61137a-5a1a-52d8-857b-758a02f6c255/scratchpad/run-artifacts/public-smoke-Kontaktformul-99ff5--tel--länk-med-samma-nummer-chromium-desktop/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/claude-0/-home-user-qlerify-qa-testing/9b61137a-5a1a-52d8-857b-758a02f6c255/scratchpad/run-artifacts/public-smoke-Kontaktformul-99ff5--tel--länk-med-samma-nummer-chromium-desktop/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../tmp/claude-0/-home-user-qlerify-qa-testing/9b61137a-5a1a-52d8-857b-758a02f6c255/scratchpad/run-artifacts/public-smoke-Kontaktformul-99ff5--tel--länk-med-samma-nummer-chromium-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../tmp/claude-0/-home-user-qlerify-qa-testing/9b61137a-5a1a-52d8-857b-758a02f6c255/scratchpad/run-artifacts/public-smoke-Kontaktformul-99ff5--tel--länk-med-samma-nummer-chromium-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium-desktop] › tests/public-smoke.spec.js:149:3 › Kontaktformulär black-box › CONTACT-005 synligt telefonnummer har tel:-länk med samma nummer 
